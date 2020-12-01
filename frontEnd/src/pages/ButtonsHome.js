@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import Signup from '../pages/Signup';
 import Login from '../pages/Login';
@@ -7,9 +7,7 @@ import { Button } from 'antd';
 import { Divider } from 'antd';
 
 const Router = () => {
-  const [visibility, setVisibility] = useState(true);
-
-  return visibility ? (
+  return (
     <div className="site-button-ghost-wrapper">
       <h1>IronProfile</h1>
       <p>
@@ -21,12 +19,10 @@ const Router = () => {
         <Link to="/Signup">Sign up</Link>
       </Button>
       <Divider />
-      <Button type="primary" ghost onClick={() => setVisibility(false)}>
+      <Button type="primary" ghost>
         <Link to="/Login">Login</Link>
       </Button>
     </div>
-  ) : (
-    <div className="site-button-ghost-wrapper"></div>
   );
 };
 
