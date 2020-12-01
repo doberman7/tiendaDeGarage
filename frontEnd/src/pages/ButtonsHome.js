@@ -6,8 +6,10 @@ import '../Router.css';
 import { Button } from 'antd';
 import { Divider } from 'antd';
 
+
 const Router = () => {
-  return (
+    if(!currentUserFn) return (
+
     <div className="site-button-ghost-wrapper">
       <h1>IronProfile</h1>
       <p>
@@ -23,6 +25,7 @@ const Router = () => {
         <Link to="/Login">Login</Link>
       </Button>
     </div>
+
   );
 };
 
