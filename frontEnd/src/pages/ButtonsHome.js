@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link, Redirect } from 'react-router-dom';
 import Signup from '../pages/Signup';
 import Login from '../pages/Login';
 import '../Router.css';
 import { Button } from 'antd';
 import { Divider } from 'antd';
+import { useContextInfo } from '../hooks/context'
 
 const Router = () => {
-  return (
+  const { user } = useContextInfo()
+  return !user ? (
     <div className="site-button-ghost-wrapper">
       <h1>IronProfile</h1>
       <p>
@@ -22,8 +24,8 @@ const Router = () => {
       <Button type="primary" ghost>
         <Link to="/Login">Login</Link>
       </Button>
-    </div>
-  );
+    </div>):<Redirect to = "/"/>
+
 };
 
 export default Router;
