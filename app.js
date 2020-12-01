@@ -52,11 +52,14 @@ app.use(
 require('./config/session')(app);
 
 const userRoutes = require('./routes/userRoutes');
+//usar el buiild
+app.use(express.static(path.join(__dirname, 'public/build')));
+
+app.use('/user', userRoutes);
+//si no haya otras rutas, usa esta
 app.get('*', (req, res) => {
   res.sendFile(`${__dirname}/public/build/index.html`);
 });
-
-app.use('/user', userRoutes);
 
 module.exports = app;
 
