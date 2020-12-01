@@ -13,6 +13,7 @@ const flash = require('connect-flash');
 const cors = require('cors');
 
 mongoose
+  // .connect(process.env.DB, {
   .connect(process.env.DB || 'mongodb://localhost/tiendaDeGarage', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
