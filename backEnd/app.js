@@ -52,8 +52,10 @@ app.use(
 require('./config/session')(app);
 
 const userRoutes = require('./routes/userRoutes');
-
-app.use('/', userRoutes);
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/build', 'index.html'));
+});
+app.use('/user', userRoutes);
 
 module.exports = app;
 
