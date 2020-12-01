@@ -12,7 +12,7 @@ const {
   editProfile,
   deleteProfile,
   currentUser,
-} = require('../controllers/User.controllers');
+} = require('../controllers/User.Controllers');
 const uploadPicture = require('../config/cloudinary');
 
 /* GET home page */
