@@ -8,11 +8,11 @@ const authService = axios.create({
 });
 
 // 1. Signup
-export const signupFn = (userInfo) => {
+export const signupFn = userInfo => {
   authService.post('/signup', userInfo);
 };
 
-export const loginFn = (userInfo) => authService.post('/login', userInfo);
+export const loginFn = userInfo => authService.post('/login', userInfo);
 
 export const currentUserFn = () => authService.get('/current-user');
 

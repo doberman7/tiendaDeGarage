@@ -70,8 +70,8 @@ exports.loginProcess = async (req, res, next) => {
 
 exports.logout = (req, res) => {
   // req.logout(); //NOt working
-  req.session.destroy();
-  res.redirect('/');
+  req.logout();
+  res.status(200).json({message:"logged out"});
 };
 
 exports.profileView = async (req, res) => {
