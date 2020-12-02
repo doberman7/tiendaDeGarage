@@ -10,8 +10,6 @@ const bcrypt = require('bcrypt'),
 // };
 
 exports.signupProcessUser = async (req, res) => {
-  console.log(req.body);
-
   const { email, password, name } = req.body;
   if (!email || !password) {
     return res.status(403).json({ message: 'Provide email and password' });
@@ -38,12 +36,6 @@ exports.signupProcessUser = async (req, res) => {
       console.log(err);
     });
 };
-
-// exports.loginView = (req, res) => {
-//   // console.log(req.session);
-//   // res.send('user/login', {    errorMessage: req.flash('error'),  });
-//   res.status(200).json({ errorMessage: req.flash('error') });
-// };
 
 exports.loginProcess = async (req, res, next) => {
   passport.authenticate('local', (err, user, failureDetails) => {
@@ -114,29 +106,37 @@ exports.profilePicture = (req, res) => {
 };
 
 exports.editProfile = async (req, res) => {
-  const { email, password, name } = req.body;
-  //obtener userId
-  const userId = req.session.passport.user;
-  if (!email || !password) {
-    return res.send('profile', {
-      errorMessage: 'Please fill email and password ',
-    });
-  }
-  const salt = bcrypt.genSaltSync(12);
-  const hashPass = bcrypt.hashSync(password, salt);
-  const user = await User.findByIdAndUpdate(
-    userId,
-    {
-      email,
-      password: hashPass,
-      name,
-    },
-    {
-      new: true,
+  try {
+    const { email, password, name } = req.body;
+    //obtener userId
+    const userId = req.session.passport.user;
+    if (!email || !password) {
+      return res.send('profile', {
+        errorMessage: 'Please fill email and password ',
+      });
     }
-  );
-  res.status(202).json(user);
-  // res.send('profile', user);
+    const salt = bcrypt.genSaltSync(12);
+    const hashPass = bcrypt.hashSync(password, salt);
+    const user = await User.findByIdAndUpdate(
+      userId,
+      {
+        email,
+        password: hashPass,
+        name,
+      },
+      {
+        new: true,
+      }
+    );
+    res.status(202).json(user);
+    // res.send('profile', user);
+  } catch (e) {
+    res
+      .status(500)
+      .json({ message: 'Something went wrong authenticating user' });
+  } finally {
+    console.log('Route editProfile');
+  }
 };
 
 exports.deleteProfile = async (req, res) => {
