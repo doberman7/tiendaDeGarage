@@ -45,7 +45,12 @@ app.use(passport.session());
 app.use(flash());
 app.use(
   cors({
-    origin: ['https://tienda-de-garage.herokuapp.com/'],
+    origin: [
+      'http://localhost:3001',
+      'http://localhost:3000',
+      'http://localhost:3000/current-user',
+      '*',
+    ],
     credentials: true,
   })
 );
@@ -55,7 +60,7 @@ const userRoutes = require('./routes/userRoutes');
 //usar el buiild
 app.use(express.static(path.join(__dirname, 'public/build')));
 
-app.use('/user', userRoutes);
+app.use('/', userRoutes);
 //si no haya otras rutas, usa esta
 app.get('*', (req, res) => {
   res.sendFile(`${__dirname}/public/build/index.html`);
