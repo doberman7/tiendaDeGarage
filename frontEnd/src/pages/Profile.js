@@ -1,5 +1,5 @@
-import React from 'react';
-import { Typography, Row, Col, Popconfirm, message, Button } from 'antd';
+import React, { useState } from 'react';
+import { Typography, Row, Col, Popconfirm, message, Button, Modal } from 'antd';
 import { useContextInfo } from '../hooks/context';
 import { Redirect } from 'react-router-dom';
 
@@ -14,6 +14,16 @@ function cancel(e) {
 }
 
 const Profile = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   const { user } = useContextInfo();
   return user ? (
     <Row>
@@ -31,7 +41,21 @@ const Profile = () => {
             <a href="#">Delete</a>
           </Popconfirm>
         </Typography.Title>
-        <Button type="dashed">Edit user</Button>
+
+        <Button type="primary" onClick={showModal}>
+          Open Modal
+        </Button>
+        <Modal
+          title="Basic Modal"
+          visible={isModalVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <Button type="dashed">Edit user</Button>
+          <p>Aquii el formulario</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
       </Col>
     </Row>
   ) : (

@@ -18,4 +18,5 @@ export const currentUserFn = () => authService.get('/current-user');
 
 export const logoutFn = () => authService.get('/logout');
 
-export const editProfileFn = () => authService.get('/editProfile');
+//esto es lo que se  ha de enviar  en el USER   const { email, password, name } = req.body;
+export const editProfileFn = (id, user) => authService.post(`/${id}`, user);
