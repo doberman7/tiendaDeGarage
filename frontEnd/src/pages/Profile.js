@@ -14,16 +14,6 @@ function cancel(e) {
 }
 
 const Profile = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
   const { user } = useContextInfo();
   return user ? (
     <Row>
@@ -44,9 +34,7 @@ const Profile = () => {
           </Popconfirm>
         </Typography.Title>
 
-        <Button type="primary" onClick={showModal}>
-          Edit User
-        </Button>
+        <Button type="primary">Edit User</Button>
       </Col>
     </Row>
   ) : (
