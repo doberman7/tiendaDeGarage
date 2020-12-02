@@ -1,7 +1,7 @@
-import React from 'react'
-import { Typography, Row, Col,Popconfirm, message } from 'antd'
-import { useContextInfo } from '../hooks/context'
-import { Redirect } from 'react-router-dom'
+import React from 'react';
+import { Typography, Row, Col, Popconfirm, message, Button } from 'antd';
+import { useContextInfo } from '../hooks/context';
+import { Redirect } from 'react-router-dom';
 
 function confirm(e) {
   console.log(e);
@@ -13,10 +13,8 @@ function cancel(e) {
   message.error('Click on No');
 }
 
-
-
 const Profile = () => {
-  const { user } = useContextInfo()
+  const { user } = useContextInfo();
   return user ? (
     <Row>
       <Col xs={24} sm={24} md={12}>
@@ -24,19 +22,21 @@ const Profile = () => {
           Profile: {user.email}
           <br></br>
           <Popconfirm
-                title="Are you sure to delete this task?"
-                onConfirm={confirm}
-                onCancel={cancel}
-                okText="Yes"
-                cancelText="No"
-              >
-                <a href="#">Delete</a>
-  </Popconfirm>
+            title="Are you sure to delete this task?"
+            onConfirm={confirm}
+            onCancel={cancel}
+            okText="Yes"
+            cancelText="No"
+          >
+            <a href="#">Delete</a>
+          </Popconfirm>
         </Typography.Title>
+        <Button type="dashed">Edit user</Button>
       </Col>
-    </Row>) :
-    <Redirect to='/' />
+    </Row>
+  ) : (
+    <Redirect to="/" />
+  );
+};
 
-}
-
-export default Profile
+export default Profile;
