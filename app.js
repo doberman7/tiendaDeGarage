@@ -45,7 +45,7 @@ app.use(passport.session());
 app.use(flash());
 app.use(
   cors({
-    origin: ['http://localhost:3000/current-user'],
+    origin: ['https://tienda-de-garage.herokuapp.com/'],
     credentials: true,
   })
 );
