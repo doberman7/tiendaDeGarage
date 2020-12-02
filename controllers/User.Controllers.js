@@ -32,7 +32,7 @@ exports.signupProcessUser = async (req, res) => {
   })
     .then(() => {
       // res.send('user/login', {infoFlash: 'Welcome, please login', });
-      res.status(401).json({ infoFlash: 'Welcome, please login' });
+      res.status(201).json({ infoFlash: 'Welcome, please login' });
     })
     .catch((err) => {
       console.log(err);
@@ -71,7 +71,7 @@ exports.loginProcess = async (req, res, next) => {
 exports.logout = (req, res) => {
   // req.logout(); IS working now
   req.logout();
-  res.status(200).json({message:"logged out"});
+  res.status(200).json({ message: 'logged out' });
 };
 
 exports.profileView = async (req, res) => {
