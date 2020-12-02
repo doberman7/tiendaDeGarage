@@ -45,11 +45,7 @@ app.use(passport.session());
 app.use(flash());
 app.use(
   cors({
-    origin: [
-      'http://localhost:3001',
-      'http://localhost:3000',
-      'http://localhost:3000/current-user',
-    ],
+    origin: ['http://localhost:3000', 'http://localhost:3000/current-user'],
     credentials: true,
   })
 );
