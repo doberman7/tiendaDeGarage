@@ -3,7 +3,7 @@ import { Typography, Row, Col,Popconfirm, message } from 'antd'
 import { useContextInfo } from '../hooks/context'
 import { Redirect } from 'react-router-dom'
 import { deleteFn, logoutFn, currentUserFn} from "../services/auth"
-
+//import UploadProfPic from "./UploadProfPic"
 
 const Profile= ({history}) =>{
 
@@ -17,6 +17,7 @@ async function LogoutUser(){
   await logoutFn()
   logout();
 }
+
 
 //DELETE CONFIRMATION POP UP MESSAGES
 function confirm(e) {
@@ -53,6 +54,8 @@ return user ? (
   </Col>
 </Row>) :
 <Redirect to='/' />
+
 }
 
 export default Profile
+//Upload profile pic: <UploadProfPic />
