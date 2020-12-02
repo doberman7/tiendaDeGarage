@@ -53,7 +53,9 @@ exports.loginProcess = async (req, res, next) => {
         .json({ message: 'Something went wrong authenticating user' });
     }
     if (!user) {
-      return res.status(401).json(failureDetails);
+      return res
+        .status(401)
+        .json({ message: 'Something went wrong authenticating user' });
     }
 
     req.login(user, (err) => {
