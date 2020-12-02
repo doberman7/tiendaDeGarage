@@ -31,6 +31,8 @@ const Profile = () => {
         <Typography.Title level={3}>
           Profile: {user.email}
           <br></br>
+          ID: {user}
+          <br></br>
           <Popconfirm
             title="Are you sure to delete this task?"
             onConfirm={confirm}
@@ -43,7 +45,7 @@ const Profile = () => {
         </Typography.Title>
 
         <Button type="primary" onClick={showModal}>
-          Open Modal
+          Edit User
         </Button>
         <Modal
           title="Basic Modal"
