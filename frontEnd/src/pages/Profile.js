@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, Row, Col, Popconfirm, message, Button, Modal } from 'antd';
+import { Typography, Row, Col, Popconfirm, message, Button } from 'antd';
 import { useContextInfo } from '../hooks/context';
 import { Redirect } from 'react-router-dom';
 
@@ -47,17 +47,6 @@ const Profile = () => {
         <Button type="primary" onClick={showModal}>
           Edit User
         </Button>
-        <Modal
-          title="Basic Modal"
-          visible={isModalVisible}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <Button type="dashed">Edit user</Button>
-          <p>Aquii el formulario</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Modal>
       </Col>
     </Row>
   ) : (
