@@ -84,7 +84,7 @@ exports.profileView = async (req, res) => {
     // res.send('index', {      errorMessage: 'Please fill email and password ',    });
     res.status(401).json({ errorMessage: 'Please fill email and password ' });
   } finally {
-    console.log('End ProfileView');
+    console.log('End ProfileView BackEndMethod');
   }
 };
 
@@ -148,5 +148,6 @@ exports.deleteProfile = async (req, res) => {
 };
 
 exports.currentUser = (req, res) => {
-  res.json(req.user || null);
+  console.log('currentUser', req.session.passport.user);
+  res.json(req.session.passport.user || null);
 };
