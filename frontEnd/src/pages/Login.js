@@ -11,12 +11,15 @@ const Login = ({ history }) => {
 
   async function handleSubmit(userInput) {
     try {
+      // ESTE ES EL export const loginFn = (userInfo) => authService.post('/login', userInfo); authService USA AXIOS
+
       const { data } = await loginFn(userInput);
+      console.log('DATA:', data);
       login(data);
       history.push('/profile');
     } catch (e) {
       //cacha message de back
-      console.dir(e.response.data.message);
+      console.dir(e.response);
     }
   }
 

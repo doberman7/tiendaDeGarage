@@ -150,6 +150,6 @@ exports.deleteProfile = async (req, res) => {
 };
 
 exports.currentUser = (req, res) => {
-  console.log('currentUser', req.session.passport.user);
+  console.log('currentUser', req.user);
   res.json(req.session.passport.user || null);
 };
