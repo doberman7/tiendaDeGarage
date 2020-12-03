@@ -142,6 +142,6 @@ exports.deleteProfile = async (req, res) => {
 };
 
 exports.currentUser = (req, res) => {
-  console.log('currentUser', req.user);
+  // console.log('currentUser', req.user);
   res.json(req.user || null);
 };
