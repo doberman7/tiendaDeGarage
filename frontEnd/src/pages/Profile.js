@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Typography, Row, Col, Popconfirm, message, Button } from 'antd';
 import { useContextInfo } from '../hooks/context';
 import { Redirect } from 'react-router-dom';
@@ -7,6 +7,7 @@ import { deleteFn, logoutFn, currentUserFn } from '../services/auth';
 
 const Profile = ({ history }) => {
   const { logout } = useContextInfo();
+  const { user } = useContextInfo();
 
   async function DeleteUser() {
     await deleteFn();
@@ -16,6 +17,10 @@ const Profile = ({ history }) => {
     await logoutFn();
     logout();
   }
+
+  useEffect(() => {
+    console.log(user);
+  }, []);
 
   //DELETE CONFIRMATION POP UP MESSAGES
   function confirm(e) {
@@ -32,14 +37,13 @@ const Profile = ({ history }) => {
   }
 
   //
-  const { user } = useContextInfo();
   return user ? (
     <Row>
       <Col xs={24} sm={24} md={12}>
         <Typography.Title level={3}>
           Profile: {user.email}
           <br></br>
-          ID: {user}
+          ID: {user._id}
           <br></br>
           <Popconfirm
             title="Are you sure to delete your account?"
