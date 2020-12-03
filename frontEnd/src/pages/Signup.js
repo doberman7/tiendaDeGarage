@@ -12,8 +12,9 @@ const Signup = ({ history }) => {
   async function handleSubmit(userInput) {
     try {
       const { data } = await signupFn(userInput);
-      console.log(data);
+
       signup(data);
+      //esto redirige a login
       history.push('/login');
     } catch (e) {
       console.log(e);
