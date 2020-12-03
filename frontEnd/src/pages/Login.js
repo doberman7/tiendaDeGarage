@@ -1,5 +1,15 @@
 import React from 'react';
-import { Row, Col, Form, Input, Button, Typography, Divider } from 'antd';
+import {
+  Row,
+  Col,
+  Form,
+  Input,
+  Button,
+  Typography,
+  Divider,
+  message,
+  Space,
+} from 'antd';
 import { loginFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
 
@@ -23,6 +33,18 @@ const Login = ({ history }) => {
     }
   }
 
+  const mensaje = () => {
+    //condicion
+  };
+
+  const success = () => {
+    message.success('This is a success message');
+  };
+
+  const error = () => {
+    message.error('This is an error message');
+  };
+
   return (
     <Row>
       <Col span={24}>
@@ -37,7 +59,7 @@ const Login = ({ history }) => {
           <Form.Item name="password" label="Password:">
             <Input.Password />
           </Form.Item>
-          <Button type="primary" block htmlType="submit">
+          <Button type="primary" block htmlType="submit" onClick={mensaje}>
             Login
           </Button>
         </Form>

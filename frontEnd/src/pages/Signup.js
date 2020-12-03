@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Form, Input, Button, Typography, Divider } from 'antd';
 import { signupFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
@@ -8,7 +8,7 @@ const { Title } = Typography;
 const Signup = ({ history }) => {
   const [form] = Form.useForm();
   const { signup } = useContextInfo();
-
+  const [error, setError] = useState(null);
   async function handleSubmit(userInput) {
     try {
       const { data } = await signupFn(userInput);
@@ -17,7 +17,7 @@ const Signup = ({ history }) => {
       history.push('/login');
     } catch (e) {
       console.log(e);
-      // console.dir(e.response.data.message);
+      setError(e.response.data.message);
     } finally {
     }
   }
@@ -26,6 +26,7 @@ const Signup = ({ history }) => {
     <Row>
       <Col span={24}>
         <Title level={1}>Signup</Title>
+        {error && <p>{error}</p>}
       </Col>
       <Divider />
       <Col span={24}>
