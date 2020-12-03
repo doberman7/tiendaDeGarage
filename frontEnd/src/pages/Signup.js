@@ -8,8 +8,15 @@ const Signup = ({ history }) => {
   const [form] = Form.useForm();
 
   async function handleSubmit(userInput) {
-    await signupFn(userInput);
-    history.push('/login');
+    try {
+      await signupFn(userInput);
+
+      history.push('/login');
+    } catch (e) {
+      console.log(e);
+      // console.dir(e.response.data.message);
+    } finally {
+    }
   }
 
   return (
