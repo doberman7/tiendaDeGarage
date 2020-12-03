@@ -29,8 +29,8 @@ exports.signupProcessUser = async (req, res) => {
     name,
   })
     .then(() => {
-      // res.send('user/login', {infoFlash: 'Welcome, please login', });
-      res.status(201).json({ infoFlash: 'Welcome, please login' });
+      // res.send('user/login', {message: 'Welcome, please login', });
+      res.status(201).json({ message: 'Welcome, please login' });
     })
     .catch((err) => {
       console.log(err);
@@ -40,9 +40,7 @@ exports.signupProcessUser = async (req, res) => {
 exports.loginProcess = async (req, res, next) => {
   passport.authenticate('local', (err, user, failureDetails) => {
     if (err) {
-      return res
-        .status(500)
-        .json({ message: 'Something went wrong authenticating user' });
+      return res.status(500).json({ message: err });
     }
     if (!user) {
       return res.status(401).json({ message: 'no user with that credentials' });
@@ -50,9 +48,7 @@ exports.loginProcess = async (req, res, next) => {
 
     req.login(user, (err) => {
       if (err) {
-        return res
-          .status(500)
-          .json({ message: 'Something went wrong authenticating user' });
+        return res.status(500).json({ message: err });
       }
       user.password = null;
       res.status(200).json(user);
@@ -74,9 +70,7 @@ exports.profileView = async (req, res) => {
   } catch (e) {
     console.error(e);
     // res.send('index', {      message: 'Please fill email and password ',    });
-    res.status(401).json({ message: 'Please fill email and password ' });
-  } finally {
-    console.log('End ProfileView BackEndMethod');
+    res.status(401).json({ message: e });
   }
 };
 
@@ -93,8 +87,8 @@ exports.profilePicture = (req, res) => {
     }
   )
     .then(() => {
-      // res.send('profile', { infoFlash: 'cool new image' });
-      res.status(202).json({ infoFlash: 'cool new image' });
+      // res.send('profile', { message: 'cool new image' });
+      res.status(202).json({ message: 'cool new image' });
     })
     .catch((e) => {
       console.log(e);
