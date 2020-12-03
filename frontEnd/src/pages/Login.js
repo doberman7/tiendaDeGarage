@@ -19,7 +19,7 @@ const Login = ({ history }) => {
       history.push('/profile');
     } catch (e) {
       //cacha message de back
-      console.dir(e.response);
+      console.dir(e.response.data.message);
     }
   }
 

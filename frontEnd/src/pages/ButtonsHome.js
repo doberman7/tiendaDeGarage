@@ -5,10 +5,10 @@ import Login from '../pages/Login';
 import '../Router.css';
 import { Button } from 'antd';
 import { Divider } from 'antd';
-import { useContextInfo } from '../hooks/context'
+import { useContextInfo } from '../hooks/context';
 
 const Router = () => {
-  const { user } = useContextInfo()
+  const { user } = useContextInfo();
   return !user ? (
     <div className="site-button-ghost-wrapper">
       <h1>IronProfile</h1>
@@ -24,8 +24,10 @@ const Router = () => {
       <Button type="primary" ghost>
         <Link to="/Login">Login</Link>
       </Button>
-    </div>):<Redirect to = "/"/>
-
+    </div>
+  ) : (
+    <Redirect to="/profile" />
+  );
 };
 
 export default Router;
