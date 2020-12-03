@@ -1,16 +1,19 @@
 import React from 'react';
 import { Row, Col, Form, Input, Button, Typography, Divider } from 'antd';
 import { signupFn } from '../services/auth';
+import { useContextInfo } from '../hooks/context';
 
 const { Title } = Typography;
 
 const Signup = ({ history }) => {
   const [form] = Form.useForm();
+  const { signup } = useContextInfo();
 
   async function handleSubmit(userInput) {
     try {
-      await signupFn(userInput);
-
+      const { data } = await signupFn(userInput);
+      console.log(data);
+      signup(data);
       history.push('/login');
     } catch (e) {
       console.log(e);
