@@ -18,8 +18,8 @@ exports.signupProcessUser = async (req, res) => {
     email,
   });
   if (user) {
-    // return res.send('user/signup', {errorMessage: 'user already exists' });
-    return res.status(401).json({ errorMessage: 'user already exists' });
+    // return res.send('user/signup', {message: 'user already exists' });
+    return res.status(401).json({ message: 'user already exists' });
   }
   const salt = bcrypt.genSaltSync(12);
   const hashPass = bcrypt.hashSync(password, salt);
@@ -75,8 +75,8 @@ exports.profileView = async (req, res) => {
     res.send('profile', user);
   } catch (e) {
     console.error(e);
-    // res.send('index', {      errorMessage: 'Please fill email and password ',    });
-    res.status(401).json({ errorMessage: 'Please fill email and password ' });
+    // res.send('index', {      message: 'Please fill email and password ',    });
+    res.status(401).json({ message: 'Please fill email and password ' });
   } finally {
     console.log('End ProfileView BackEndMethod');
   }
@@ -100,8 +100,8 @@ exports.profilePicture = (req, res) => {
     })
     .catch((e) => {
       console.log(e);
-      // res.send('profile', { errorMessage: e });
-      res.status(401).json({ errorMessage: e });
+      // res.send('profile', { message: e });
+      res.status(401).json({ message: e });
     });
 };
 
@@ -112,7 +112,7 @@ exports.editProfile = async (req, res) => {
     const userId = req.session.passport.user;
     if (!email || !password) {
       return res.send('profile', {
-        errorMessage: 'Please fill email and password ',
+        message: 'Please fill email and password ',
       });
     }
     const salt = bcrypt.genSaltSync(12);
