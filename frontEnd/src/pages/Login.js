@@ -14,7 +14,7 @@ const Login = ({ history }) => {
       // ESTE ES EL export const loginFn = (userInfo) => authService.post('/login', userInfo); authService USA AXIOS
 
       const { data } = await loginFn(userInput);
-      console.log('DATA:', data);
+      // console.log('DATA:', data);
       login(data);
       history.push('/profile');
     } catch (e) {

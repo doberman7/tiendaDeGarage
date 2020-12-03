@@ -18,9 +18,9 @@ const Profile = ({ history }) => {
     logout();
   }
 
-  useEffect(() => {
-    console.log(user);
-  }, []);
+  // useEffect(() => {
+  //   console.log(user);
+  // }, []);
 
   //DELETE CONFIRMATION POP UP MESSAGES
   function confirm(e) {
