@@ -1,40 +1,11 @@
-import React, { useEffect } from 'react';
-import { Typography, Row, Col, Popconfirm, message, Button } from 'antd';
+import React from 'react';
+import { Typography, Row, Col } from 'antd';
 import { useContextInfo } from '../hooks/context';
 import { Redirect } from 'react-router-dom';
-import { deleteFn, logoutFn, currentUserFn } from '../services/auth';
 //import UploadProfPic from "./UploadProfPic"
 
 const Profile = ({ history }) => {
-  const { logout } = useContextInfo();
   const { user } = useContextInfo();
-
-  async function DeleteUser() {
-    await deleteFn();
-  }
-
-  async function LogoutUser() {
-    await logoutFn();
-    logout();
-  }
-
-  // useEffect(() => {
-  //   console.log(user);
-  // }, []);
-
-  //DELETE CONFIRMATION POP UP MESSAGES
-  function confirm(e) {
-    console.log(e);
-    message.success('Account deleted, Sad ,please comeback soon!');
-    DeleteUser(); //CALLING DELETE FUNCTION AND LOGOUT
-    LogoutUser(); //DESLOGEAMOS AL USER DESDE
-    history.push('/'); //HACEMOS LOGOUT
-  }
-
-  function cancel(e) {
-    console.log(e);
-    message.error('Click on No');
-  }
 
   //
   return user ? (
@@ -45,13 +16,6 @@ const Profile = ({ history }) => {
           <br></br>
           ID: {user._id}
           <br></br>
-          <Popconfirm
-            title="Are you sure to delete your account?"
-            onConfirm={confirm}
-            onCancel={cancel}
-            okText="Yes"
-            cancelText="No"
-          ></Popconfirm>
         </Typography.Title>
       </Col>
     </Row>
