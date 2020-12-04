@@ -26,7 +26,7 @@ const Signup = ({ history }) => {
   return (
     <Row>
       <Col span={24}>
-        <Title level={1}>Signup</Title>
+        <Title level={1}>Edit User</Title>
         {error && <p>{error}</p>}
       </Col>
       <Divider />
