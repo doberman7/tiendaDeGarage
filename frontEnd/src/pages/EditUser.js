@@ -7,7 +7,7 @@ const { Title } = Typography;
 
 const EditUser = ({ history }) => {
   const [form] = Form.useForm();
-  const { edituser } = useContextInfo();
+  // const { edituser } = useContextInfo();
   const [error, setError] = useState(null);
   const { user } = useContextInfo();
 
@@ -15,9 +15,9 @@ const EditUser = ({ history }) => {
     try {
       const { data } = await editProfileFn(userInput);
 
-      edituser(data);
+      // edituser(data);
       //esto redirige a login
-      history.push('/login');
+      history.push('/profile');
     } catch (e) {
       console.log(e);
       setError(e.response.data.message);
