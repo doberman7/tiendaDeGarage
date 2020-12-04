@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Row, Col, Form, Input, Button, Typography, Divider } from 'antd';
 import { editProfileFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
+import UploadProfilePic from '../components/UploadProfPic';
 
 const { Title } = Typography;
 

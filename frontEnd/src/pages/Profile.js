@@ -31,4 +31,3 @@ const Profile = ({ history }) => {
 };
 
 export default Profile;
-//Upload profile pic: <UploadProfPic />
