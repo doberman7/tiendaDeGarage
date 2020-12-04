@@ -35,7 +35,7 @@ const EditUser = ({ history }) => {
       <Col span={24}>
         <Form layout="vertical" form={form} onFinish={handleEditUser}>
           <Form.Item name="email" label="Email:">
-            <Input />
+            <Input placeholder={user.email} />
           </Form.Item>
           <Form.Item name="password" label="Password:">
             <Input.Password />
@@ -47,7 +47,7 @@ const EditUser = ({ history }) => {
       </Col>
     </Row>
   ) : (
-    <p>cargando</p>
+    <p>cargando...</p>
   );
 };
 
