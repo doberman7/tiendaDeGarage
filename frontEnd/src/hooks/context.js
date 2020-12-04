@@ -6,6 +6,8 @@ export const AppContext = createContext();
 
 export const AppCtxProvider = (props) => {
   const [user, setUser] = useState(null);
+  //actualizar user
+  const [userUpdtade, setUserUpdtade] = useState(false);
 
   useEffect(() => {
     async function getSessionData() {
@@ -14,7 +16,9 @@ export const AppCtxProvider = (props) => {
     }
 
     getSessionData();
-  }, []);
+    //vinculado a actualizar el estado
+    setUserUpdtade(false);
+  }, [userUpdtade]);
 
   const login = (userInfo) => {
     setUser(userInfo);
@@ -33,7 +37,7 @@ export const AppCtxProvider = (props) => {
     setUser(null);
   };
 
-  const value = { user, login, logout, signup };
+  const value = { user, login, logout, signup, setUserUpdtade };
 
   return <AppContext.Provider {...props} value={value} />;
 };
