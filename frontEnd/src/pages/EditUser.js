@@ -25,7 +25,7 @@ const EditUser = ({ history }) => {
     }
   }
   console.log(user);
-  return (
+  return user ? (
     <Row>
       <Col span={24}>
         <Title level={1}>Edit User</Title>
@@ -46,6 +46,8 @@ const EditUser = ({ history }) => {
         </Form>
       </Col>
     </Row>
+  ) : (
+    <p>cargando</p>
   );
 };
 
