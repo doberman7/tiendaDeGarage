@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { Row, Col, Form, Input, Button, Typography, Divider } from 'antd';
-import { signupFn } from '../services/auth';
+import { editProfileFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
 
 const { Title } = Typography;
 
 const EditUser = ({ history }) => {
   const [form] = Form.useForm();
-  const { signup } = useContextInfo();
+  const { edituser } = useContextInfo();
   const [error, setError] = useState(null);
   const { user } = useContextInfo();
 
   async function handleEditUser(userInput) {
     try {
-      const { data } = await signupFn(userInput);
+      const { data } = await editProfileFn(userInput);
 
-      signup(data);
+      edituser(data);
       //esto redirige a login
       history.push('/login');
     } catch (e) {
@@ -24,7 +24,7 @@ const EditUser = ({ history }) => {
     } finally {
     }
   }
-  console.log(user);
+  // console.log(user);
   return user ? (
     <Row>
       <Col span={24}>
