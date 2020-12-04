@@ -5,11 +5,13 @@ import { useContextInfo } from '../hooks/context';
 
 const { Title } = Typography;
 
-const Signup = ({ history }) => {
+const EditUser = ({ history }) => {
   const [form] = Form.useForm();
   const { signup } = useContextInfo();
   const [error, setError] = useState(null);
-  async function handleSubmit(userInput) {
+  const { user } = useContextInfo();
+
+  async function handleEditUser(userInput) {
     try {
       const { data } = await signupFn(userInput);
 
@@ -22,7 +24,7 @@ const Signup = ({ history }) => {
     } finally {
     }
   }
-
+  console.log(user);
   return (
     <Row>
       <Col span={24}>
@@ -31,7 +33,7 @@ const Signup = ({ history }) => {
       </Col>
       <Divider />
       <Col span={24}>
-        <Form layout="vertical" form={form} onFinish={handleSubmit}>
+        <Form layout="vertical" form={form} onFinish={handleEditUser}>
           <Form.Item name="email" label="Email:">
             <Input />
           </Form.Item>
@@ -39,7 +41,7 @@ const Signup = ({ history }) => {
             <Input.Password />
           </Form.Item>
           <Button type="primary" htmlType="submit">
-            Signup
+            EditUser
           </Button>
         </Form>
       </Col>
@@ -47,4 +49,4 @@ const Signup = ({ history }) => {
   );
 };
 
-export default Signup;
+export default EditUser;
