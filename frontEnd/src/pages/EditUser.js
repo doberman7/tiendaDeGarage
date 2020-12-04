@@ -44,7 +44,9 @@ const EditUser = ({ history }) => {
           <Button type="primary" htmlType="submit">
             EditUser
           </Button>
+          <hr />
         </Form>
+        <p>Choose a pic</p>
         <UploadProfilePic></UploadProfilePic>
       </Col>
     </Row>
