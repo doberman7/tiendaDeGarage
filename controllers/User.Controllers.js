@@ -99,13 +99,13 @@ exports.profilePicture = (req, res) => {
 
 exports.editProfile = async (req, res) => {
   try {
-    const { email, password, name } = req.body;
+    const { email, password } = req.body;
     //obtener userId
     const userId = req.session.passport.user;
     if (!email || !password) {
-      return res.send('profile', {
-        message: 'Please fill email and password ',
-      });
+      return res
+        .status(500)
+        .json({ message: 'Something went wrong authenticating user' });
     }
     const salt = bcrypt.genSaltSync(12);
     const hashPass = bcrypt.hashSync(password, salt);
@@ -114,7 +114,6 @@ exports.editProfile = async (req, res) => {
       {
         email,
         password: hashPass,
-        name,
       },
       {
         new: true,
