@@ -45,6 +45,7 @@ const EditUser = ({ history }) => {
             EditUser
           </Button>
         </Form>
+        <UploadProfilePic></UploadProfilePic>
       </Col>
     </Row>
   ) : (
