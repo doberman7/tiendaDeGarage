@@ -46,9 +46,7 @@ const LayoutApp = ({ children }) => {
       <Content style={{ padding: '0 50px', height: 'calc(100vh - 153.6px)' }}>
         <div className="site-layout-content">{children}</div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>
-        Ant Design ©2018 Created by Ant UED
-      </Footer>
+      <Footer style={{ textAlign: 'center' }}></Footer>
     </Layout>
   );
 };
