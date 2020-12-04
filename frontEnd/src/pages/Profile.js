@@ -3,6 +3,7 @@ import { Typography, Row, Col, Avatar, Image, Button } from 'antd';
 import { useContextInfo } from '../hooks/context';
 import { BrowserRouter, Route, Switch, Link, Redirect } from 'react-router-dom';
 import { UserOutlined } from '@ant-design/icons';
+import UploadProfilePic from '../components/UploadProfPic';
 
 const Profile = ({ history }) => {
   const { user } = useContextInfo();
