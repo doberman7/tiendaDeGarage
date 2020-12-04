@@ -103,9 +103,7 @@ exports.editProfile = async (req, res) => {
     //obtener userId
     const userId = req.session.passport.user;
     if (!email || !password) {
-      return res
-        .status(500)
-        .json({ message: 'Something went wrong authenticating user' });
+      return res.status(500).json({ message: 'write email and password' });
     }
     const salt = bcrypt.genSaltSync(12);
     const hashPass = bcrypt.hashSync(password, salt);
