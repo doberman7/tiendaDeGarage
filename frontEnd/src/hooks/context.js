@@ -24,9 +24,9 @@ export const AppCtxProvider = (props) => {
     setUser(userInfo);
   };
 
-  const edituser = (userInfo) => {
-    setUser(userInfo);
-  };
+  // const edituser = (userInfo) => {
+  //   setUser(userInfo);
+  // };
 
   const logout = () => {
     //TODO: Cerrar la sesion en el server y en el cliente
