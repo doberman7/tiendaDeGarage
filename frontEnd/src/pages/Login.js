@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import {
   Row,
   Col,
@@ -18,6 +19,7 @@ const { Title } = Typography;
 const Login = ({ history }) => {
   const [form] = Form.useForm();
   const { login } = useContextInfo();
+  const [error, setError] = useState(null);
 
   async function handleSubmit(userInput) {
     try {
@@ -30,25 +32,15 @@ const Login = ({ history }) => {
     } catch (e) {
       //cacha message de back
       console.dir(e.response.data.message);
+      setError(e.response.data.message);
     }
   }
-
-  const mensaje = () => {
-    //condicion
-  };
-
-  const success = () => {
-    message.success('This is a success message');
-  };
-
-  const error = () => {
-    message.error('This is an error message');
-  };
 
   return (
     <Row>
       <Col span={24}>
         <Title level={1}>Login</Title>
+        {error && <p>{error}</p>}
       </Col>
       <Divider />
       <Col span={24}>
@@ -59,7 +51,7 @@ const Login = ({ history }) => {
           <Form.Item name="password" label="Password:">
             <Input.Password />
           </Form.Item>
-          <Button type="primary" block htmlType="submit" onClick={mensaje}>
+          <Button type="primary" block htmlType="submit">
             Login
           </Button>
         </Form>
