@@ -8,6 +8,7 @@ import './Router.css';
 import { Button } from 'antd';
 import { Divider } from 'antd';
 import ButtonsHome from './pages/ButtonsHome';
+import EditUser from './pages/EditUser';
 
 // const Login = () => <h1>Login</h1>
 // const Signup = () => <h1>Signup</h1>
@@ -19,6 +20,7 @@ const Router = () => {
       <LayoutApp>
         <Switch>
           <Route path="/" component={ButtonsHome} exact />
+          <Route path="/edituser" component={EditUser} exact />
           <Route path="/login" component={Login} exact />
           <Route path="/signup" component={Signup} exact />
           <Route path="/profile" component={Profile} exact />

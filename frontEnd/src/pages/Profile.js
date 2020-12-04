@@ -1,13 +1,13 @@
 import React from 'react';
-import { Typography, Row, Col, Avatar, Image } from 'antd';
+import { Typography, Row, Col, Avatar, Image, Button } from 'antd';
 import { useContextInfo } from '../hooks/context';
-import { Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link, Redirect } from 'react-router-dom';
 import { UserOutlined } from '@ant-design/icons';
 
 const Profile = ({ history }) => {
   const { user } = useContextInfo();
-  console.log('el USER:', user);
-  //
+  // console.log('el USER:', user);
+
   return user ? (
     <Row>
       <Col xs={24} sm={24} md={12}>
@@ -20,6 +20,10 @@ const Profile = ({ history }) => {
           <br></br>
         </Typography.Title>
       </Col>
+
+      <Link to="/EditUser">
+        <button>Edit user </button>
+      </Link>
     </Row>
   ) : (
     <Redirect to="/" />
