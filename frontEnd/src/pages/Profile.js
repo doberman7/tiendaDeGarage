@@ -51,12 +51,9 @@ const Profile = ({ history }) => {
             onCancel={cancel}
             okText="Yes"
             cancelText="No"
-          >
-            <a href="#">Delete</a>
-          </Popconfirm>
+          ></Popconfirm>
         </Typography.Title>
       </Col>
-      <Button type="primary">Edit User</Button>
     </Row>
   ) : (
     <Redirect to="/" />
