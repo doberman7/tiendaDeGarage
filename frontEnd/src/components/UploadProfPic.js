@@ -19,12 +19,7 @@ function UploadProfilePic() {
     // const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/joss/image/upload';
     const cloudinaryAPI =
       'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
-    //DOCS: https://cloudinary.com/documentation/admin_api
 
-    //SECURE?
-    // const cloudinaryAPI =' https://812138139599744:79ZooHQrF1QglScVMcFmYviOzn0@api.cloudinary.com/v1_1/lab-file-upload2/resources/image';
-    //PRESETS FOLDER:  uploadfilesfolder
-    //PRESETA: NAME: uploadfilespresetname
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'uploadfilestiendaDeGarage');
@@ -42,8 +37,8 @@ function UploadProfilePic() {
       <form onSubmit={handleSubmit}>
         <input
           type="file"
-          name="profile-pic"
-          id="profile-pic"
+          name="picture"
+          id="picture"
           onChange={handleUploadPhoto}
         />
         <button type="submit" disabled={!image}>
