@@ -16,8 +16,11 @@ function UploadProfilePic() {
     console.log(files[0]);
     setStatus('Loading...');
     //                              CloudName de Cloudinary 👇   👇 Tipo de recurso (si es imagen usan images si es audio o video usan video)
-    const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/joss/image/upload';
-
+    // const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/joss/image/upload';
+    const cloudinaryAPI =
+      'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
+    //uploadfilesfolder
+    //uploadfilespresetname
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'uploadfilesdemo');
