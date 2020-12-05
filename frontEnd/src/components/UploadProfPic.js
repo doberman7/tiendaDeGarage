@@ -17,10 +17,13 @@ function UploadProfilePic() {
     setStatus('Loading...');
     //                              CloudName de Cloudinary 👇   👇 Tipo de recurso (si es imagen usan images si es audio o video usan video)
     // const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/joss/image/upload';
-    const cloudinaryAPI =
-      'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
-    //uploadfilesfolder
-    //uploadfilespresetname
+    // const cloudinaryAPI =      'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
+    //DOCS: https://cloudinary.com/documentation/admin_api
+
+    //SECURE?
+    // const cloudinaryAPI =' https://812138139599744:79ZooHQrF1QglScVMcFmYviOzn0@api.cloudinary.com/v1_1/lab-file-upload2/resources/image';
+    //PRESETS FOLDER:  uploadfilesfolder
+    //PRESETA: NAME: uploadfilespresetname
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'uploadfilesdemo');
