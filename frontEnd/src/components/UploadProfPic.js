@@ -27,7 +27,7 @@ function UploadProfilePic() {
     //PRESETA: NAME: uploadfilespresetname
     const data = new FormData();
     data.append('file', files[0]);
-    data.append('upload_preset', 'uploadfilesdemo');
+    data.append('upload_preset', 'uploadfilestiendaDeGarage');
 
     const {
       data: { secure_url },
