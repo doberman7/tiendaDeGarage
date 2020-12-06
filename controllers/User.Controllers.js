@@ -93,7 +93,7 @@ exports.profilePicture = (req, res) => {
     .catch((e) => {
       console.log(e);
       // res.send('profile', { message: e });
-      res.status(401).json({ message: e });
+      res.status(401).json({ message: e.message });
     });
 };
 
@@ -121,8 +121,8 @@ exports.editProfile = async (req, res) => {
     res.status(202).json(user);
     // res.send('profile', user);
   } catch (e) {
-    console.log(e.codeName);
-    res.status(500).json({ message: e.codeName });
+    console.log(e.message);
+    res.status(500).json({ message: e.message });
   } finally {
     console.log('Route editProfile');
   }
