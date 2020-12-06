@@ -25,11 +25,13 @@ const EditUser = ({ history }) => {
   const { setUserUpdtade } = useContextInfo();
   const [error, setError] = useState(null);
   const { user } = useContextInfo();
+  //esto para la imagen
   const [img, setImg] = useState(null);
   const [loading, setLoading] = useState(null);
 
   async function handleEditUser(userInput) {
     try {
+      //cómo ingresar la imagen la userInput, algo como, picture: image
       const { data } = await editProfileFn(userInput);
 
       setUserUpdtade(true);
@@ -47,7 +49,7 @@ const EditUser = ({ history }) => {
     const data = new FormData();
 
     data.append('file', file);
-    data.append('upload_preset', 'huntfake');
+    data.append('upload_preset', 'uploadfilestiendaDeGarage');
 
     const {
       data: { secure_url },
@@ -62,7 +64,8 @@ const EditUser = ({ history }) => {
       <div style={{ marginTop: 8 }}>Upload</div>
     </div>
   );
-  // console.log(user);
+
+  console.log(user);
   return user ? (
     <Row>
       <Col span={24}>

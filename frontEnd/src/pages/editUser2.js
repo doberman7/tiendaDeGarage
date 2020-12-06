@@ -53,7 +53,7 @@ const EditUser = ({ history }) => {
   return user ? (
     <Row>
       <Col span={24}>
-        <Title level={1}>Edit User</Title>
+        <Title level={1}>Edit User2</Title>
         {error && <p>{error}</p>}
       </Col>
       <Divider />
