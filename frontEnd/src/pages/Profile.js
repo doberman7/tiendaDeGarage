@@ -23,7 +23,7 @@ const Profile = ({ history }) => {
       </Col>
 
       <Link to="/EditUser">
-        <button>Edit user </button>
+        <Button type="dashed">Edit user </Button>
       </Link>
     </Row>
   ) : (

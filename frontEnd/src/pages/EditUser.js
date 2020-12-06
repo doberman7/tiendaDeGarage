@@ -41,12 +41,12 @@ const EditUser = ({ history }) => {
           <Form.Item name="password" label="Password:">
             <Input.Password />
           </Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" block>
             EditUser
           </Button>
+
           <hr />
         </Form>
-        <p>Choose a pic</p>
         <UploadProfilePic></UploadProfilePic>
       </Col>
     </Row>
