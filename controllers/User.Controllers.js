@@ -121,9 +121,8 @@ exports.editProfile = async (req, res) => {
     res.status(202).json(user);
     // res.send('profile', user);
   } catch (e) {
-    res
-      .status(500)
-      .json({ message: 'Something went wrong authenticating user' });
+    console.log(e.codeName);
+    res.status(500).json({ message: e.codeName });
   } finally {
     console.log('Route editProfile');
   }
