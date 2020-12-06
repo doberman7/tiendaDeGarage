@@ -13,7 +13,8 @@ import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { editProfileFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
-import UploadProfilePic from '../components/UploadProfPic';
+//hicimos un 1 er intento creando el comopoonente por aparte
+// import UploadProfilePic from '../components/UploadProfPic';
 
 const cloudinaryAPI =
   'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
@@ -65,7 +66,7 @@ const EditUser = ({ history }) => {
     </div>
   );
 
-  console.log(user);
+  // console.log(user);
   return user ? (
     <Row>
       <Col span={24}>
