@@ -33,17 +33,13 @@ const EditUser = ({ history }) => {
   async function handleEditUser(userInput) {
     try {
       //cómo ingresar la imagen la userInput, algo como, picture: image
+      console.log((userInput.image = img));
       const { data } = await editProfileFn(userInput);
 
       // console.log(user);
       //señalar que user ha sido actualizado
       setUserUpdtade(true);
-      console.log(data);
-      console.log(img);
-      // const user = {
-      //   ...userInput,
-      //   picture: 'img',
-      // };
+
       //esto redirige a login
       history.push('/profile');
     } catch (e) {

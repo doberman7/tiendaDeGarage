@@ -99,7 +99,8 @@ exports.profilePicture = (req, res) => {
 
 exports.editProfile = async (req, res) => {
   try {
-    const { email, password, picture } = req.body;
+    const { email, password, image } = req.body;
+    console.log(req.body);
     //obtener userId
     const userId = req.session.passport.user;
     if (!email || !password) {
@@ -112,7 +113,7 @@ exports.editProfile = async (req, res) => {
       {
         email,
         password: hashPass,
-        picture,
+        picture: image,
       },
       {
         new: true,
