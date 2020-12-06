@@ -2,13 +2,6 @@ const bcrypt = require('bcrypt'),
   User = require('../models/User.Model'),
   passport = require('../config/passport');
 
-// exports.indexView = (req, res) => res.send('index');
-//
-// //parece esta ya no se usará
-// exports.signupView = (req, res) => {
-//   res.send('user/signup');
-// };
-
 exports.signupProcessUser = async (req, res) => {
   const { email, password, name } = req.body;
   if (!email || !password) {

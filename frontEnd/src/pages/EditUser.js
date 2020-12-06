@@ -36,7 +36,6 @@ const EditUser = ({ history }) => {
       console.log((userInput.image = img));
       const { data } = await editProfileFn(userInput);
 
-      // console.log(user);
       //señalar que user ha sido actualizado
       setUserUpdtade(true);
 
@@ -49,7 +48,6 @@ const EditUser = ({ history }) => {
     }
   }
   async function handleUploadFile(file) {
-    // console.log(info);
     setLoading(true);
     const data = new FormData();
 
