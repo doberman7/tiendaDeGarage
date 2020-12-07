@@ -35,7 +35,7 @@ exports.createProcessProduct = async (req, res) => {
     res.status(201).json({ message: 'Product created' });
   } catch (e) {
   } finally {
-    console.log('CREATE PRODUCT PROCESS');
+    console.log('CONTROLLER CREATE PRODUCT PROCESS');
   }
 };
 
@@ -46,18 +46,23 @@ exports.editProduct = async (req, res) => {
     const userId = req.session.passport.user;
     const user = await User.findById(userId);
     const idProduct = req.params.id;
+    console.log(req.params);
 
     if (!name || !picture) {
       return res.status(500).json({ message: 'write name and picture' });
     }
 
-    await Product.findByIdAndUpdate(
+    let newProduct = await Product.findByIdAndUpdate(
       idProduct,
-      { name, picture },
+      { name: name, picture: picture },
       { new: true }
     );
+    if (!newProduct) {
+      return res.status(400).json({ message: 'no product exists' });
+    }
 
     await Product.find({ idUser: userId }).populate('userCreator');
+    res.status(201).json({ message: 'Product edited' });
   } catch (e) {
     console.log(e.message);
     res.status(500).json({ message: e.message });
@@ -67,11 +72,18 @@ exports.editProduct = async (req, res) => {
 };
 
 exports.deleteProduct = async (req, res) => {
-  const idUser = req.session.passport.user;
-  const idProduct = req.params.id;
-  const user = await User.findById(idUser);
-  await Product.deleteOne({ idProduct });
-  await Product.find({ idProduct: user }).populate('userCreator');
+  try {
+    const idUser = req.session.passport.user;
+    const idProduct = req.params.id;
+    const user = await User.findById(idUser);
+    await Product.deleteOne({ idProduct });
+    await Product.find({ idProduct: user }).populate('userCreator');
 
-  res.status(200).json({ messaje: 'Profile deleted' });
+    res.status(200).json({ messaje: 'Profile deleted' });
+  } catch (e) {
+    console.log(e.message);
+    res.status(500).json({ message: e.message });
+  } finally {
+    console.log('CONTROLLER DELETE PRODUCT');
+  }
 };
