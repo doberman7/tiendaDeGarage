@@ -49,46 +49,46 @@ exports.loginProcess = async (req, res, next) => {
   })(req, res, next);
 };
 
-exports.logout = (req, res) => {
-  // req.logout(); IS working now
-  req.logout();
-  res.status(200).json({ message: 'logged out' });
-};
+// exports.logout = (req, res) => {
+//   // req.logout(); IS working now
+//   req.logout();
+//   res.status(200).json({ message: 'logged out' });
+// };
 
-exports.profileView = async (req, res) => {
-  try {
-    const id = req.session.passport.user;
-    const user = await User.findById(id);
-    res.send('profile', user);
-  } catch (e) {
-    console.error(e);
-    // res.send('index', {      message: 'Please fill email and password ',    });
-    res.status(401).json({ message: e });
-  }
-};
+// exports.profileView = async (req, res) => {
+//   try {
+//     const id = req.session.passport.user;
+//     const user = await User.findById(id);
+//     res.send('profile', user);
+//   } catch (e) {
+//     console.error(e);
+//     // res.send('index', {      message: 'Please fill email and password ',    });
+//     res.status(401).json({ message: e });
+//   }
+// };
 
-exports.profilePicture = (req, res) => {
-  const id = req.session.passport.user;
-  const picture = req.file.path;
-  User.findByIdAndUpdate(
-    id,
-    {
-      picture,
-    },
-    {
-      new: true,
-    }
-  )
-    .then(() => {
-      // res.send('profile', { message: 'cool new image' });
-      res.status(202).json({ message: 'cool new image' });
-    })
-    .catch((e) => {
-      console.log(e);
-      // res.send('profile', { message: e });
-      res.status(401).json({ message: e.message });
-    });
-};
+// exports.profilePicture = (req, res) => {
+//   const id = req.session.passport.user;
+//   const picture = req.file.path;
+//   User.findByIdAndUpdate(
+//     id,
+//     {
+//       picture,
+//     },
+//     {
+//       new: true,
+//     }
+//   )
+//     .then(() => {
+//       // res.send('profile', { message: 'cool new image' });
+//       res.status(202).json({ message: 'cool new image' });
+//     })
+//     .catch((e) => {
+//       console.log(e);
+//       // res.send('profile', { message: e });
+//       res.status(401).json({ message: e.message });
+//     });
+// };
 
 exports.editProfile = async (req, res) => {
   try {
