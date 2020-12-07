@@ -9,6 +9,6 @@ const {
 router.post('/create', createProcessProduct);
 
 router.put('/edit/:id', editProduct);
-router.get('/delete', deleteProduct);
+router.delete('/delete/:id', deleteProduct);
 
 module.exports = router;
