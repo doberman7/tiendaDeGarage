@@ -56,10 +56,12 @@ app.use(
 require('./config/session')(app);
 
 const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productRoutes');
 //usar el buiild
 app.use(express.static(path.join(__dirname, 'public/build')));
 
 app.use('/', userRoutes);
+app.use('/product', productRoutes);
 //si no haya otras rutas, usa esta
 app.get('*', (req, res) => {
   res.sendFile(`${__dirname}/public/build/index.html`);
