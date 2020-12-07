@@ -72,13 +72,18 @@ exports.editProduct = async (req, res) => {
 };
 
 exports.deleteProduct = async (req, res) => {
+  const idUser = req.session.passport.user;
+  const idProduct = req.params.id;
+
   try {
-    const idUser = req.session.passport.user;
-    const idProduct = req.params.id;
     const user = await User.findById(idUser);
     await Product.deleteOne({ _id: idProduct });
-    console.log(user);
-    // await Product.find({ idProduct: user }).populate('userCreator');
+
+    userNew = await User.findByIdAndUpdate(
+      idUser,
+      { $pull: { products: idProduct } },
+      { new: true }
+    );
 
     res.status(200).json({ messaje: 'Product deleted' });
   } catch (e) {
