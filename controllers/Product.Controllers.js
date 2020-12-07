@@ -76,10 +76,11 @@ exports.deleteProduct = async (req, res) => {
     const idUser = req.session.passport.user;
     const idProduct = req.params.id;
     const user = await User.findById(idUser);
-    await Product.deleteOne({ idProduct });
-    await Product.find({ idProduct: user }).populate('userCreator');
+    await Product.deleteOne({ _id: idProduct });
+    console.log(user);
+    // await Product.find({ idProduct: user }).populate('userCreator');
 
-    res.status(200).json({ messaje: 'Profile deleted' });
+    res.status(200).json({ messaje: 'Product deleted' });
   } catch (e) {
     console.log(e.message);
     res.status(500).json({ message: e.message });
