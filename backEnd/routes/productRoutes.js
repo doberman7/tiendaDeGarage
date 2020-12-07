@@ -8,7 +8,7 @@ const {
 
 router.post('/create', createProcessProduct);
 
-router.put('/edit', editProduct);
+router.put('/edit/:id', editProduct);
 router.get('/delete', deleteProduct);
 
 module.exports = router;
