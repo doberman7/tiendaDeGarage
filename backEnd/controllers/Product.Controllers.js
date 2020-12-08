@@ -3,11 +3,12 @@ const User = require('../models/User.Model');
 
 exports.createProcessProduct = async (req, res) => {
   try {
-    const { picture, name } = req.body;
+    const { image, name } = req.body;
     const userId = req.session.passport.user;
     console.log(req.body);
-    if (!picture || !name) {
-      return res.status(400).json({ message: 'Provide picture and name' });
+    if (!image || !name) {
+      console.log('Provide image and name');
+      return res.status(400).json({ message: 'Provide image and name' });
     }
 
     const product = await Product.findOne({
@@ -15,13 +16,14 @@ exports.createProcessProduct = async (req, res) => {
     });
 
     if (product) {
+      console.log('product already created');
       return res.status(400).json({ message: 'product already created' });
     }
 
     let newProduct = await Product.create({
       idUser: userId,
-      name,
-      picture,
+      name: name,
+      picture: image,
     });
 
     await User.findByIdAndUpdate(
