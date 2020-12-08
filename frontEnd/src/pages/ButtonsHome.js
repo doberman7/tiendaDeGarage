@@ -6,12 +6,21 @@ import '../Router.css';
 import { Button } from 'antd';
 import { Divider } from 'antd';
 import { useContextInfo } from '../hooks/context';
-
+import { Image } from 'antd';
+function ImageDemo() {
+  return (
+    <Image
+      width={400}
+      src="https://cdn.ramseysolutions.net/media/common_images/article_images/blog_ai_lg/blog_ai_lg_yard_sale_types.jpg"
+    />
+  );
+}
 const Router = () => {
   const { user } = useContextInfo();
   return !user ? (
     <div className="site-button-ghost-wrapper">
       <h1>Mr Garage</h1>
+      <ImageDemo />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
         merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen,
