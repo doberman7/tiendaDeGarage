@@ -5,9 +5,9 @@ exports.createProcessProduct = async (req, res) => {
   try {
     const { picture, name } = req.body;
     const userId = req.session.passport.user;
-
+    console.log(req.body);
     if (!picture || !name) {
-      return res.status(403).json({ message: 'Provide picture and name' });
+      return res.status(400).json({ message: 'Provide picture and name' });
     }
 
     const product = await Product.findOne({
@@ -15,7 +15,7 @@ exports.createProcessProduct = async (req, res) => {
     });
 
     if (product) {
-      return res.status(401).json({ message: 'product already created' });
+      return res.status(400).json({ message: 'product already created' });
     }
 
     let newProduct = await Product.create({
@@ -34,6 +34,8 @@ exports.createProcessProduct = async (req, res) => {
 
     res.status(201).json({ message: 'Product created' });
   } catch (e) {
+    console.log(e.message);
+    res.status(500).json({ message: e.message });
   } finally {
     console.log('CONTROLLER CREATE PRODUCT PROCESS');
   }
