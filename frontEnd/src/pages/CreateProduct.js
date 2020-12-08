@@ -39,7 +39,7 @@ const CreateProduct = ({ history }) => {
 
       //esto redirigira a products created page
       // history.push('/profile');
-      history.push('/productsCreated');
+      history.push('/viewProducts');
     } catch (e) {
       console.log(e);
       setError(e.response.data.message);

@@ -4,7 +4,7 @@ import LayoutApp from './components/LayoutApp';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
-import ProductsCreated from './pages/ProductsCreated';
+import ViewProducts from './pages/ViewProducts';
 import './Router.css';
 
 import ButtonsHome from './pages/ButtonsHome';
@@ -26,7 +26,7 @@ const Router = () => {
           <Route path="/login" component={Login} exact />
           <Route path="/signup" component={Signup} exact />
           <Route path="/profile" component={Profile} exact />
-          <Route path="/productsCreated" component={ProductsCreated} exact />
+          <Route path="/viewProducts" component={ViewProducts} exact />
         </Switch>
       </LayoutApp>
     </BrowserRouter>
