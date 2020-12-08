@@ -25,6 +25,7 @@ export const editProfileFn = (userInfo) =>
 export const createProductFn = (userInfo) =>
   authService.post('/product/create', userInfo);
 
-export const getUserProductsFn = (userInfo) => {
-  authService.get('/product/get-user-products', userInfo);
+export const getUserProductsFn = async () => {
+  const { data } = await authService.get('/product/get-user-products');
+  return data;
 };
