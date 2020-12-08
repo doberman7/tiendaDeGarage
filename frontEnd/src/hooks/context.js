@@ -15,7 +15,7 @@ export const AppCtxProvider = (props) => {
       const { data } = await currentUserFn();
       login(data);
       const products = await getUserProductsFn();
-      console.log(products);
+      console.log('PRODUCTS: ', products);
       // getProducts(data);
     }
 
