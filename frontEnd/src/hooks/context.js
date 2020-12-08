@@ -1,6 +1,7 @@
 import { useState, createContext, useContext, useEffect } from 'react';
 
 import { currentUserFn } from '../services/auth';
+import { getUserProductsFn } from '../services/auth';
 
 export const AppContext = createContext();
 
@@ -13,6 +14,9 @@ export const AppCtxProvider = (props) => {
     async function getSessionData() {
       const { data } = await currentUserFn();
       login(data);
+      const products = await getUserProductsFn();
+      console.log(products);
+      // getProducts(data);
     }
 
     getSessionData();
@@ -25,6 +29,10 @@ export const AppCtxProvider = (props) => {
   };
 
   const signup = (userInfo) => {
+    setUser(userInfo);
+  };
+
+  const getProducts = (userInfo) => {
     setUser(userInfo);
   };
 

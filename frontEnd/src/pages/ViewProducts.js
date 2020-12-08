@@ -2,7 +2,6 @@ import React from 'react';
 import { useContextInfo } from '../hooks/context';
 import { Redirect } from 'react-router-dom';
 import { Card } from 'antd';
-import { getUserProductsFn } from '../services/auth';
 
 const { Meta } = Card;
 
