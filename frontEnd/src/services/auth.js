@@ -23,4 +23,4 @@ export const editProfileFn = (userInfo) =>
   authService.put('/editProfile', userInfo);
 
 export const createProductFn = (userInfo) =>
-  authService.put('/product/create', userInfo);
+  authService.post('/product/create', userInfo);
