@@ -99,10 +99,14 @@ exports.deleteProduct = async (req, res) => {
 };
 
 exports.getUserProducts = async (req, res) => {
-  const idUser = req.session.passport.user;
-
-  console.log('USER: ', idUser);
-  const { products } = await User.findById(idUser).populate('products');
-
-  res.status(200).json(products);
+  try {
+    const idUser = req.session.passport.user;
+    const { products } = await User.findById(idUser).populate('products');
+    res.status(200).json(products);
+  } catch (e) {
+    console.log(e.message);
+    res.status(500).json({ message: e.message });
+  } finally {
+    console.log('CONTROLLER GET USER PRODUCTS');
+  }
 };
