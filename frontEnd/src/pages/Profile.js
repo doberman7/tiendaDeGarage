@@ -1,9 +1,7 @@
 import React from 'react';
-import { Typography, Row, Col, Avatar, Image, Button } from 'antd';
+import { Typography, Row, Col, Avatar, Button, Divider } from 'antd';
 import { useContextInfo } from '../hooks/context';
-import { BrowserRouter, Route, Switch, Link, Redirect } from 'react-router-dom';
-import { UserOutlined } from '@ant-design/icons';
-import UploadProfilePic from '../components/UploadProfPic';
+import { Link, Redirect } from 'react-router-dom';
 
 const Profile = ({ history }) => {
   const { user } = useContextInfo();
@@ -21,10 +19,17 @@ const Profile = ({ history }) => {
           <br></br>
         </Typography.Title>
       </Col>
+      <Divider />
 
-      <Link to="/EditUser">
+      <Link to="/editUser">
         <Button type="dashed" block>
           Edit user{' '}
+        </Button>
+      </Link>
+      <Divider />
+      <Link to="/createProduct">
+        <Button type="dashed" block>
+          Create Product
         </Button>
       </Link>
     </Row>

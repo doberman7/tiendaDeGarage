@@ -21,3 +21,6 @@ export const deleteFn = () => authService.get('/deleteProfile');
 // export const editProfileFn = (id, user) => authService.post(`/${id}`, user);
 export const editProfileFn = (userInfo) =>
   authService.put('/editProfile', userInfo);
+
+export const createProductFn = (userInfo) =>
+  authService.put('/product/create', userInfo);
