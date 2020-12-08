@@ -5,7 +5,6 @@ import { Link, Redirect } from 'react-router-dom';
 
 const Profile = ({ history }) => {
   const { user } = useContextInfo();
-  // console.log('el USER:', user);
 
   return user ? (
     <Row>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useContextInfo } from '../hooks/context';
 import { Redirect } from 'react-router-dom';
 import { Card } from 'antd';
+import { getUserProductsFn } from '../services/auth';
 
 const { Meta } = Card;
 
@@ -10,8 +11,10 @@ const Profile = ({ history }) => {
 
   return user ? (
     <Card
-      hoverable
-      style={{ width: 240 }}
+      hoverable="hoverable"
+      style={{
+        width: 240,
+      }}
       cover={
         <img
           alt="example"
