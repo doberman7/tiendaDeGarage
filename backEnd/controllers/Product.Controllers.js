@@ -97,3 +97,12 @@ exports.deleteProduct = async (req, res) => {
     console.log('CONTROLLER DELETE PRODUCT');
   }
 };
+
+exports.getUserProducts = async (req, res) => {
+  const idUser = req.session.passport.user;
+
+  console.log('USER: ', idUser);
+  const { products } = await User.findById(idUser).populate('products');
+
+  res.status(200).json(products);
+};
