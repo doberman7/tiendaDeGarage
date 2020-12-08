@@ -11,7 +11,7 @@ const Router = () => {
   const { user } = useContextInfo();
   return !user ? (
     <div className="site-button-ghost-wrapper">
-      <h1>IronProfile</h1>
+      <h1>Mr Garage</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
         merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen,
