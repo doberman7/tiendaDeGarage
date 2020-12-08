@@ -38,6 +38,9 @@ const LayoutApp = ({ children }) => {
               <Menu.Item key="5" onClick={handleLogout}>
                 Logout
               </Menu.Item>
+              <Menu.Item key="6">
+                <Link to="/viewProducts">View Products</Link>
+              </Menu.Item>
             </React.Fragment>
           )}
         </Menu>
