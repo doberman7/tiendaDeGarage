@@ -37,8 +37,9 @@ const CreateProduct = ({ history }) => {
       //señalar que user ha sido actualizado
       setUserUpdtade(true);
 
-      //esto redirige a login
-      history.push('/profile');
+      //esto redirigira a products created page
+      // history.push('/profile');
+      history.push('/productsCreated');
     } catch (e) {
       console.log(e);
       setError(e.response.data.message);
