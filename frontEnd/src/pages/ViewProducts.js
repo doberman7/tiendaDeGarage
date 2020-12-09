@@ -28,12 +28,7 @@ const Profile = ({ history }) => {
           style={{
             width: 240,
           }}
-          cover={
-            <img
-              alt="example"
-              src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-            />
-          }
+          cover={<img alt="example" src={product.picture} />}
         >
           <Meta title={product.name} description="www.instagram.com" />
         </Card>
