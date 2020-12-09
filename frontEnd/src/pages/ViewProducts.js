@@ -35,11 +35,7 @@ const Profile = ({ history }) => {
             <div style={style}>
               <Card
                 cover={<img alt="example" src={product.picture} />}
-                actions={[
-                  <SettingOutlined key="setting" />,
-                  <EditOutlined key="edit" />,
-                  <EllipsisOutlined key="ellipsis" />,
-                ]}
+                actions={[<EditOutlined key="edit" />]}
               >
                 <Meta title={product.name} description={product.description} />
               </Card>
