@@ -8,6 +8,15 @@ const productSchema = new Schema(
       type: String,
       trim: true,
     },
+    name: {
+      type: String,
+      trim: true,
+    },
+    description: {
+      type: String,
+      trim: true,
+      default: 'The product i want',
+    },
     picture: {
       type: String,
       default:

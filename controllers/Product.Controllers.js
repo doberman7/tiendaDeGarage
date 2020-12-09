@@ -3,7 +3,7 @@ const User = require('../models/User.Model');
 
 exports.createProcessProduct = async (req, res) => {
   try {
-    const { image, name } = req.body;
+    const { image, name, description } = req.body;
     const userId = req.session.passport.user;
     console.log(req.body);
     if (!image || !name) {
@@ -17,13 +17,16 @@ exports.createProcessProduct = async (req, res) => {
 
     if (product) {
       console.log('product already created');
-      return res.status(400).json({ message: 'product already created' });
+      return res.status(400).json({
+        message: 'product with that name already exists, give it a new name',
+      });
     }
 
     let newProduct = await Product.create({
       idUser: userId,
       name: name,
       picture: image,
+      description: description,
     });
 
     await User.findByIdAndUpdate(
@@ -45,7 +48,7 @@ exports.createProcessProduct = async (req, res) => {
 
 exports.editProduct = async (req, res) => {
   try {
-    const { name, picture } = req.body;
+    const { name, picture, description } = req.body;
 
     const userId = req.session.passport.user;
     const user = await User.findById(userId);
@@ -53,12 +56,12 @@ exports.editProduct = async (req, res) => {
     console.log(req.params);
 
     if (!name || !picture) {
-      return res.status(500).json({ message: 'write name and picture' });
+      return res.status(500).json({ message: 'add name and picture' });
     }
 
     let newProduct = await Product.findByIdAndUpdate(
       idProduct,
-      { name: name, picture: picture },
+      { name: name, picture: picture, description: description },
       { new: true }
     );
     if (!newProduct) {
