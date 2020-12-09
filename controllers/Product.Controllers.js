@@ -75,7 +75,7 @@ exports.editProduct = async (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: e.message });
   } finally {
-    console.log('CONTROLLER EDIT PRODUCT');
+    log.karaoke('CONTROLLER editProduct');
   }
 };
 
@@ -117,9 +117,9 @@ exports.getUserProducts = async (req, res) => {
 exports.getProductDetails = async (req, res) => {
   try {
     const idUser = req.session.passport.user;
-    const { products } = await User.findById(idUser).populate('products');
-    console.log(products);
-    res.status(200).json(products);
+    const { productId } = req.params;
+    const product = await Product.findById(productId);
+    res.status(200).json(product);
   } catch (e) {
     console.log(e.message);
     res.status(500).json({ message: e.message });
