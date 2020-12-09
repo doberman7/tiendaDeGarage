@@ -83,7 +83,7 @@ exports.editProduct = async (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: e.message });
   } finally {
-    log.neon('CONTROLLER editProduct');
+    console.log('CONTROLLER editProduct');
   }
 };
 
@@ -122,6 +122,7 @@ exports.getUserProducts = async (req, res) => {
     console.log('CONTROLLER getUserProducts');
   }
 };
+
 exports.getProductDetails = async (req, res) => {
   try {
     const idUser = req.session.passport.user;
@@ -132,6 +133,6 @@ exports.getProductDetails = async (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: e.message });
   } finally {
-    log.neon('CONTROLLER getProductDetails');
+    log.glitch('CONTROLLER getProductDetails');
   }
 };

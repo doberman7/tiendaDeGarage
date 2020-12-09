@@ -27,6 +27,7 @@ function EditProduct({
 
   async function handleEditProduct(values) {
     try {
+      //ACA el error
       await editProductFn(product._id, values);
       history.push('/viewProducts');
     } catch (e) {

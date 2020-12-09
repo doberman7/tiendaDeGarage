@@ -35,10 +35,5 @@ export const getProductDetailsFn = async (idProduct) => {
   return data;
 };
 
-export const editProductFn = async (idProduct, productInfo) => {
-  const { data } = await authService.put(
-    `/product/edit-product/${idProduct}`,
-    productInfo
-  );
-  return data;
-};
+export const editProductFn = (idProduct, productInfo) =>
+  authService.put(`/product/edit-product/${idProduct}`, productInfo);
