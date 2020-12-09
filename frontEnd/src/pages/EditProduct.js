@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useContextInfo } from '../hooks/context';
+// import { useContextInfo } from '../hooks/context';
 import { editProductFn } from '../services/auth';
 import { getProductDetailsFn } from '../services/auth';
-import { Form, Button, Input, InputNumber, Select, Upload, Alert } from 'antd';
+import { Form, Button, Input, Alert } from 'antd';
 
 function EditProduct({
   match: {
