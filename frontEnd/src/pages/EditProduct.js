@@ -10,7 +10,7 @@ function EditProduct({
     params: { productId },
   },
 }) {
-  console.log('PARAMS:', productId);
+  // console.log('PARAMS:', productId);
   const [form] = Form.useForm();
   const history = useHistory();
   const [error, setError] = useState(null);
@@ -18,9 +18,9 @@ function EditProduct({
 
   useEffect(() => {
     async function getDetails() {
-      const { data } = await getProductDetailsFn(productId);
-      console.log('DATA:', data);
-      setProduct(product);
+      const data = await getProductDetailsFn(productId);
+      // console.log('DATA:', data);
+      setProduct(data);
     }
     getDetails();
   }, []);
@@ -42,11 +42,11 @@ function EditProduct({
       <h1>Update Product</h1>
       <Form form={form} layout="vertical" onFinish={handleEditProduct}>
         <Form.Item name="name" label="Name:">
-          <Input placeholder={product} />
+          <Input placeholder={product.name} />
         </Form.Item>
 
         <Form.Item name="description" label="Description:">
-          <Input placeholder={product} />
+          <Input placeholder={product.description} />
         </Form.Item>
 
         <Button type="primary" block size="middle" htmlType="submit">
