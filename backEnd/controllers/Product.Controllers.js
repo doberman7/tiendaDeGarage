@@ -75,7 +75,7 @@ exports.editProduct = async (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: e.message });
   } finally {
-    log.karaoke('CONTROLLER editProduct');
+    log.neon('CONTROLLER editProduct');
   }
 };
 
@@ -124,6 +124,6 @@ exports.getProductDetails = async (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: e.message });
   } finally {
-    log.karaoke('CONTROLLER getProductDetails');
+    log.neon('CONTROLLER getProductDetails');
   }
 };

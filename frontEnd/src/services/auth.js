@@ -18,7 +18,6 @@ export const logoutFn = () => authService.get('/logout');
 
 export const deleteFn = () => authService.get('/deleteProfile');
 
-// export const editProfileFn = (id, user) => authService.post(`/${id}`, user);
 export const editProfileFn = (userInfo) =>
   authService.put('/editProfile', userInfo);
 ///PRODUCTS
@@ -29,7 +28,6 @@ export const getUserProductsFn = async () => {
   const { data } = await authService.get('/product/get-user-products');
   return data;
 };
-//NO PROBADAS
 export const getProductDetailsFn = async (idProduct) => {
   const { data } = await authService.get(
     `/product/get-product-details/${idProduct}`
@@ -39,7 +37,7 @@ export const getProductDetailsFn = async (idProduct) => {
 
 export const editProductFn = async (idProduct, productInfo) => {
   const { data } = await authService.put(
-    `/product/product/edit-product/${idProduct}`,
+    `/product/edit-product/${idProduct}`,
     productInfo
   );
   return data;
