@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useContextInfo } from '../hooks/context';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { Card, Row, Divider, Col, Avatar } from 'antd';
 import { getUserProductsFn } from '../services/auth';
 import {
@@ -35,9 +35,10 @@ const Profile = ({ history }) => {
             <div style={style}>
               <Card
                 cover={<img alt="example" src={product.picture} />}
-                actions={[<EditOutlined key="edit" />]}
+                actions={[<EditOutlined key={product._id} />]}
               >
-                <Meta title={product.name} description={product.description} />
+                <Link to={`/product/${product._id}`}>Edit</Link>
+                <Meta title={product.name} description={product._id} />
               </Card>
             </div>
           </Col>

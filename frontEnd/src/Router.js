@@ -5,6 +5,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import ViewProducts from './pages/ViewProducts';
+import EditProduct from './pages/EditProduct';
 import './Router.css';
 
 import ButtonsHome from './pages/ButtonsHome';
@@ -27,6 +28,7 @@ const Router = () => {
           <Route path="/signup" component={Signup} exact />
           <Route path="/profile" component={Profile} exact />
           <Route path="/viewProducts" component={ViewProducts} exact />
+          <Route path="/product/:productId" component={EditProduct} exact />
         </Switch>
       </LayoutApp>
     </BrowserRouter>
