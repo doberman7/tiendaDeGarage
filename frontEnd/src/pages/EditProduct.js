@@ -30,7 +30,7 @@ function EditProduct({
       await editProductFn(product._id, values);
       history.push('/viewProducts');
     } catch (e) {
-      console.log(e);
+      console.log(e.response.data.message);
       setError(e.response.data.message);
     }
   }
