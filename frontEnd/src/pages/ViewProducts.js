@@ -41,13 +41,7 @@ const Profile = ({ history }) => {
                   <EllipsisOutlined key="ellipsis" />,
                 ]}
               >
-                <Meta
-                  avatar={
-                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                  }
-                  title={product.name}
-                  description={product.description}
-                />
+                <Meta title={product.name} description={product.description} />
               </Card>
             </div>
           </Col>
