@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useContextInfo } from '../hooks/context';
 import { editProductFn } from '../services/auth';
 import { getProductDetailsFn } from '../services/auth';
-import { Form, Button, Input, InputNumber, Select, Upload } from 'antd';
+import { Form, Button, Input, InputNumber, Select, Upload, Alert } from 'antd';
 
 function EditProduct({
   match: {
@@ -38,7 +38,7 @@ function EditProduct({
   return (
     <>
       <h1>Update Product</h1>
-      {error && <p>{error}</p>}
+      {error && <Alert message={error} type="error" />}
       <Form form={form} layout="vertical" onFinish={handleEditProduct}>
         <Form.Item name="name" label="Name:">
           <Input placeholder={product ? product.name : 'cargando'} />
