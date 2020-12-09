@@ -35,10 +35,13 @@ const Profile = ({ history }) => {
             <div style={style}>
               <Card
                 cover={<img alt="example" src={product.picture} />}
-                actions={[<EditOutlined key={product._id} />]}
+                actions={[
+                  //esto es un ícono, pero no lanza a la ruta, si da tiempo después se configura
+                  // <EditOutlined key={"edit"} />,
+                  <Link to={`/product/${product._id}`}>Edit</Link>,
+                ]}
               >
-                <Link to={`/product/${product._id}`}>Edit</Link>
-                <Meta title={product.name} description={product._id} />
+                <Meta title={product.name} description={product.description} />
               </Card>
             </div>
           </Col>
