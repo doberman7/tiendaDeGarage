@@ -22,13 +22,13 @@ const Profile = ({ history }) => {
 
       <Link to="/editUser">
         <Button type="dashed" block>
-          Edit user{' '}
+          Edit User
         </Button>
       </Link>
       <Divider />
       <Link to="/createProduct">
         <Button type="dashed" block>
-          Create Product
+          Create a wish
         </Button>
       </Link>
     </Row>
