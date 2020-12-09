@@ -10,22 +10,25 @@ function EditProduct({
     params: { productId },
   },
 }) {
+  console.log('PARAMS:', productId);
   const [form] = Form.useForm();
   const history = useHistory();
   const [error, setError] = useState(null);
-  const [product, setItem] = useState(null);
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
     async function getDetails() {
       const { data } = await getProductDetailsFn(productId);
-      console.log(data);
-      setItem();
+      console.log('DATA:', data);
+      setProduct();
     }
     getDetails();
   }, []);
 
   async function handleEditProduct(values) {
     try {
+      //console.log(product)->null
+
       await editProductFn(product._id, values);
       history.push('/viewProducts');
     } catch (e) {
