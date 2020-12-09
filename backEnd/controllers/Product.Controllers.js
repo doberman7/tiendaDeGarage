@@ -110,7 +110,7 @@ exports.getUserProducts = async (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: e.message });
   } finally {
-    console.log('CONTROLLER ');
+    console.log('CONTROLLER getUserProducts');
   }
 };
 exports.getProductDetails = async (req, res) => {
@@ -122,6 +122,6 @@ exports.getProductDetails = async (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: e.message });
   } finally {
-    console.log('CONTROLLER ');
+    console.log('CONTROLLER getProductDetails');
   }
 };

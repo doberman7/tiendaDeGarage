@@ -32,6 +32,7 @@ export const getUserProductsFn = async () => {
 //NO PROBADAS
 export const getProductDetailsFn = async () => {
   const { data } = await authService.get('/get-product-details/${id}');
+  console.log(data);
   return data;
 };
 
