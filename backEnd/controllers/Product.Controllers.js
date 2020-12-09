@@ -1,5 +1,6 @@
 const Product = require('../models/Product.Model');
 const User = require('../models/User.Model');
+const log = require('chalk-animation');
 
 exports.createProcessProduct = async (req, res) => {
   try {
@@ -122,6 +123,6 @@ exports.getProductDetails = async (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: e.message });
   } finally {
-    console.log('CONTROLLER getProductDetails');
+    log.karaoke('CONTROLLER getProductDetails');
   }
 };

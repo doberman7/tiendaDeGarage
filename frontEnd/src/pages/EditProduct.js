@@ -20,14 +20,14 @@ function EditProduct({
     async function getDetails() {
       const { data } = await getProductDetailsFn(productId);
       console.log('DATA:', data);
-      setProduct();
+      setProduct(product);
     }
     getDetails();
   }, []);
 
   async function handleEditProduct(values) {
     try {
-      //console.log(product)->null
+      // console.log(product)//->null
 
       await editProductFn(product._id, values);
       history.push('/viewProducts');
