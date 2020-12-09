@@ -27,8 +27,6 @@ function EditProduct({
 
   async function handleEditProduct(values) {
     try {
-      // console.log(product)//->null
-
       await editProductFn(product._id, values);
       history.push('/viewProducts');
     } catch (e) {
@@ -40,6 +38,7 @@ function EditProduct({
   return (
     <>
       <h1>Update Product</h1>
+      {error && <p>{error}</p>}
       <Form form={form} layout="vertical" onFinish={handleEditProduct}>
         <Form.Item name="name" label="Name:">
           <Input placeholder={product ? product.name : 'cargando'} />
