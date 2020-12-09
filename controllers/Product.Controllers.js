@@ -54,7 +54,7 @@ exports.editProduct = async (req, res) => {
     const user = await User.findById(userId);
     const idProduct = req.params.productId;
     if (!name || !description) {
-      console.log("'add name and description'");
+      console.log("'Add name and description'");
       return res.status(500).json({ message: 'add name and description' });
     }
     if (picture) {
