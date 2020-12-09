@@ -58,7 +58,6 @@ exports.editProduct = async (req, res) => {
       return res.status(500).json({ message: 'add name and description' });
     }
     if (picture) {
-      console.log('entro');
       let newProduct = await Product.findByIdAndUpdate(
         idProduct,
         { name: name, picture: picture, description: description },
@@ -66,7 +65,6 @@ exports.editProduct = async (req, res) => {
       );
       return newProduct;
     } else {
-      console.log(123);
       let newProduct = await Product.findByIdAndUpdate(
         idProduct,
         { name: name, description: description },
@@ -74,12 +72,12 @@ exports.editProduct = async (req, res) => {
       );
       return newProduct;
     }
-    console.log(newProduct);
+
     if (!newProduct) {
       return res.status(400).json({ message: 'no product changes' });
     }
 
-    await Product.find({ idUser: userId }).populate('userCreator');
+    // await Product.find({ idUser: userId }).populate('userCreator');
     res.status(201).json({ message: 'Product edited' });
   } catch (e) {
     console.log(e.message);
