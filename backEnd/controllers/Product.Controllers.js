@@ -50,11 +50,9 @@ exports.editProduct = async (req, res) => {
   try {
     //si trae params, no body
     const { name, picture, description } = req.body;
-    console.log(req.body);
     const userId = req.session.passport.user;
     const user = await User.findById(userId);
-    const idProduct = req.params.id;
-
+    const idProduct = req.params.productId;
     if (!name || !description) {
       console.log("'add name and description'");
       return res.status(500).json({ message: 'add name and description' });
@@ -65,8 +63,9 @@ exports.editProduct = async (req, res) => {
       { name: name, picture: picture, description: description },
       { new: true }
     );
+
     if (!newProduct) {
-      return res.status(400).json({ message: 'no product exists' });
+      return res.status(400).json({ message: 'no product changes' });
     }
 
     await Product.find({ idUser: userId }).populate('userCreator');
