@@ -57,13 +57,24 @@ exports.editProduct = async (req, res) => {
       console.log("'add name and description'");
       return res.status(500).json({ message: 'add name and description' });
     }
-
-    let newProduct = await Product.findByIdAndUpdate(
-      idProduct,
-      { name: name, picture: picture, description: description },
-      { new: true }
-    );
-
+    if (picture) {
+      console.log('entro');
+      let newProduct = await Product.findByIdAndUpdate(
+        idProduct,
+        { name: name, picture: picture, description: description },
+        { new: true }
+      );
+      return newProduct;
+    } else {
+      console.log(123);
+      let newProduct = await Product.findByIdAndUpdate(
+        idProduct,
+        { name: name, description: description },
+        { new: true }
+      );
+      return newProduct;
+    }
+    console.log(newProduct);
     if (!newProduct) {
       return res.status(400).json({ message: 'no product changes' });
     }
