@@ -36,8 +36,9 @@ function EditProduct({
 
   return (
     <>
+      <h1>Update Product</h1>
       <Form form={form} layout="vertical" onFinish={handleEditProduct}>
-        <Form.Item name="title" label="Title:">
+        <Form.Item name="name" label="Name:">
           <Input placeholder={product} />
         </Form.Item>
 
