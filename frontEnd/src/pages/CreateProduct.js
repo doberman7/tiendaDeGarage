@@ -73,17 +73,16 @@ const CreateProduct = ({ history }) => {
       <Col span={24}>
         <Title level={1}>Create Product</Title>
         {error && <p>{error}</p>}
+        <p>Hi {user.email} fill the form to create a product you desire</p>
       </Col>
       <Divider />
       <Col span={24}>
         <Form layout="vertical" form={form} onFinish={handleCreateProduct}>
           <Form.Item name="name" label="Name:">
-            <Input
-              placeholder={
-                'add a name to you Product, will be vinculated to you email acount: ' +
-                user.email
-              }
-            />
+            <Input placeholder={'add a name to you Product'} />
+          </Form.Item>
+          <Form.Item name="description" label="Description:">
+            <Input placeholder={'Add description'} />
           </Form.Item>
           <Form.Item name="image" label="Image:">
             <Upload

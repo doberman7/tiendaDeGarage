@@ -46,7 +46,7 @@ const Profile = ({ history }) => {
                     <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
                   }
                   title={product.name}
-                  description="This is the description"
+                  description={product.description}
                 />
               </Card>
             </div>
