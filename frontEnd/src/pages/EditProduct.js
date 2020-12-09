@@ -42,11 +42,11 @@ function EditProduct({
       <h1>Update Product</h1>
       <Form form={form} layout="vertical" onFinish={handleEditProduct}>
         <Form.Item name="name" label="Name:">
-          <Input placeholder={product.name} />
+          <Input placeholder={product ? product.name : 'cargando'} />
         </Form.Item>
 
         <Form.Item name="description" label="Description:">
-          <Input placeholder={product.description} />
+          <Input placeholder={product ? product.description : 'cargando'} />
         </Form.Item>
 
         <Button type="primary" block size="middle" htmlType="submit">
