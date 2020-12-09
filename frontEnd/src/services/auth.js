@@ -30,13 +30,17 @@ export const getUserProductsFn = async () => {
   return data;
 };
 //NO PROBADAS
-export const getProductDetailsFn = async () => {
-  const { data } = await authService.get('/get-product-details/${id}');
-  console.log(data);
+export const getProductDetailsFn = async (idProduct) => {
+  const { data } = await authService.get(
+    `/product/get-product-details/${idProduct}`
+  );
   return data;
 };
 
-export const editProductFn = async () => {
-  const { data } = await authService.get('/product/edit-product');
+export const editProductFn = async (idProduct, productInfo) => {
+  const { data } = await authService.put(
+    `/product/product/edit-product/${idProduct}`,
+    productInfo
+  );
   return data;
 };
