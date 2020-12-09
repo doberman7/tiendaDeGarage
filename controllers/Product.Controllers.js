@@ -63,22 +63,21 @@ exports.editProduct = async (req, res) => {
         { name: name, picture: picture, description: description },
         { new: true }
       );
-      return newProduct;
+      res.status(201).json({ message: 'Product edited' });
     } else {
       let newProduct = await Product.findByIdAndUpdate(
         idProduct,
         { name: name, description: description },
         { new: true }
       );
-      return newProduct;
+      res.status(201).json({ message: 'Product edited' });
     }
 
     if (!newProduct) {
-      return res.status(400).json({ message: 'no product changes' });
+      res.status(400).json({ message: 'no product changes' });
     }
 
     // await Product.find({ idUser: userId }).populate('userCreator');
-    res.status(201).json({ message: 'Product edited' });
   } catch (e) {
     console.log(e.message);
     res.status(500).json({ message: e.message });
