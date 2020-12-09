@@ -117,7 +117,8 @@ exports.getUserProducts = async (req, res) => {
 exports.getProductDetails = async (req, res) => {
   try {
     const idUser = req.session.passport.user;
-    // const { products } = await User.findById(idUser).populate('products');
+    const { products } = await User.findById(idUser).populate('products');
+    console.log(products);
     res.status(200).json(products);
   } catch (e) {
     console.log(e.message);
