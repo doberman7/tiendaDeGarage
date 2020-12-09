@@ -31,13 +31,11 @@ const Profile = ({ history }) => {
       <Divider orientation="left">Products</Divider>
       <Row gutter={16}>
         {userProducts?.map((product) => (
-          <Col className="gutter-row" span={6}>
+          <Col className="gutter-row" span={6} key={product._id}>
             <div style={style}>
               <Card
                 cover={<img alt="example" src={product.picture} />}
                 actions={[
-                  //esto es un ícono, pero no lanza a la ruta, si da tiempo después se configura
-
                   <Link to={`/product/${product._id}`}>
                     <EditOutlined key={'edit'} />
                   </Link>,
