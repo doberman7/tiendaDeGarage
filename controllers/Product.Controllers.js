@@ -6,7 +6,6 @@ exports.createProcessProduct = async (req, res) => {
   try {
     const { image, name, description } = req.body;
     const userId = req.session.passport.user;
-    console.log(req.body);
     if (!image || !name) {
       console.log('Provide image and name');
       return res.status(400).json({ message: 'Provide image and name' });
@@ -49,14 +48,15 @@ exports.createProcessProduct = async (req, res) => {
 
 exports.editProduct = async (req, res) => {
   try {
+    //si trae params, no body
     const { name, picture, description } = req.body;
-
+    console.log(req.body);
     const userId = req.session.passport.user;
     const user = await User.findById(userId);
     const idProduct = req.params.id;
-    console.log(req.params);
 
-    if (!name || !picture) {
+    if (!name || !description) {
+      console.log("'add name and picture'");
       return res.status(500).json({ message: 'add name and picture' });
     }
 
