@@ -86,7 +86,8 @@ const CreateProduct = ({ history }) => {
           </Form.Item>
           <Form.Item name="image" label="Image:">
             <Upload
-              name="image"
+              name="avatar"
+              listType="picture-card"
               showUploadList={false}
               beforeUpload={handleUploadFile}
             >
