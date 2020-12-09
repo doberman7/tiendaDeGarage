@@ -86,9 +86,11 @@ const EditUser = ({ history }) => {
           </Form.Item>
           <Form.Item name="image" label="Image:">
             <Upload
-              name="image"
+              name="avatar"
+              listType="picture-card"
               showUploadList={false}
               beforeUpload={handleUploadFile}
+              className="avatar-uploader"
             >
               {img ? <img src={img} style={{ width: '100%' }} /> : uploadButton}
             </Upload>
