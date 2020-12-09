@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useContextInfo } from '../hooks/context';
 import { Redirect } from 'react-router-dom';
-import { Card } from 'antd';
+import { Card, Row, Divider, Col } from 'antd';
 import { getUserProductsFn } from '../services/auth';
+const style = { background: '#800080', padding: '10px' };
 
 const { Meta } = Card;
 
@@ -22,17 +23,21 @@ const Profile = ({ history }) => {
 
   return user ? (
     <div>
-      {userProducts?.map((product) => (
-        <Card
-          hoverable="hoverable"
-          style={{
-            width: 240,
-          }}
-          cover={<img alt="example" src={product.picture} />}
-        >
-          <Meta title={product.name} description="www.instagram.com" />
-        </Card>
-      ))}
+      <Divider orientation="left">Products</Divider>
+      <Row gutter={16}>
+        {userProducts?.map((product) => (
+          <Col className="gutter-row" span={6}>
+            <div style={style}>
+              <Card
+                hoverable="hoverable"
+                cover={<img alt="example" src={product.picture} />}
+              >
+                <Meta title={product.name} description="www.instagram.com" />
+              </Card>
+            </div>
+          </Col>
+        ))}
+      </Row>
     </div>
   ) : (
     <Redirect to="/" />
