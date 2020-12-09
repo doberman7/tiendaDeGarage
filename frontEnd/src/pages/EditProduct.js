@@ -10,9 +10,8 @@ function EditProduct({
     params: { productId },
   },
 }) {
-  // console.log('PARAMS:', productId);
   const [form] = Form.useForm();
-  const history = useHistory();
+  let history = useHistory();
   const [error, setError] = useState(null);
   const [product, setProduct] = useState(null);
 

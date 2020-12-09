@@ -33,7 +33,7 @@ const EditUser = ({ history }) => {
   async function handleEditUser(userInput) {
     try {
       //cómo ingresar la imagen la userInput, algo como, picture: image
-      console.log((userInput.image = img));
+      userInput.image = img;
       const { data } = await editProfileFn(userInput);
 
       //señalar que user ha sido actualizado
