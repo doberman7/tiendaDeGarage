@@ -23,10 +23,10 @@ const Router = () => {
       <ImageDemo />
       <Divider />
       <p>
-        La experciencia más amena en compras e intercambios de sillas, mesas,
-        trastos, aparatos electronicos, jarras vasos, plato, cucharas, tenedores
+        La experiencia más amena en compras e intercambios de sillas, mesas,
+        trastos, aparatos electronicos, jarras, vasos, plato, cucharas, tenedores
         reglas, lápizes, mochilas y demás chunches que puedas encontrar en tu
-        Gargage sólo aquí con MR GARAGE
+        garage sólo aquí con MR GARAGE
       </p>
       <Button type="primary" ghost>
         <Link to="/Signup">Sign up</Link>
