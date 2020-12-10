@@ -114,7 +114,9 @@ async function handleDelete(){
 
         <Form.Item name="image" label="Image:">
               <Upload
-                name="image"
+                name="avatar"
+                listType="picture-card"
+                className="avatar-uploader"
                 showUploadList={false}
                 beforeUpload={handleUploadFile}
               >
@@ -123,8 +125,8 @@ async function handleDelete(){
             </Form.Item>
 
         <Button type="primary" block size="middle" htmlType="submit">Update</Button>
+        <p></p>
         <Link to = "/MyItems">
-        <Button type="primary" size="small" htmlType="submit">Back</Button>
         <br />
           <Button
             type="ghost"
@@ -134,6 +136,7 @@ async function handleDelete(){
              danger
              block >Delete</Button>
         </Link>
+
       </Form>
     </>
 ):(
