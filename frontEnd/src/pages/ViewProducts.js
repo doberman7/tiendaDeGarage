@@ -1,18 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { useContextInfo } from '../hooks/context';
 import { Redirect, Link } from 'react-router-dom';
-import { Card, Row, Divider, Col, Avatar } from 'antd';
+import {
+  Card,
+  Row,
+  Divider,
+  Col,
+  Avatar,
+  notification,
+  Space,
+  Button,
+} from 'antd';
 import { getUserProductsFn } from '../services/auth';
 import {
   EditOutlined,
   EllipsisOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-
+import {
+  RadiusUpleftOutlined,
+  RadiusUprightOutlined,
+  RadiusBottomleftOutlined,
+  RadiusBottomrightOutlined,
+} from '@ant-design/icons';
 const style = { background: '#800080', padding: '10px' };
 const { Meta } = Card;
-
-const Profile = ({ history }) => {
+const openNotification = (message) => {
+  notification.info({
+    message: `${message}`,
+    description: message,
+  });
+};
+const ViewProducts = ({ history }) => {
   const { user } = useContextInfo();
 
   const [userProducts, setProducts] = useState(null);
@@ -29,6 +48,10 @@ const Profile = ({ history }) => {
   return user ? (
     <div>
       <Divider orientation="left">Products</Divider>
+      <Button type="primary" onClick={() => openNotification('bottomRight')}>
+        <RadiusBottomrightOutlined />
+        bottomRight
+      </Button>
       <Row gutter={16}>
         {userProducts?.map((product) => (
           <Col className="gutter-row" span={6} key={product._id}>
@@ -54,4 +77,4 @@ const Profile = ({ history }) => {
   );
 };
 
-export default Profile;
+export default ViewProducts;

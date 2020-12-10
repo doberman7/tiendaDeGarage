@@ -48,7 +48,6 @@ exports.createProcessProduct = async (req, res) => {
 
 exports.editProduct = async (req, res) => {
   try {
-    //si trae params, no body
     const { name, image, description } = req.body;
     const userId = req.session.passport.user;
     const user = await User.findById(userId);
