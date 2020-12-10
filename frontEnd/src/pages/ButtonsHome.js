@@ -21,6 +21,7 @@ const Router = () => {
     <div className="site-button-ghost-wrapper">
       <h1>Mr Garage</h1>
       <ImageDemo />
+      <Divider />
       <p>
         La experciencia más amena en compras e intercambios de sillas, mesas,
         trastos, aparatos electronicos, jarras vasos, plato, cucharas, tenedores
