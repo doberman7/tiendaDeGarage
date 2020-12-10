@@ -1,9 +1,7 @@
 import axios from 'axios';
 
 const baseURL =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000/auth'
-    : '/auth';
+  process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '/';
 const authService = axios.create({
   baseURL,
   withCredentials: true,
