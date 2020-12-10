@@ -57,25 +57,21 @@ exports.editProduct = async (req, res) => {
       console.log("'Add name and description'");
       return res.status(500).json({ message: 'add name and description' });
     }
-    console.log(req.body);
     if (image) {
-      let newProduct = await Product.findByIdAndUpdate(
+      await Product.findByIdAndUpdate(
         idProduct,
         { name: name, picture: image, description: description },
         { new: true }
       );
+
       res.status(201).json({ message: 'Product edited' });
     } else {
-      let newProduct = await Product.findByIdAndUpdate(
+      await Product.findByIdAndUpdate(
         idProduct,
         { name: name, description: description },
         { new: true }
       );
       res.status(201).json({ message: 'Product edited' });
-    }
-
-    if (!newProduct) {
-      res.status(400).json({ message: 'no product updated' });
     }
 
     // await Product.find({ idUser: userId }).populate('userCreator');
@@ -133,6 +129,6 @@ exports.getProductDetails = async (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: e.message });
   } finally {
-    log.glitch('CONTROLLER getProductDetails');
+    console.log('CONTROLLER getProductDetails');
   }
 };
