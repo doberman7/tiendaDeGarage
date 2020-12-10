@@ -2,12 +2,14 @@ import React from 'react'
 import { Card, Avatar, Typography } from 'antd'
 import { Link } from 'react-router-dom'
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import CreateItemForm from "../pages/itemForm"
 
 const { Meta } = Card;
+const { Title } = Typography
 
-function ItemCard ({ title, description, price, image,_id, category, status}) {
+function ItemCard ({ title, description, price, image, _id, category, status}) {
 
-return(
+return (
   <Card
     style={{ width: 300 }}
     cover={
@@ -24,8 +26,10 @@ return(
   >
     <Meta
       avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-      title="Card title"
-      description="This is the description"
+      title={title}
+      description="description"
+      status="status"
+
     />
   </Card>
   )
