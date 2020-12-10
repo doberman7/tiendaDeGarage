@@ -48,10 +48,10 @@ const ViewProducts = ({ history }) => {
   return user ? (
     <div>
       <Divider orientation="left">Products</Divider>
-      <Button type="primary" onClick={() => openNotification('bottomRight')}>
+      {/* <Button type="primary" onClick={() => openNotification('bottomRight')}>
         <RadiusBottomrightOutlined />
         bottomRight
-      </Button>
+      </Button> */}
       <Row gutter={16}>
         {userProducts?.map((product) => (
           <Col className="gutter-row" span={6} key={product._id}>
