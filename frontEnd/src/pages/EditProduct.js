@@ -3,7 +3,11 @@ import { useHistory } from 'react-router-dom';
 // import { useContextInfo } from '../hooks/context';
 import { editProductFn } from '../services/auth';
 import { getProductDetailsFn } from '../services/auth';
-import { Form, Button, Input, Alert } from 'antd';
+import { Form, Button, Input, Alert, Upload } from 'antd';
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import axios from 'axios';
+const cloudinaryAPI =
+  'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
 
 function EditProduct({
   match: {
@@ -14,11 +18,14 @@ function EditProduct({
   let history = useHistory();
   const [error, setError] = useState(null);
   const [product, setProduct] = useState(null);
+  //esto para la imagen
+  const [img, setImg] = useState(null);
+  const [loading, setLoading] = useState(null);
 
   useEffect(() => {
     async function getDetails() {
       const data = await getProductDetailsFn(productId);
-      // console.log('DATA:', data);
+
       setProduct(data);
     }
     getDetails();
@@ -26,7 +33,8 @@ function EditProduct({
 
   async function handleEditProduct(values) {
     try {
-      //ACA el error
+      values.image = img;
+
       await editProductFn(product._id, values);
       history.push('/viewProducts');
     } catch (e) {
@@ -34,7 +42,26 @@ function EditProduct({
       setError(e.response.data.message);
     }
   }
+  async function handleUploadFile(file) {
+    setLoading(true);
+    const data = new FormData();
 
+    data.append('file', file);
+    data.append('upload_preset', 'uploadfilestiendaDeGarage');
+
+    const {
+      data: { secure_url },
+    } = await axios.post(cloudinaryAPI, data);
+
+    setImg(secure_url);
+    setLoading(false);
+  }
+  const uploadButton = (
+    <div>
+      {loading ? <LoadingOutlined /> : <PlusOutlined />}
+      <div style={{ marginTop: 8 }}>Upload</div>
+    </div>
+  );
   return (
     <>
       <h1>Update Product</h1>
@@ -46,6 +73,18 @@ function EditProduct({
 
         <Form.Item name="description" label="Description:">
           <Input placeholder={product ? product.description : 'cargando'} />
+        </Form.Item>
+
+        <Form.Item name="image" label="Image:">
+          <Upload
+            name="avatar"
+            listType="picture-card"
+            showUploadList={false}
+            beforeUpload={handleUploadFile}
+            className="avatar-uploader"
+          >
+            {img ? <img src={img} style={{ width: '100%' }} /> : uploadButton}
+          </Upload>
         </Form.Item>
 
         <Button type="primary" block size="middle" htmlType="submit">
