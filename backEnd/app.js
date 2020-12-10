@@ -27,7 +27,7 @@ mongoose
   .catch((err) => {
     console.error('Error connecting to mongo', err);
   });
-
+//
 const app_name = require('./package.json').name;
 const debug = require('debug')(
   `${app_name}:${path.basename(__filename).split('.')[0]}`
@@ -57,13 +57,13 @@ require('./config/session')(app);
 
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
-const itemRoutes = require("./routes/itemRoutes")
+const itemRoutes = require('./routes/itemRoutes');
 //usar el buiild
 app.use(express.static(path.join(__dirname, 'public/build')));
 
 app.use('/', userRoutes);
 app.use('/product', productRoutes);
-app.use("/item", itemRoutes)
+app.use('/item', itemRoutes);
 //si no haya otras rutas, usa esta
 app.get('*', (req, res) => {
   res.sendFile(`${__dirname}/public/build/index.html`);
