@@ -11,7 +11,7 @@ function ImageDemo() {
   return (
     <Image
       width={400}
-      src="https://cdn.ramseysolutions.net/media/common_images/article_images/blog_ai_lg/blog_ai_lg_yard_sale_types.jpg"
+      src="https://www.itl.cat/pngfile/big/327-3275501_second-hand-furniture-stores-guide-elegant-garage-sale.jpg"
     />
   );
 }
@@ -22,9 +22,10 @@ const Router = () => {
       <h1>Mr Garage</h1>
       <ImageDemo />
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
-        merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen,
-        quo modo.
+        La experciencia más amena en compras e intercambios de sillas, mesas,
+        trastos, aparatos electronicos, jarras vasos, plato, cucharas, tenedores
+        reglas, lápizes, mochilas y demás chunches que puedas encontrar en tu
+        Gargage sólo aquí con MR GARAGE
       </p>
       <Button type="primary" ghost>
         <Link to="/Signup">Sign up</Link>
