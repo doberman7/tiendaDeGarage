@@ -7,15 +7,14 @@ const ItemSchema = new Schema({
   title:String,
   description:String,
   image:String,
-  price:[Number],
-  category:[String].
+  price:Number,
+  category:[String],
   status:{
     type:String,
-    enum:["Sold","Available","Down-Paid"]
-    }
+    enum:["sold","available"]
   }
 }, {
   timestamps: true
 })
 
-module.exports = model("Item", userSchema)
+module.exports = model("Item", ItemSchema)

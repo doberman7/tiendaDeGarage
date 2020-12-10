@@ -7,15 +7,15 @@ import Profile from './pages/Profile';
 import ViewProducts from './pages/ViewProducts';
 import EditProduct from './pages/EditProduct';
 import './Router.css';
-
 import ButtonsHome from './pages/ButtonsHome';
 import EditUser from './pages/EditUser';
 import CreateProduct from './pages/CreateProduct';
+import MyItems from "./pages/MyItems" //añado items del usuario
+import CreateItemForm from "./pages/itemForm" //añado formulario de items del usuario
+import EditItem from "./pages/EditItem" //añado edicion del formulario del usuario
 
-// const Login = () => <h1>Login</h1>
-// const Signup = () => <h1>Signup</h1>
-// const Profile = () => <h1>Profile</h1>
 
+//añado createItemForm,MyItems y Edit Item
 const Router = () => {
   return (
     <BrowserRouter>
@@ -29,6 +29,9 @@ const Router = () => {
           <Route path="/profile" component={Profile} exact />
           <Route path="/viewProducts" component={ViewProducts} exact />
           <Route path="/product/:productId" component={EditProduct} exact />
+          <Route path="/itemForm" component={CreateItemForm} exact />
+          <Route path="/MyItems" component={MyItems} exact />
+          <Route path="/item/:itemId" component={EditItem} exact />
         </Switch>
       </LayoutApp>
     </BrowserRouter>
