@@ -8,6 +8,7 @@ import {
   Typography,
   Divider,
   Upload,
+  Alert,
 } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
@@ -72,8 +73,12 @@ const CreateProduct = ({ history }) => {
     <Row>
       <Col span={24}>
         <Title level={1}>Create Product</Title>
-        {error && <p>{error}</p>}
-        <p>Hi {user.email} fill the form to create a product you desire</p>
+
+        <p>
+          Hi user with the email {user.email} fill the form to create a product
+          you desire
+        </p>
+        {error && <Alert message={error} type="error" />}
       </Col>
       <Divider />
       <Col span={24}>
