@@ -10,6 +10,7 @@ import {
   notification,
   Space,
   Button,
+  Image,
 } from 'antd';
 import { getUserProductsFn } from '../services/auth';
 import {
@@ -45,6 +46,14 @@ const ViewProducts = ({ history }) => {
     getProducts();
   }, []);
 
+  function ImageDemo() {
+    return (
+      <Image
+        width={200}
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+      />
+    );
+  }
   return user ? (
     <div>
       <Divider orientation="left">Products</Divider>
@@ -57,7 +66,7 @@ const ViewProducts = ({ history }) => {
           <Col className="gutter-row" span={6} key={product._id}>
             <div style={style}>
               <Card
-                cover={<img alt="example" src={product.picture} />}
+                cover={<Image src={product.picture} />}
                 actions={[
                   <Link to={`/product/${product._id}`}>
                     <EditOutlined key={'edit'} />
