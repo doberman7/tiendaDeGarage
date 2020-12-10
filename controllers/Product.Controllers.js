@@ -49,7 +49,7 @@ exports.createProcessProduct = async (req, res) => {
 exports.editProduct = async (req, res) => {
   try {
     //si trae params, no body
-    const { name, picture, description } = req.body;
+    const { name, image, description } = req.body;
     const userId = req.session.passport.user;
     const user = await User.findById(userId);
     const idProduct = req.params.productId;
@@ -57,10 +57,11 @@ exports.editProduct = async (req, res) => {
       console.log("'Add name and description'");
       return res.status(500).json({ message: 'add name and description' });
     }
-    if (picture) {
+    console.log(req.body);
+    if (image) {
       let newProduct = await Product.findByIdAndUpdate(
         idProduct,
-        { name: name, picture: picture, description: description },
+        { name: name, picture: image, description: description },
         { new: true }
       );
       res.status(201).json({ message: 'Product edited' });
@@ -74,7 +75,7 @@ exports.editProduct = async (req, res) => {
     }
 
     if (!newProduct) {
-      res.status(400).json({ message: 'no product changes' });
+      res.status(400).json({ message: 'no product updated' });
     }
 
     // await Product.find({ idUser: userId }).populate('userCreator');
