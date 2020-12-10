@@ -39,7 +39,7 @@ const LayoutApp = ({ children }) => {
                 Logout
               </Menu.Item>
               <Menu.Item key="6">
-                <Link to="/viewProducts">View Products</Link>
+                <Link to="/viewProducts">Wishes</Link>
               </Menu.Item>
             </React.Fragment>
           )}

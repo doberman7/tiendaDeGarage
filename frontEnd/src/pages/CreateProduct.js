@@ -72,7 +72,7 @@ const CreateProduct = ({ history }) => {
   return user ? (
     <Row>
       <Col span={24}>
-        <Title level={1}>Create Product</Title>
+        <Title level={1}>Create Wish</Title>
 
         <p>
           Hi user with the email {user.email} fill the form to create a product
@@ -84,7 +84,7 @@ const CreateProduct = ({ history }) => {
       <Col span={24}>
         <Form layout="vertical" form={form} onFinish={handleCreateProduct}>
           <Form.Item name="name" label="Name:">
-            <Input placeholder={'add a name to you Product'} />
+            <Input placeholder={'add a name to you Wish'} />
           </Form.Item>
           <Form.Item name="description" label="Description:">
             <Input placeholder={'Add description'} />

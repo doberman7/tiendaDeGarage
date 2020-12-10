@@ -56,7 +56,7 @@ const ViewProducts = ({ history }) => {
   }
   return user ? (
     <div>
-      <Divider orientation="left">Products</Divider>
+      <Divider orientation="left">Wishes</Divider>
       {/* <Button type="primary" onClick={() => openNotification('bottomRight')}>
         <RadiusBottomrightOutlined />
         bottomRight
