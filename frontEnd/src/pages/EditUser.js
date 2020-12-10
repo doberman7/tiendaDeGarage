@@ -8,6 +8,7 @@ import {
   Typography,
   Divider,
   Upload,
+  Alert,
 } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
@@ -73,7 +74,7 @@ const EditUser = ({ history }) => {
     <Row>
       <Col span={24}>
         <Title level={1}>Edit User</Title>
-        {error && <p>{error}</p>}
+        {error && <Alert message={error} type="error" />}
       </Col>
       <Divider />
       <Col span={24}>
