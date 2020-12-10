@@ -23,8 +23,16 @@ function CreateItemForm({history}) {
 
     Object.entries(values).map(val=> {
 
-      if (val[1] === undefined){ message.error(`Add ${val[0].toUpperCase()} field is empty`)
+      if (val[1] === undefined){
+         message.error(`Add ${val[0].toUpperCase()} field is empty`)
       send= false
+      }
+       if ( val[0]== "price" ) {
+         let valor = Number(val[1])
+          console.log(typeof valor)
+          if (typeof valor !== "number"){
+         send = false
+        }
       }
     })
     if(send){

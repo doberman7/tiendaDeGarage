@@ -33,12 +33,19 @@ useEffect(() => {
 
   async function handleEditItem(values) {
     let send = true
+  
     Object.entries(values).map(val => {
       if (val[1] === undefined){
         message.error(`add ${val[0].toUpperCase()} field is empty`)
           send = false
       }
-      console.log(send)
+      if ( val[0]== "price" ) {
+        let valor = Number(val[1])
+         console.log(typeof valor)
+         if (typeof valor !== "number"){
+        send = false
+       }
+     }
     })
     if(send){
       try {

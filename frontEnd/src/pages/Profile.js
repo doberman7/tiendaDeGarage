@@ -32,7 +32,7 @@ const Profile = ({ history }) => {
         </Button>
       </Link>
       <Button type="dashed"><Link to ="/itemForm">createItem</Link></Button>
-      <Button type="primary"><Link to ="/MyItems">My Items</Link></Button>
+
     </Row>
   ) : (
     <Redirect to="/" />
