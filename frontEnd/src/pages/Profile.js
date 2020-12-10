@@ -31,6 +31,7 @@ const Profile = ({ history }) => {
           Create a wish
         </Button>
       </Link>
+      <Divider />
       <Button type="dashed"><Link to ="/itemForm">createItem</Link></Button>
 
     </Row>
