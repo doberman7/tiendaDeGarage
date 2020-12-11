@@ -32,8 +32,9 @@ const Profile = ({ history }) => {
         </Button>
       </Link>
       <Divider />
-      <Button type="dashed"><Link to ="/itemForm">createItem</Link></Button>
-
+      <Button type="dashed">
+        <Link to="/itemForm">Create an Item</Link>
+      </Button>
     </Row>
   ) : (
     <Redirect to="/" />
