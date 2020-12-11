@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { Form, Button, Input, InputNumber, Select, Upload,message } from 'antd'
+import { Form, Button, Input, InputNumber, Select, Upload,message,Alert } from 'antd'
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 //import UserItems from "./myItems"
 import {createItem} from "../services/Items"
@@ -28,8 +28,9 @@ function CreateItemForm({history}) {
       send= false
       }
        if ( val[0]== "price" ) {
+         setError("All the fields must be filled and the price must have numbers,not letters!");
+         console.log(error)
          let valor = Number(val[1])
-          console.log(typeof valor)
           if (typeof valor !== "number"){
          send = false
         }
@@ -37,9 +38,7 @@ function CreateItemForm({history}) {
     })
     if(send){
     values.image = img
-    console.log(values)
    await createItem(values)
-    console.log(img)
     history.push("/MyItems")
     }
   }
@@ -76,6 +75,7 @@ function CreateItemForm({history}) {
 <>
     <Form layout="vertical" onFinish={handleFormSubmit}>
     <h1>Create your item!</h1>
+    {error && <Alert message={error} type="error" />}
       <Form.Item name="title" label="Title:">
         <Input />
       </Form.Item>
