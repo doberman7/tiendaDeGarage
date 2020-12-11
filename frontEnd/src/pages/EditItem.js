@@ -33,15 +33,16 @@ useEffect(() => {
 
   async function handleEditItem(values) {
     let send = true
-  
+
     Object.entries(values).map(val => {
       if (val[1] === undefined){
         message.error(`add ${val[0].toUpperCase()} field is empty`)
           send = false
       }
       if ( val[0]== "price" ) {
+        setError("All the fields must be filled and the price must have numbers,not letters!");
+
         let valor = Number(val[1])
-         console.log(typeof valor)
          if (typeof valor !== "number"){
         send = false
        }
@@ -95,7 +96,8 @@ async function handleDelete(){
     return item ?  (
   <>
       <Form form={form} layout="vertical" onFinish={handleEditItem}>
-
+        <h1>Edit your item</h1>
+  {error && <Alert message={error} type="error" />}
         <Form.Item name="title" label="Title:">
           <Input placeholder={item.title} />
         </Form.Item>

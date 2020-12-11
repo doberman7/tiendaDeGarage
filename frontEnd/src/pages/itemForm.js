@@ -29,7 +29,6 @@ function CreateItemForm({history}) {
       }
        if ( val[0]== "price" ) {
          setError("All the fields must be filled and the price must have numbers,not letters!");
-         console.log(error)
          let valor = Number(val[1])
           if (typeof valor !== "number"){
          send = false
