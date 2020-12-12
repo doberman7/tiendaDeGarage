@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch, Link, Redirect } from 'react-router-dom';
-import Signup from '../pages/Signup';
-import Login from '../pages/Login';
+import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
+
 import '../Router.css';
 import { Button } from 'antd';
 import { Divider } from 'antd';
@@ -24,9 +23,9 @@ const Router = () => {
       <Divider />
       <p>
         La experiencia más amena en compras e intercambios de sillas, mesas,
-        trastos, aparatos electronicos, jarras, vasos, plato, cucharas, tenedores
-        reglas, lápizes, mochilas y demás chunches que puedas encontrar en tu
-        garage sólo aquí con MR GARAGE
+        trastos, aparatos electronicos, jarras, vasos, plato, cucharas,
+        tenedores reglas, lápizes, mochilas y demás chunches que puedas
+        encontrar en tu garage sólo aquí con MR GARAGE
       </p>
       <Button type="primary" ghost>
         <Link to="/Signup">Sign up</Link>
@@ -35,6 +34,7 @@ const Router = () => {
       <Button type="primary" ghost>
         <Link to="/Login">Login</Link>
       </Button>
+      <a href="/auth/google">Login With Google</a>
     </div>
   ) : (
     <Redirect to="/profile" />
