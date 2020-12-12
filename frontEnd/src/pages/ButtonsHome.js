@@ -19,6 +19,7 @@ const Router = () => {
   return !user ? (
     <div className="site-button-ghost-wrapper">
       <h1>Mr Garage</h1>
+
       <ImageDemo />
       <Divider />
       <p>
@@ -34,7 +35,7 @@ const Router = () => {
       <Button type="primary" ghost>
         <Link to="/Login">Login</Link>
       </Button>
-      <a href="/auth/google">Login With Google</a>
+      <Divider />
     </div>
   ) : (
     <Redirect to="/profile" />

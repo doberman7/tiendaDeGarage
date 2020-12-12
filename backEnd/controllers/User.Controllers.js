@@ -136,3 +136,21 @@ exports.currentUser = (req, res) => {
   // console.log('currentUser', req.user);
   res.json(req.user || null);
 };
+
+exports.googleProcess = (req, res) => {
+  console.log(123);
+  passport.authenticate('google', {
+    scope: ['profile', 'email'],
+  });
+};
+
+exports.googleRedirect = (req, res, next) => {
+  passport.authenticate('google', { scope: ['email'] }, (err, user, info) => {
+    if (err) return res.status(500).json({ err, info });
+    if (!user) return res.status(401).json({ err, info });
+    req.login(user, (error) => {
+      if (error) return res.status(401).json({ error });
+      return res.status(401).json({ error });
+    });
+  })(req, res, next);
+};

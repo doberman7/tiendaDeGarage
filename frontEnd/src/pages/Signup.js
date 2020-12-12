@@ -4,6 +4,10 @@ import { signupFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
 
 const { Title } = Typography;
+const googleUrl =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000/google'
+    : '/google';
 
 const Signup = ({ history }) => {
   const [form] = Form.useForm();
@@ -41,6 +45,14 @@ const Signup = ({ history }) => {
           <Button type="primary" htmlType="submit">
             Signup
           </Button>
+          <Divider />
+          <a href={googleUrl}>
+            <img
+              alt=""
+              src="https://www.drupal.org/files/issues/2020-01-26/google_logo.png"
+              style={{ width: '20%', height: 'auto' }}
+            />
+          </a>
         </Form>
       </Col>
     </Row>
