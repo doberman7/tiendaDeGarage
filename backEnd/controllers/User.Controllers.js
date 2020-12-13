@@ -153,15 +153,18 @@ exports.googleCallback = (req, res, next) => {
 
     if (!user) res.status(401).json({ err, errDetails });
     console.log(user);
-    console.log(req.body);
+    //usar login de passport
     req.login(user, (err) => {
-      console.log('ERROR:', err);
-      if (err) res.status(500).json({ err });
-
+      //si hay error devolver 500
+      if (err) {
+        console.log('ERROR:', err);
+        res.status(500).json({ err }).json({ message: err.message });
+      }
+      //todo salio bien? redirigir a al profile
       return res.redirect(
         process.env.ENV === 'development'
-          ? 'http://localhost:3001/signup'
-          : '/signup'
+          ? 'http://localhost:3001/profile'
+          : '/profile'
       );
     });
   })(req, res, next);
