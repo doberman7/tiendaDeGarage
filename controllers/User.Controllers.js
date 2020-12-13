@@ -144,13 +144,30 @@ exports.googleProcess = passport.authenticate('google', {
   ],
 });
 
-exports.googleRedirect = (req, res, next) => {
-  passport.authenticate('google', { scope: ['email'] }, (err, user, info) => {
-    if (err) return res.status(500).json({ err, info });
-    if (!user) return res.status(401).json({ err, info });
-    req.login(user, (error) => {
-      if (error) return res.status(401).json({ error });
-      return res.status(401).json({ error });
+exports.googleCb = (req, res, next) => {
+  passport.authenticate('google', (err, user, errDetails) => {
+    //si hay error regresa un 500 con errores
+    if (err) return res.status(500).json({ err, errDetails });
+    //si no usuario, regresa un 401 y errores
+    if (!user) return res.status(401).json({ err, errDetails });
+
+    req.login(user, (err) => {
+      if (err) return res.status(500).json({ err });
+
+      // if (user.exercise === '') {
+      //   console.log('user: ', user);
+      //   return res.redirect(
+      //     process.env.ENV === 'development'
+      //       ? 'http://localhost:3001/new-user-form' //->signup
+      //       : '/new-user-form'
+      //   );
+      // } else {
+      //   return res.redirect(
+      //     process.env.ENV === 'development'
+      //       ? 'http://localhost:3001/dashboard' //->profile
+      //       : '/dashboard'
+      //   );
+      // }
     });
   })(req, res, next);
 };
