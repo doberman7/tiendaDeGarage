@@ -144,7 +144,7 @@ exports.googleProcess = passport.authenticate('google', {
   ],
 });
 
-exports.googleCb = (req, res, next) => {
+exports.googleCallback = (req, res, next) => {
   passport.authenticate('google', (err, user, errDetails) => {
     //si hay error regresa un 500 con errores
     if (err) return res.status(500).json({ err, errDetails });
