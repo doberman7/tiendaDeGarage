@@ -137,13 +137,12 @@ exports.currentUser = (req, res) => {
   res.json(req.user || null);
 };
 
-exports.googleProcess = (req, res) => {
-  console.log(123);
-  passport.authenticate('google', {
-    scope: ['profile', 'email'],
-  });
-  res.status(200).json({ messaje: 'Google' });
-};
+exports.googleProcess = passport.authenticate('google', {
+  scope: [
+    'https://www.googleapis.com/auth/userinfo.profile',
+    'https://www.googleapis.com/auth/userinfo.email',
+  ],
+});
 
 exports.googleRedirect = (req, res, next) => {
   passport.authenticate('google', { scope: ['email'] }, (err, user, info) => {
