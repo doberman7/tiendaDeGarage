@@ -13,7 +13,7 @@ const {
   deleteProfile,
   currentUser,
   googleProcess,
-  googleCb,
+  googleCallback,
 } = require('../controllers/User.Controllers');
 const uploadPicture = require('../config/cloudinary');
 
@@ -32,6 +32,6 @@ router.get('/deleteProfile', deleteProfile);
 router.get('/current-user', currentUser);
 
 router.get('/google', googleProcess);
-router.get('/google/callback', googleCb);
+router.get('/google/callback', googleCallback);
 
 module.exports = router;
