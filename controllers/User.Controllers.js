@@ -147,27 +147,22 @@ exports.googleProcess = passport.authenticate('google', {
 exports.googleCallback = (req, res, next) => {
   passport.authenticate('google', (err, user, errDetails) => {
     //si hay error regresa un 500 con errores
-    if (err) return res.status(500).json({ err, errDetails });
+
+    if (err) res.status(500).json({ err, errDetails });
     //si no usuario, regresa un 401 y errores
-    if (!user) return res.status(401).json({ err, errDetails });
 
+    if (!user) res.status(401).json({ err, errDetails });
+    console.log(user);
+    console.log(req.body);
     req.login(user, (err) => {
-      if (err) return res.status(500).json({ err });
+      console.log('ERROR:', err);
+      if (err) res.status(500).json({ err });
 
-      // if (user.exercise === '') {
-      //   console.log('user: ', user);
-      //   return res.redirect(
-      //     process.env.ENV === 'development'
-      //       ? 'http://localhost:3001/new-user-form' //->signup
-      //       : '/new-user-form'
-      //   );
-      // } else {
-      //   return res.redirect(
-      //     process.env.ENV === 'development'
-      //       ? 'http://localhost:3001/dashboard' //->profile
-      //       : '/dashboard'
-      //   );
-      // }
+      return res.redirect(
+        process.env.ENV === 'development'
+          ? 'http://localhost:3001/signup'
+          : '/signup'
+      );
     });
   })(req, res, next);
 };
