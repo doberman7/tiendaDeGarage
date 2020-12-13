@@ -142,6 +142,7 @@ exports.googleProcess = (req, res) => {
   passport.authenticate('google', {
     scope: ['profile', 'email'],
   });
+  res.status(200).json({ messaje: 'Google' });
 };
 
 exports.googleRedirect = (req, res, next) => {
