@@ -25,7 +25,7 @@ router.post('/signup', signupProcessUser);
 // router.get('/login', loginView)
 router.post('/login', loginProcess);
 // router.get('/profile', profileView)
-router.post('/profile-picture', uploadPicture.single('image'), profilePicture);
+// router.post('/profile-picture', uploadPicture.single('image'), profilePicture);
 router.get('/logout', logout);
 router.put('/editProfile', editProfile);
 router.get('/deleteProfile', deleteProfile);
