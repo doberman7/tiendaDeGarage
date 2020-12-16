@@ -134,21 +134,21 @@ exports.editProfile = async (req, res) => {
         }
       );
       res.status(202).json(user);
-      //update password
-      if (password) {
-        const salt = bcrypt.genSaltSync(12);
-        const hashPass = bcrypt.hashSync(password, salt);
-        const user = await User.findByIdAndUpdate(
-          userId,
-          {
-            password: hashPass,
-          },
-          {
-            new: true,
-          }
-        );
-        res.status(202).json(user);
-      }
+    }
+    //update password
+    if (password) {
+      const salt = bcrypt.genSaltSync(12);
+      const hashPass = bcrypt.hashSync(password, salt);
+      const user = await User.findByIdAndUpdate(
+        userId,
+        {
+          password: hashPass,
+        },
+        {
+          new: true,
+        }
+      );
+      res.status(202).json(user);
     }
   } catch (e) {
     console.log(e.message);
