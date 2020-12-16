@@ -82,8 +82,13 @@ const EditUser = ({ history }) => {
           <Form.Item name="email" label="Email:">
             <Input placeholder={user.email} />
           </Form.Item>
+
           <Form.Item name="name" label="Name:">
             <Input placeholder={user.name} />
+          </Form.Item>
+
+          <Form.Item name="password" label="Password:">
+            <Input.Password />
           </Form.Item>
 
           <Form.Item name="image" label="Image:">
