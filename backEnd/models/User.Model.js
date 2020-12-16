@@ -8,13 +8,16 @@ const userSchema = new Schema(
       required: true,
     },
     password: String,
-    items:[{
-      type:Schema.Types.ObjectId,
-      ref:"Item"
-    }],
+    items: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Item',
+      },
+    ],
     name: {
       type: String,
       trim: true,
+      default: 'New User',
     },
     picture: {
       type: String,
