@@ -5,7 +5,7 @@ const {
   signupView,
   loginView,
   profilePicture,
-  profileView,
+  // profileView,
   loginProcess,
   signupProcessUser,
   logout,

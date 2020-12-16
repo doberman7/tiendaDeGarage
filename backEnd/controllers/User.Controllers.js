@@ -92,33 +92,69 @@ exports.profilePicture = (req, res) => {
 
 exports.editProfile = async (req, res) => {
   try {
-    const { email, password, image } = req.body;
-    // console.log(req.body);
-    //obtener userId
+    //obtener info del form
+    const { email, password, image, name } = req.body;
+    //obtener user ID
     const userId = req.session.passport.user;
-    if (!email || !password) {
-      return res.status(500).json({ message: 'write email and password' });
+    //update email
+    if (email) {
+      const user = await User.findByIdAndUpdate(
+        userId,
+        {
+          email,
+        },
+        {
+          new: true,
+        }
+      );
+      res.status(202).json(user);
     }
-    const salt = bcrypt.genSaltSync(12);
-    const hashPass = bcrypt.hashSync(password, salt);
-    const user = await User.findByIdAndUpdate(
-      userId,
-      {
-        email,
-        password: hashPass,
-        picture: image,
-      },
-      {
-        new: true,
+    //update image
+    if (image) {
+      const user = await User.findByIdAndUpdate(
+        userId,
+        {
+          picture: image,
+        },
+        {
+          new: true,
+        }
+      );
+      res.status(202).json(user);
+    }
+    //update name
+    if (name) {
+      const user = await User.findByIdAndUpdate(
+        userId,
+        {
+          name: name,
+        },
+        {
+          new: true,
+        }
+      );
+      res.status(202).json(user);
+      //update password
+      if (password) {
+        const salt = bcrypt.genSaltSync(12);
+        const hashPass = bcrypt.hashSync(password, salt);
+        const user = await User.findByIdAndUpdate(
+          userId,
+          {
+            password: hashPass,
+          },
+          {
+            new: true,
+          }
+        );
+        res.status(202).json(user);
       }
-    );
-    res.status(202).json(user);
-    // res.send('profile', user);
+    }
   } catch (e) {
     console.log(e.message);
     res.status(500).json({ message: e.message });
   } finally {
-    console.log('Route editProfile');
+    console.log('CONTROLLER Route editProfile');
   }
 };
 

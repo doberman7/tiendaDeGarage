@@ -12,10 +12,12 @@ const Profile = ({ history }) => {
         <Typography.Title level={3}>
           <Avatar src={user.picture} />
           <br></br>
-          Profile: {user.email}
+          Name: {user.name}
           <br></br>
-          ID: {user._id}
+          Email: {user.email}
           <br></br>
+          {/* ID: {user._id}
+          <br></br> */}
         </Typography.Title>
       </Col>
       <Divider />
