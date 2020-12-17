@@ -49,7 +49,7 @@ const Signup = ({ history }) => {
           <a href={googleUrl}>
             <img
               alt=""
-              src="https://www.drupal.org/files/issues/2020-01-26/google_logo.png"
+              src="google_logo.png"
               style={{ width: '20%', height: 'auto' }}
             />
           </a>

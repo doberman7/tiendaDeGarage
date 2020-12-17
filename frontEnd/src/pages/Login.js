@@ -15,6 +15,10 @@ import { loginFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
 
 const { Title } = Typography;
+const googleUrl =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000/google'
+    : '/google';
 
 const Login = ({ history }) => {
   const [form] = Form.useForm();
@@ -54,6 +58,14 @@ const Login = ({ history }) => {
           <Button type="primary" block htmlType="submit">
             Login
           </Button>
+          <Divider />
+          <a href={googleUrl}>
+            <img
+              alt=""
+              src="google_logo.png"
+              style={{ width: '20%', height: 'auto' }}
+            />
+          </a>
         </Form>
       </Col>
     </Row>
