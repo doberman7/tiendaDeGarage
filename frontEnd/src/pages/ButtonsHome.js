@@ -18,7 +18,7 @@ const Router = () => {
   const { user } = useContextInfo();
   return !user ? (
     <div className="site-button-ghost-wrapper">
-      <h1>Mr Garage</h1>
+      <h1>Tienda de Garage</h1>
 
       <ImageDemo />
       <Divider />
@@ -26,7 +26,7 @@ const Router = () => {
         La experiencia más amena en compras e intercambios de sillas, mesas,
         trastos, aparatos electronicos, jarras, vasos, plato, cucharas,
         tenedores reglas, lápizes, mochilas y demás chunches que puedas
-        encontrar en tu garage sólo aquí con MR GARAGE
+        encontrar en tu garage sólo aquí con Tienda su Garage
       </p>
       <Button type="primary" ghost>
         <Link to="/Signup">Sign up</Link>

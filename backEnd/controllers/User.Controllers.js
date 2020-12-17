@@ -52,6 +52,8 @@ exports.loginProcess = async (req, res, next) => {
 exports.logout = (req, res) => {
   // req.logout(); IS working now
   req.logout();
+  // res.redirect('/');
+
   res.status(200).json({ message: 'logged out' });
 };
 
