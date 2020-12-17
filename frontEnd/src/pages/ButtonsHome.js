@@ -26,7 +26,7 @@ const Router = () => {
         La experiencia más amena en compras e intercambios de sillas, mesas,
         trastos, aparatos electronicos, jarras, vasos, plato, cucharas,
         tenedores reglas, lápizes, mochilas y demás chunches que puedas
-        encontrar en tu garage sólo aquí con Tienda su Garage
+        encontrar en tu garage sólo aquí con su Tienda Garage
       </p>
       <Button type="primary" ghost>
         <Link to="/Signup">Sign up</Link>
