@@ -42,17 +42,26 @@ const Signup = ({ history }) => {
           <Form.Item name="password" label="Password:">
             <Input.Password />
           </Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" block>
             Signup
           </Button>
           <Divider />
-          <a href={googleUrl}>
-            <img
-              alt=""
-              src="google_logo.png"
-              style={{ width: '20%', height: 'auto' }}
-            />
-          </a>
+
+          <div
+            style={{
+              'text-align': 'center',
+            }}
+          >
+            or
+            <Divider />
+            <a href={googleUrl}>
+              <img
+                alt=""
+                src="google_logo.png"
+                style={{ width: '20%', height: 'auto' }}
+              />
+            </a>
+          </div>
         </Form>
       </Col>
     </Row>

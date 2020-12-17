@@ -59,13 +59,21 @@ const Login = ({ history }) => {
             Login
           </Button>
           <Divider />
-          <a href={googleUrl}>
-            <img
-              alt=""
-              src="google_logo.png"
-              style={{ width: '20%', height: 'auto' }}
-            />
-          </a>
+          <div
+            style={{
+              'text-align': 'center',
+            }}
+          >
+            or
+            <Divider />
+            <a href={googleUrl}>
+              <img
+                alt=""
+                src="google_logo.png"
+                style={{ width: '20%', height: 'auto' }}
+              />
+            </a>
+          </div>
         </Form>
       </Col>
     </Row>
