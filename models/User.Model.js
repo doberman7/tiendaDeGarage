@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema(
   {
+    googleId: String,
     email: {
       type: String,
       unique: true,
@@ -30,7 +31,6 @@ const userSchema = new Schema(
         ref: 'Product',
       },
     ],
-    googleID: String,
   },
   {
     timestamps: true,
