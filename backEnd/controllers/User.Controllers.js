@@ -190,7 +190,6 @@ exports.googleCallback = (req, res, next) => {
     //si no usuario, regresa un 401 y errores
 
     if (!user) res.status(401).json({ err, errDetails });
-    console.log(user);
     //usar login de passport
     req.login(user, (err) => {
       //si hay error devolver 500
