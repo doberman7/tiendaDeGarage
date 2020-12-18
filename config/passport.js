@@ -32,16 +32,34 @@ passport.use(
     },
     async (_, __, profile, done) => {
       const user = await User.findOne({ googleId: profile.id });
-      // console.log(profile);
+      //determiinar si la cuenta tiene image
+      let pic = profile.photos[0].value;
+      //si no hay usuario pero el user de google tiene image
+      if (!user && pic) {
+        const user = await User.create({
+          username: profile.displayName,
+          name: profile.displayName,
+          email: profile.emails[0].value,
+          googleId: profile.id,
+          picture: pic,
+          confirmed: true,
+        });
+
+        console.log('USER', user);
+        done(null, user);
+      }
+
+      //si solo no hay usario
       if (!user) {
         const user = await User.create({
           username: profile.displayName,
           name: profile.displayName,
           email: profile.emails[0].value,
           googleId: profile.id,
-          //image: profile.photos[0].value,
+          //picture: profile.photos[0].value,
           confirmed: true,
         });
+
         console.log('USER', user);
         done(null, user);
       }
