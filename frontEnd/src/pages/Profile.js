@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Row, Col, Avatar, Button, Divider } from 'antd';
+import { Typography, Row, Col, Image, Button, Divider } from 'antd';
 import { useContextInfo } from '../hooks/context';
 import { Link, Redirect } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ const Profile = ({ history }) => {
     <Row>
       <Col xs={24} sm={24} md={12}>
         <Typography.Title level={3}>
-          <Avatar src={user.picture} />
+          <Image width={100} src={user.picture} />
           <br></br>
           Name: {user.name}
           <br></br>
