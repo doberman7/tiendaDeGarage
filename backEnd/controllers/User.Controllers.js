@@ -50,7 +50,7 @@ exports.loginProcess = async (req, res, next) => {
 };
 
 exports.logout = (req, res) => {
-  // req.logout(); IS working now
+  req.session.destroy();
   req.logout();
   // res.redirect('/');
 
