@@ -23,18 +23,18 @@ const Profile = ({ history }) => {
       <Divider />
 
       <Link to="/editUser">
-        <Button type="dashed" block>
+        <Button type="primary" block>
           Edit User
         </Button>
       </Link>
       <Divider />
       <Link to="/createProduct">
-        <Button type="dashed" block>
+        <Button type="primary" block>
           Create a wish
         </Button>
       </Link>
       <Divider />
-      <Button type="dashed">
+      <Button type="primary">
         <Link to="/itemForm">Create an Item</Link>
       </Button>
     </Row>
