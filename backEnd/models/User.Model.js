@@ -30,6 +30,7 @@ const userSchema = new Schema(
         ref: 'Product',
       },
     ],
+    googleID: String,
   },
   {
     timestamps: true,
