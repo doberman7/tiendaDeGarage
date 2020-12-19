@@ -52,7 +52,7 @@ const Signup = ({ history }) => {
       signup(data);
 
       //esto redirige a profile
-      history.push('/profile');
+      history.push('/welcome');
 
       countDown();
     } catch (e) {
