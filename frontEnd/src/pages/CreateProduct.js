@@ -24,6 +24,7 @@ const CreateProduct = ({ history }) => {
   const [form] = Form.useForm();
   const { setUserUpdtade } = useContextInfo();
   const [error, setError] = useState(null);
+  //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
   //esto para la imagen
   const [img, setImg] = useState(null);

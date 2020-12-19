@@ -15,6 +15,7 @@ function ImageDemo() {
   );
 }
 const Router = () => {
+  //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
   return !user ? (
     <div className="site-button-ghost-wrapper">

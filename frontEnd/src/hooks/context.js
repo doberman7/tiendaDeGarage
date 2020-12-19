@@ -5,6 +5,7 @@ import { currentUserFn } from '../services/auth';
 export const AppContext = createContext();
 
 export const AppCtxProvider = (props) => {
+  //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const [user, setUser] = useState(null);
   //actualizar user
   const [userUpdtade, setUserUpdtade] = useState(false);

@@ -4,6 +4,7 @@ import { useContextInfo } from '../hooks/context';
 import { Link, Redirect } from 'react-router-dom';
 
 const Profile = ({ history }) => {
+  //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
 
   return user ? (

@@ -19,6 +19,7 @@ import axios from 'axios';
 const { Title, Text } = Typography;
 
 function MyItems() {
+  //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
 
   const [items, setItems] = useState(null);

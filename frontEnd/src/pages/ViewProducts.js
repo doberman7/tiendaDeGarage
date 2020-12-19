@@ -33,6 +33,7 @@ const openNotification = (message) => {
   });
 };
 const ViewProducts = ({ history }) => {
+  //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
 
   const [userProducts, setProducts] = useState(null);
