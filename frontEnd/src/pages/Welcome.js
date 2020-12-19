@@ -2,10 +2,9 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import '../Router.css';
-import { Button } from 'antd';
 import { Divider } from 'antd';
 import { useContextInfo } from '../hooks/context';
-import { Image } from 'antd';
+import { Image, Button } from 'antd';
 function ImageDemo() {
   return (
     <Image
@@ -16,15 +15,15 @@ function ImageDemo() {
 }
 const Router = () => {
   const { user } = useContextInfo();
-  // console.log('USER', user);
+
   return user ? (
     <div className="site-button-ghost-wrapper">
       <ImageDemo />
       <Divider />
-      <p>welcome {user.message}</p>
+      <p>welcome {user.email}</p>
 
       <Button type="primary" ghost>
-        got it
+        <Link to="/profile">Got it</Link>
       </Button>
       <Divider />
     </div>

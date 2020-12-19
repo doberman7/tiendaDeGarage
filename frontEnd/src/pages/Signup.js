@@ -8,6 +8,7 @@ import {
   Typography,
   Divider,
   Alert,
+  Modal,
 } from 'antd';
 import { signupFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
@@ -22,13 +23,38 @@ const Signup = ({ history }) => {
   const [form] = Form.useForm();
   const { signup } = useContextInfo();
   const [error, setError] = useState(null);
+  //conteo para cerrar el modal
+  function countDown() {
+    let secondsToGo = 5;
+    const modal = Modal.success({
+      title: 'Welcome',
+      content: `Nice to meet you ${secondsToGo} second.`,
+    });
+    const timer = setInterval(() => {
+      secondsToGo -= 1;
+      modal.update({
+        content: `You user has been created ${secondsToGo} second.`,
+      });
+      if (secondsToGo <= 0) {
+        modal.destroy();
+      }
+    }, 1000);
+
+    setTimeout(() => {
+      clearInterval(timer);
+      modal.destroy();
+    }, secondsToGo * 1000);
+  }
   async function handleSubmit(userInput) {
     try {
       const { data } = await signupFn(userInput);
 
       signup(data);
-      //esto redirige a welcome
-      history.push('/welcome');
+
+      //esto redirige a profile
+      history.push('/profile');
+      console.log(data);
+      countDown();
     } catch (e) {
       console.log(e);
       setError(e.response.data.message);
