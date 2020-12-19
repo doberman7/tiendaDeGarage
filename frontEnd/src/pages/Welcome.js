@@ -16,7 +16,7 @@ function ImageDemo() {
 }
 const Router = () => {
   const { user } = useContextInfo();
-  console.log('USER', user);
+  // console.log('USER', user);
   return user ? (
     <div className="site-button-ghost-wrapper">
       <ImageDemo />

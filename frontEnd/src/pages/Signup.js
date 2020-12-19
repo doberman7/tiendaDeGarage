@@ -27,7 +27,7 @@ const Signup = ({ history }) => {
       const { data } = await signupFn(userInput);
 
       signup(data);
-      //esto redirige a login
+      //esto redirige a welcome
       history.push('/welcome');
     } catch (e) {
       console.log(e);
