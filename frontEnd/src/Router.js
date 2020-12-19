@@ -4,16 +4,16 @@ import LayoutApp from './components/LayoutApp';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import Welcome from './pages/Welcome';
 import ViewProducts from './pages/ViewProducts';
 import EditProduct from './pages/EditProduct';
 import './Router.css';
 import ButtonsHome from './pages/ButtonsHome';
 import EditUser from './pages/EditUser';
 import CreateProduct from './pages/CreateProduct';
-import MyItems from "./pages/MyItems" //añado items del usuario
-import CreateItemForm from "./pages/itemForm" //añado formulario de items del usuario
-import EditItem from "./pages/EditItem" //añado edicion del formulario del usuario
-
+import MyItems from './pages/MyItems'; //añado items del usuario
+import CreateItemForm from './pages/itemForm'; //añado formulario de items del usuario
+import EditItem from './pages/EditItem'; //añado edicion del formulario del usuario
 
 //añado createItemForm,MyItems y Edit Item
 const Router = () => {
@@ -27,6 +27,7 @@ const Router = () => {
           <Route path="/login" component={Login} exact />
           <Route path="/signup" component={Signup} exact />
           <Route path="/profile" component={Profile} exact />
+          <Route path="/welcome" component={Welcome} exact />
           <Route path="/viewProducts" component={ViewProducts} exact />
           <Route path="/product/:productId" component={EditProduct} exact />
           <Route path="/itemForm" component={CreateItemForm} exact />
