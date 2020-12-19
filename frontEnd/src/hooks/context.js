@@ -36,7 +36,6 @@ export const AppCtxProvider = (props) => {
   const addProfilePic = (img) => setUser({ ...user, img });
 
   const logout = () => {
-    //TODO: Cerrar la sesion en el server y en el cliente
     setUser(null);
   };
 
