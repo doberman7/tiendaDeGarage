@@ -169,7 +169,7 @@ exports.deleteProfile = async (req, res) => {
     _id: userId,
   });
   // res.redirect('/');
-  res.status(200).json({ messaje: 'Profile deleted' });
+  res.status(200).json({ message: 'Profile deleted' });
 };
 
 exports.currentUser = (req, res) => {
