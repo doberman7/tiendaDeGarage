@@ -10,6 +10,7 @@ import {
   Divider,
   message,
   Space,
+  Alert,
 } from 'antd';
 import { loginFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
@@ -44,7 +45,7 @@ const Login = ({ history }) => {
     <Row>
       <Col span={24}>
         <Title level={1}>Login</Title>
-        {error && <p>{error}</p>}
+        {error && <Alert message={error} type="error" showIcon />}
       </Col>
       <Divider />
       <Col span={24}>
