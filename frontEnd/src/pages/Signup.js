@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { Row, Col, Form, Input, Button, Typography, Divider } from 'antd';
+import {
+  Row,
+  Col,
+  Form,
+  Input,
+  Button,
+  Typography,
+  Divider,
+  Alert,
+} from 'antd';
 import { signupFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
 
@@ -31,7 +40,7 @@ const Signup = ({ history }) => {
     <Row>
       <Col span={24}>
         <Title level={1}>Signup</Title>
-        {error && <p>{error}</p>}
+        {error && <Alert message={error} type="error" showIcon />}
       </Col>
       <Divider />
       <Col span={24}>
