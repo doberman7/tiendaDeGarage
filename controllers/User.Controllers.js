@@ -12,7 +12,6 @@ exports.signupProcessUser = async (req, res) => {
       email,
     });
     if (user) {
-      // return res.send('user/signup', {message: 'user already exists' });
       return res.status(401).json({ message: 'user already exists' });
     }
     const salt = bcrypt.genSaltSync(12);
@@ -24,7 +23,7 @@ exports.signupProcessUser = async (req, res) => {
     });
 
     if (newUser) res.status(201).json(newUser);
-    // { message: 'Welcome, please login' }
+    //
   } catch (e) {
     console.log(e);
     res.status(401).json({ message: e });
