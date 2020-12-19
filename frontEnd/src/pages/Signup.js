@@ -53,7 +53,7 @@ const Signup = ({ history }) => {
 
       //esto redirige a profile
       history.push('/profile');
-      console.log(data);
+
       countDown();
     } catch (e) {
       console.log(e);
