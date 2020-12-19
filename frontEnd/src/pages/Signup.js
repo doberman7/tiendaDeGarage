@@ -27,13 +27,13 @@ const Signup = ({ history }) => {
   function countDown() {
     let secondsToGo = 5;
     const modal = Modal.success({
-      title: 'Welcome',
-      content: `Nice to meet you ${secondsToGo} second.`,
+      title: 'W E L C O M E',
+      content: `This window will close in  ${secondsToGo}`,
     });
     const timer = setInterval(() => {
       secondsToGo -= 1;
       modal.update({
-        content: `You user has been created ${secondsToGo} second.`,
+        content: `This window will close in ${secondsToGo} .`,
       });
       if (secondsToGo <= 0) {
         modal.destroy();
