@@ -3,31 +3,34 @@ const bcrypt = require('bcrypt'),
   passport = require('../config/passport');
 
 exports.signupProcessUser = async (req, res) => {
-  const { email, password, name } = req.body;
-  if (!email || !password) {
-    return res.status(403).json({ message: 'Provide email and password' });
-  }
-  const user = await User.findOne({
-    email,
-  });
-  if (user) {
-    // return res.send('user/signup', {message: 'user already exists' });
-    return res.status(401).json({ message: 'user already exists' });
-  }
-  const salt = bcrypt.genSaltSync(12);
-  const hashPass = bcrypt.hashSync(password, salt);
-  await User.create({
-    email,
-    password: hashPass,
-    name,
-  })
-    .then(() => {
-      // res.send('user/login', {message: 'Welcome, please login', });
-      res.status(201).json({ message: 'Welcome, please login' });
-    })
-    .catch((err) => {
-      console.log(err);
+  try {
+    const { email, password, name } = req.body;
+    if (!email || !password) {
+      return res.status(403).json({ message: 'Provide email and password' });
+    }
+    const user = await User.findOne({
+      email,
     });
+    if (user) {
+      // return res.send('user/signup', {message: 'user already exists' });
+      return res.status(401).json({ message: 'user already exists' });
+    }
+    const salt = bcrypt.genSaltSync(12);
+    const hashPass = bcrypt.hashSync(password, salt);
+    const newUser = await User.create({
+      email,
+      password: hashPass,
+      name,
+    });
+
+    if (newUser) res.status(201).json(newUser);
+    // { message: 'Welcome, please login' }
+  } catch (e) {
+    console.log(e);
+    res.status(401).json({ message: e });
+  } finally {
+    console.log('CONTROLLER signupProcessUser');
+  }
 };
 
 exports.loginProcess = async (req, res, next) => {
