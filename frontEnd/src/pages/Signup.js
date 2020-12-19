@@ -28,7 +28,7 @@ const Signup = ({ history }) => {
 
       signup(data);
       //esto redirige a login
-      history.push('/login');
+      history.push('/profile');
     } catch (e) {
       console.log(e);
       setError(e.response.data.message);
