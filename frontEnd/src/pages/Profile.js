@@ -42,14 +42,6 @@ const Profile = ({ history }) => {
           </Button>
         </Link>
       </div>
-      <Divider />
-      <div>
-        <p>You can create an item</p>
-        <br />
-        <Button type="primary">
-          <Link to="/itemForm">Create an Item</Link>
-        </Button>
-      </div>
     </Row>
   ) : (
     <Redirect to="/" />

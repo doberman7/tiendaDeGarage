@@ -37,6 +37,14 @@ function MyItems() {
       {' '}
       <div style={{ padding: '1rem 3rem' }}>
         <Title level={1}>Items</Title>
+        <div>
+          <p>From here you can create and see all the items you want to buy</p>
+          <br />
+          <Button type="primary">
+            <Link to="/itemForm">Create an Item</Link>
+          </Button>
+          <Divider />
+        </div>
         <Row gutter={[16, 24]}>
           {items?.map((item) => (
             <Col xs={24} sm={24} md={12} key={item._id}>
