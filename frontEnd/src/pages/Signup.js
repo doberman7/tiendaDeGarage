@@ -10,7 +10,7 @@ import {
   Alert,
   Modal,
 } from 'antd';
-import { signupFn } from '../services/auth';
+import { signupFn, loginFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
 
 const { Title } = Typography;
@@ -47,8 +47,11 @@ const Signup = ({ history }) => {
   }
   async function handleSubmit(userInput) {
     try {
-      const { data } = await signupFn(userInput);
-
+      //con los servicios hacer signup
+      await signupFn(userInput);
+      //con los servicios hacer login y la response será data
+      const { data } = await loginFn(userInput);
+      //usar el signup del context
       signup(data);
 
       //esto redirige a welcome
