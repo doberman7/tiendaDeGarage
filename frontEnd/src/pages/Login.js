@@ -14,6 +14,7 @@ import {
 } from 'antd';
 import { loginFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
+import { GoogleOutlined } from '@ant-design/icons';
 
 const { Title } = Typography;
 const googleUrl =
@@ -68,11 +69,8 @@ const Login = ({ history }) => {
             or
             <Divider />
             <a href={googleUrl}>
-              <img
-                alt=""
-                src="google_logo.png"
-                style={{ width: '20%', height: 'auto' }}
-              />
+              <GoogleOutlined />
+              oogle
             </a>
           </div>
         </Form>

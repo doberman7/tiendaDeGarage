@@ -12,7 +12,7 @@ import {
 } from 'antd';
 import { signupFn, loginFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
-import { SmileOutlined } from '@ant-design/icons';
+import { SmileOutlined, GoogleOutlined } from '@ant-design/icons';
 //notification
 const openNotification = () => {
   notification.open({
@@ -84,11 +84,8 @@ const Signup = ({ history }) => {
             or
             <Divider />
             <a href={googleUrl}>
-              <img
-                alt=""
-                src="google_logo.png"
-                style={{ width: '20%', height: 'auto' }}
-              />
+              <GoogleOutlined />
+              oogle
             </a>
           </div>
         </Form>
