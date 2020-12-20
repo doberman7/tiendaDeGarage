@@ -6,3 +6,11 @@
 .hidden {
   display: none;
 }
+
+.welcome {
+  padding: 6em;
+  text-align: center;
+}
+
+.center {
+}

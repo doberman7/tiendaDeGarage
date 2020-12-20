@@ -13,20 +13,21 @@ const Router = () => {
 
   return user ? (
     <>
-      <div className="site-button-ghost-wrapper">
+      <div className=" welcome">
         <h1>W E L C O M E </h1>
         <Divider />
-        <p>You have created a user with email: {user.email}</p>
         <ImageDemo />
+        <Divider />
+        <p>You have created a user with email: {user.email}</p>
         <p>In this app you can create Wishes and Items</p>
-        <ul>
-          <li>
-            <b>Wishes:</b> things you d wanna buy
-          </li>
-          <li>
-            <b>Items:</b> the stuff you have and want to sell
-          </li>
-        </ul>
+
+        <p>
+          <b>Wishes:</b> things you wanna buy
+        </p>
+        <p>
+          <b>Items:</b> the stuff you have and want to sell
+        </p>
+
         <Button type="primary" ghost>
           <Link to="/profile">Got it</Link>
         </Button>
