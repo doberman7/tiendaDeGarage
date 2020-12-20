@@ -5,7 +5,8 @@ const bcrypt = require('bcrypt'),
 exports.signupProcessUser = async (req, res) => {
   try {
     const { email, password, name } = req.body;
-    if (!email || !password) {
+    //si no ingresa todo en el formulario
+    if (!email || !password || !name) {
       return res.status(403).json({ message: 'Provide email and password' });
     }
     const user = await User.findOne({
