@@ -14,11 +14,13 @@ import {
   Avatar,
   Space,
   Spin,
+  Tag,
 } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 const { Title, Text } = Typography;
+const { Meta } = Card;
 
 function MyItems() {
   //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
@@ -64,8 +66,18 @@ function MyItems() {
                   <p>{item.status}</p>
                   <p>{item.description}</p>
                   <p>{item.price}</p>
-                  <p>{item.category}</p>
                   <Image src={item.image} />
+                  {/* este div es para que JSC reconosca el espacio */}
+                  <div>
+                    <br />
+                  </div>
+                  <Meta
+                    // iterar entre las categorias del product, mostrarlas como tagas azules
+                    //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
+                    description={item.category.map((i) => (
+                      <Tag color="geekblue">{i}</Tag>
+                    ))}
+                  />
                 </Card>
               </Col>
             ))
