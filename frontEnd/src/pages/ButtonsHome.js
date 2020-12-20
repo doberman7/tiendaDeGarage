@@ -5,16 +5,48 @@ import '../Router.css';
 import { Button, Carousel, Divider } from 'antd';
 import { useContextInfo } from '../hooks/context';
 
-let Background = 'tasas.jpeg';
+let Background1 = 'tasas.jpeg';
+let Background2 = 'cosas.jpeg';
+let Background3 = 'cosas1.jpeg';
+let Background4 = 'tools.jpg';
 
 const contentStyle = {
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
-  backgroundImage: `url(${Background})`,
-  backgroundSize: 'cover',
+  uno: {
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79',
+    backgroundImage: `url(${Background1})`,
+    backgroundSize: 'cover',
+  },
+  dos: {
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79',
+    backgroundImage: `url(${Background2})`,
+    backgroundSize: 'cover',
+  },
+  tres: {
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79',
+    backgroundImage: `url(${Background3})`,
+    backgroundSize: 'cover',
+  },
+  cuatro: {
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79',
+    backgroundImage: `url(${Background4})`,
+    backgroundSize: 'cover',
+  },
 };
 
 const Router = () => {
@@ -26,16 +58,16 @@ const Router = () => {
         <h1>Tienda de Garage</h1>
         <Carousel autoplay>
           <div>
-            <h3 style={contentStyle}>B U Y</h3>
+            <h3 style={contentStyle.uno}>B U Y</h3>
           </div>
           <div>
-            <h3 style={contentStyle}>S E L L</h3>
+            <h3 style={contentStyle.dos}>S E L L</h3>
           </div>
           <div>
-            <h3 style={contentStyle}> CONSUME </h3>
+            <h3 style={contentStyle.tres}>B U Y</h3>
           </div>
           <div>
-            <h3 style={contentStyle}>4</h3>
+            <h3 style={contentStyle.cuatro}>S E L L</h3>
           </div>
         </Carousel>
         <Divider />
