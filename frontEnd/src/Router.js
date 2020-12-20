@@ -12,7 +12,7 @@ import ButtonsHome from './pages/ButtonsHome';
 import EditUser from './pages/EditUser';
 import CreateProduct from './pages/CreateProduct';
 import MyItems from './pages/MyItems'; //añado items del usuario
-import CreateItemForm from './pages/itemForm'; //añado formulario de items del usuario
+import CreateItemForm from './pages/CreateItem'; //añado formulario de items del usuario
 import EditItem from './pages/EditItem'; //añado edicion del formulario del usuario
 
 //añado createItemForm,MyItems y Edit Item
@@ -30,7 +30,7 @@ const Router = () => {
           <Route path="/welcome" component={Welcome} exact />
           <Route path="/viewProducts" component={ViewProducts} exact />
           <Route path="/product/:productId" component={EditProduct} exact />
-          <Route path="/itemForm" component={CreateItemForm} exact />
+          <Route path="/createItem" component={CreateItemForm} exact />
           <Route path="/MyItems" component={MyItems} exact />
           <Route path="/item/:itemId" component={EditItem} exact />
         </Switch>

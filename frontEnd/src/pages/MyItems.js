@@ -42,7 +42,7 @@ function MyItems() {
           <p>From here you can create and see all the items you want to buy</p>
           <br />
           <Button type="primary">
-            <Link to="/itemForm">Create an Item</Link>
+            <Link to="/createItem">Create an Item</Link>
           </Button>
           <Divider />
         </div>
