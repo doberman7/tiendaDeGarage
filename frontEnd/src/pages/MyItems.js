@@ -12,6 +12,8 @@ import {
   Divider,
   Image,
   Avatar,
+  Space,
+  Spin,
 } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { Redirect, Link } from 'react-router-dom';
@@ -45,20 +47,24 @@ function MyItems() {
           <Divider />
         </div>
         <Row gutter={[16, 24]}>
-          {items?.map((item) => (
-            <Col span={6} xs={24} sm={24} md={8} key={item._id}>
-              <Card
-                title={item.title}
-                extra={<Link to={`/item/${item._id}`}>Edit</Link>}
-              >
-                <p>{item.status}</p>
-                <p>{item.description}</p>
-                <p>{item.price}</p>
-                <p>{item.category}</p>
-                <Image src={item.image} />
-              </Card>
-            </Col>
-          ))}
+          {items ? (
+            items.map((item) => (
+              <Col span={6} xs={24} sm={24} md={8} key={item._id}>
+                <Card
+                  title={item.title}
+                  extra={<Link to={`/item/${item._id}`}>Edit</Link>}
+                >
+                  <p>{item.status}</p>
+                  <p>{item.description}</p>
+                  <p>{item.price}</p>
+                  <p>{item.category}</p>
+                  <Image src={item.image} />
+                </Card>
+              </Col>
+            ))
+          ) : (
+            <Spin size="large" />
+          )}
         </Row>
       </div>
     </>
