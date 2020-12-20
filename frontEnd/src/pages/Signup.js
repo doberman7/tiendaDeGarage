@@ -8,10 +8,20 @@ import {
   Typography,
   Divider,
   Alert,
-  Modal,
+  notification,
 } from 'antd';
 import { signupFn, loginFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
+import { SmileOutlined } from '@ant-design/icons';
+//notification
+const openNotification = () => {
+  notification.open({
+    message: 'G R E E T I N G S',
+    description:
+      'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+    icon: <SmileOutlined style={{ color: '#008000' }} />,
+  });
+};
 
 const { Title } = Typography;
 const googleUrl =
@@ -23,28 +33,7 @@ const Signup = ({ history }) => {
   const [form] = Form.useForm();
   const { signup } = useContextInfo();
   const [error, setError] = useState(null);
-  //conteo para cerrar el modal
-  function countDown() {
-    let secondsToGo = 5;
-    const modal = Modal.success({
-      title: 'W E L C O M E',
-      content: `This window will close in  ${secondsToGo}`,
-    });
-    const timer = setInterval(() => {
-      secondsToGo -= 1;
-      modal.update({
-        content: `This window will close in ${secondsToGo} .`,
-      });
-      if (secondsToGo <= 0) {
-        modal.destroy();
-      }
-    }, 1000);
 
-    setTimeout(() => {
-      clearInterval(timer);
-      modal.destroy();
-    }, secondsToGo * 1000);
-  }
   async function handleSubmit(userInput) {
     try {
       //con los servicios hacer signup
@@ -57,7 +46,7 @@ const Signup = ({ history }) => {
       //esto redirige a welcome
       history.push('/welcome');
 
-      countDown();
+      openNotification();
     } catch (e) {
       console.log(e);
       setError(e.response.data.message);
