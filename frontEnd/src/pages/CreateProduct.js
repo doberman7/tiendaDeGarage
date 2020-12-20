@@ -9,6 +9,7 @@ import {
   Divider,
   Upload,
   Alert,
+  Select,
 } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
@@ -89,6 +90,9 @@ const CreateProduct = ({ history }) => {
           </Form.Item>
           <Form.Item name="description" label="Description:">
             <Input placeholder={'Add description'} />
+          </Form.Item>
+          <Form.Item name="category" label="Category tags:">
+            <Select mode="tags" style={{ width: '100%' }} />
           </Form.Item>
           <Form.Item name="image" label="Image:">
             <Upload

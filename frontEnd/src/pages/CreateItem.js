@@ -25,7 +25,7 @@ function CreateItemForm({ history }) {
 
   async function handleFormSubmit(values) {
     let send = true;
-
+    //mensajes de campos vacios en form
     Object.entries(values).map((val) => {
       if (val[1] === undefined) {
         message.error(`Add ${val[0].toUpperCase()} field is empty`);
