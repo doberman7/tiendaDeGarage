@@ -203,8 +203,8 @@ exports.googleCallback = (req, res, next) => {
       //todo salio bien? redirigir a al profile
       return res.redirect(
         process.env.ENV === 'development'
-          ? 'http://localhost:3001/profile'
-          : '/profile'
+          ? 'http://localhost:3001/welcome'
+          : '/welcome'
       );
     });
   })(req, res, next);
