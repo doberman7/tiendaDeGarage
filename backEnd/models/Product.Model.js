@@ -3,6 +3,7 @@ const { Schema, model } = require('mongoose');
 const productSchema = new Schema(
   {
     idUser: Schema.Types.ObjectId,
+    category: [String],
     userCreator: { type: Schema.Types.ObjectId, ref: 'User' },
     name: {
       type: String,
