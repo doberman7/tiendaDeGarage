@@ -2,24 +2,21 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import '../Router.css';
-import { Button, Carousel, Divider, Image } from 'antd';
+import { Button, Carousel, Divider } from 'antd';
 import { useContextInfo } from '../hooks/context';
+
+let Background = 'tasas.jpeg';
+
 const contentStyle = {
   height: '160px',
   color: '#fff',
   lineHeight: '160px',
   textAlign: 'center',
   background: '#364d79',
+  backgroundImage: `url(${Background})`,
+  backgroundSize: 'cover',
 };
 
-function ImageDemo() {
-  return (
-    <Image
-      width={400}
-      src="https://www.itl.cat/pngfile/big/327-3275501_second-hand-furniture-stores-guide-elegant-garage-sale.jpg"
-    />
-  );
-}
 const Router = () => {
   //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
@@ -29,13 +26,13 @@ const Router = () => {
         <h1>Tienda de Garage</h1>
         <Carousel autoplay>
           <div>
-            <h3 style={contentStyle}>1</h3>
+            <h3 style={contentStyle}>B U Y</h3>
           </div>
           <div>
-            <h3 style={contentStyle}>2</h3>
+            <h3 style={contentStyle}>S E L L</h3>
           </div>
           <div>
-            <h3 style={contentStyle}>3</h3>
+            <h3 style={contentStyle}> CONSUME </h3>
           </div>
           <div>
             <h3 style={contentStyle}>4</h3>
