@@ -93,6 +93,10 @@ function CreateItemForm({ history }) {
           <Input />
         </Form.Item>
 
+        <Form.Item name="category" label="Category tags:">
+          <Select mode="tags" style={{ width: '100%' }} />
+        </Form.Item>
+
         <Form.Item name="image" label="Image:">
           <Upload
             name="avatar"
@@ -110,10 +114,6 @@ function CreateItemForm({ history }) {
             <Select.Option value="available">available</Select.Option>
             <Select.Option value="sold">Sold</Select.Option>
           </Select>
-        </Form.Item>
-
-        <Form.Item name="category" label="Category tags:">
-          <Select mode="tags" style={{ width: '100%' }} />
         </Form.Item>
 
         <Button type="primary" block size="middle" htmlType="submit">
