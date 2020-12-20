@@ -17,8 +17,7 @@ import { SmileOutlined } from '@ant-design/icons';
 const openNotification = () => {
   notification.open({
     message: 'G R E E T I N G S',
-    description:
-      'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+    description: 'We welcome you to Tienda de Garage',
     icon: <SmileOutlined style={{ color: '#008000' }} />,
   });
 };
