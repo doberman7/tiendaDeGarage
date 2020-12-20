@@ -12,6 +12,7 @@ import {
   Button,
   Image,
   Typography,
+  Spin,
 } from 'antd';
 import { getUserProductsFn } from '../services/auth';
 import {
@@ -101,7 +102,7 @@ const ViewProducts = ({ history }) => {
               </Col>
             ))
           ) : (
-            <p>cargando...</p>
+            <Spin size="large" />
           )}
         </Row>
       </div>
