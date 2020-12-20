@@ -72,33 +72,37 @@ const ViewProducts = ({ history }) => {
         </div>
 
         <Row gutter={[16, 24]}>
-          {userProducts?.map((product) => (
-            <Col
-              className="gutter-row"
-              span={6}
-              xs={24}
-              sm={24}
-              md={8}
-              key={product._id}
-            >
-              <div style={style}>
-                <Card
-                  cover={<Image src={product.picture} />}
-                  actions={[
-                    <Link to={`/product/${product._id}`}>
-                      <EditOutlined key={'edit'} />
-                    </Link>,
-                  ]}
-                  key={product.id}
-                >
-                  <Meta
-                    title={product.name}
-                    description={product.description}
-                  />
-                </Card>
-              </div>
-            </Col>
-          ))}
+          {userProducts ? (
+            userProducts.map((product) => (
+              <Col
+                className="gutter-row"
+                span={6}
+                xs={24}
+                sm={24}
+                md={8}
+                key={product._id}
+              >
+                <div style={style}>
+                  <Card
+                    cover={<Image src={product.picture} />}
+                    actions={[
+                      <Link to={`/product/${product._id}`}>
+                        <EditOutlined key={'edit'} />
+                      </Link>,
+                    ]}
+                    key={product.id}
+                  >
+                    <Meta
+                      title={product.name}
+                      description={product.description}
+                    />
+                  </Card>
+                </div>
+              </Col>
+            ))
+          ) : (
+            <p>cargando...</p>
+          )}
         </Row>
       </div>
     </>
