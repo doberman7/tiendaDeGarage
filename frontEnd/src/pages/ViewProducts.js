@@ -71,9 +71,16 @@ const ViewProducts = ({ history }) => {
           <Divider />
         </div>
 
-        <Row gutter={16}>
+        <Row gutter={[16, 24]}>
           {userProducts?.map((product) => (
-            <Col className="gutter-row" span={6} key={product._id}>
+            <Col
+              className="gutter-row"
+              span={6}
+              xs={24}
+              sm={24}
+              md={8}
+              key={product._id}
+            >
               <div style={style}>
                 <Card
                   cover={<Image src={product.picture} />}
