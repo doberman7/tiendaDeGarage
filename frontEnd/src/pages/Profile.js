@@ -32,16 +32,6 @@ const Profile = ({ history }) => {
           </Button>
         </Link>
       </div>
-      <Divider />
-      <div>
-        <p>You can create a product</p>
-        <br />
-        <Link to="/createProduct">
-          <Button type="primary" block>
-            Create a wish
-          </Button>
-        </Link>
-      </div>
     </Row>
   ) : (
     <Redirect to="/" />

@@ -11,6 +11,7 @@ import {
   Space,
   Button,
   Image,
+  Typography,
 } from 'antd';
 import { getUserProductsFn } from '../services/auth';
 import {
@@ -26,6 +27,8 @@ import {
 } from '@ant-design/icons';
 const style = { background: '#800080', padding: '10px' };
 const { Meta } = Card;
+const { Title, Text } = Typography;
+
 const openNotification = (message) => {
   notification.info({
     message: `${message}`,
@@ -56,32 +59,42 @@ const ViewProducts = ({ history }) => {
     );
   }
   return user ? (
-    <div>
-      <Divider orientation="left">Wishes</Divider>
-      {/* <Button type="primary" onClick={() => openNotification('bottomRight')}>
-        <RadiusBottomrightOutlined />
-        bottomRight
-      </Button> */}
-      <Row gutter={16}>
-        {userProducts?.map((product) => (
-          <Col className="gutter-row" span={6} key={product._id}>
-            <div style={style}>
-              <Card
-                cover={<Image src={product.picture} />}
-                actions={[
-                  <Link to={`/product/${product._id}`}>
-                    <EditOutlined key={'edit'} />
-                  </Link>,
-                ]}
-                key={product.id}
-              >
-                <Meta title={product.name} description={product.description} />
-              </Card>
-            </div>
-          </Col>
-        ))}
-      </Row>
-    </div>
+    <>
+      <div style={{ padding: '1rem 3rem' }}>
+        <Title level={1}>Wishes</Title>
+        <div>
+          <p>You can create a product</p>
+          <br />
+          <Link to="/createProduct">
+            <Button type="primary">Create a wish</Button>
+          </Link>
+          <Divider />
+        </div>
+
+        <Row gutter={16}>
+          {userProducts?.map((product) => (
+            <Col className="gutter-row" span={6} key={product._id}>
+              <div style={style}>
+                <Card
+                  cover={<Image src={product.picture} />}
+                  actions={[
+                    <Link to={`/product/${product._id}`}>
+                      <EditOutlined key={'edit'} />
+                    </Link>,
+                  ]}
+                  key={product.id}
+                >
+                  <Meta
+                    title={product.name}
+                    description={product.description}
+                  />
+                </Card>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </div>
+    </>
   ) : (
     <Redirect to="/" />
   );

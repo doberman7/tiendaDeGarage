@@ -33,8 +33,7 @@ function MyItems() {
   }, []);
 
   return user ? (
-    <div>
-      {' '}
+    <>
       <div style={{ padding: '1rem 3rem' }}>
         <Title level={1}>Items</Title>
         <div>
@@ -62,7 +61,7 @@ function MyItems() {
           ))}
         </Row>
       </div>
-    </div>
+    </>
   ) : (
     <Redirect to="/" />
   );
