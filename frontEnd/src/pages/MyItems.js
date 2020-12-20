@@ -21,6 +21,7 @@ import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 const { Title, Text } = Typography;
 const { Meta } = Card;
+const style = { background: '#1D99A9', padding: '1px' };
 
 function MyItems() {
   //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
@@ -59,26 +60,28 @@ function MyItems() {
                 md={8}
                 key={item._id}
               >
-                <Card
-                  title={item.title}
-                  extra={<Link to={`/item/${item._id}`}>Edit</Link>}
-                >
-                  <p>{item.status}</p>
-                  <p>{item.description}</p>
-                  <p>{item.price}</p>
-                  <Image src={item.image} />
-                  {/* este div es para que JSC reconosca el espacio */}
-                  <div>
-                    <br />
-                  </div>
-                  <Meta
-                    // iterar entre las categorias del product, mostrarlas como tagas azules
-                    //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
-                    description={item.category.map((i) => (
-                      <Tag color="geekblue">{i}</Tag>
-                    ))}
-                  />
-                </Card>
+                <div style={style}>
+                  <Card
+                    title={item.title}
+                    extra={<Link to={`/item/${item._id}`}>Edit</Link>}
+                  >
+                    <p>{item.status}</p>
+                    <p>{item.description}</p>
+                    <p>{item.price}</p>
+                    <Image src={item.image} />
+                    {/* este div es para que JSC reconosca el espacio */}
+                    <div>
+                      <br />
+                    </div>
+                    <Meta
+                      // iterar entre las categorias del product, mostrarlas como tagas azules
+                      //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
+                      description={item.category.map((i) => (
+                        <Tag color="cyan">{i}</Tag>
+                      ))}
+                    />
+                  </Card>
+                </div>
               </Col>
             ))
           ) : (
