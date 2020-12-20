@@ -86,7 +86,7 @@ const ViewProducts = ({ history }) => {
               >
                 <div style={style}>
                   <Card
-                    cover={<Image src={product.picture} />}
+                    title={product.name}
                     actions={[
                       <Link to={`/product/${product._id}`}>
                         <EditOutlined key={'edit'} />
@@ -94,14 +94,19 @@ const ViewProducts = ({ history }) => {
                     ]}
                     key={product.id}
                   >
+                    <p>Description:{product.description}</p>
+                    <Image src={product.picture} />
+                    {/* este div es para que JSC reconosca el espacio */}
+                    <div>
+                      <br />
+                    </div>
                     <Meta
-                      title={product.name}
                       // iterar entre las categorias del product, mostrarlas como tagas azules
+                      //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
                       description={product.category.map((c) => (
                         <Tag color="geekblue">{c}</Tag>
                       ))}
                     />
-                    <p>{product.description}</p>
                   </Card>
                 </div>
               </Col>

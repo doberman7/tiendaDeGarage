@@ -49,7 +49,14 @@ function MyItems() {
         <Row gutter={[16, 24]}>
           {items ? (
             items.map((item) => (
-              <Col span={6} xs={24} sm={24} md={8} key={item._id}>
+              <Col
+                className="gutter-row"
+                span={6}
+                xs={24}
+                sm={24}
+                md={8}
+                key={item._id}
+              >
                 <Card
                   title={item.title}
                   extra={<Link to={`/item/${item._id}`}>Edit</Link>}
