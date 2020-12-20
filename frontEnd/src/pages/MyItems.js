@@ -46,7 +46,8 @@ function MyItems() {
         </div>
         <Row gutter={[16, 24]}>
           {items?.map((item) => (
-            <Col xs={24} sm={24} md={12} key={item._id}>
+            <Col span={6} key={item._id}>
+              {/* <Col span={6} xs={24} sm={24} md={12} key={item._id}> */}
               <Card
                 title={item.title}
                 extra={<Link to={`/item/${item._id}`}>Edit</Link>}
