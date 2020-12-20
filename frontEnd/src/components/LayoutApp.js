@@ -39,7 +39,7 @@ const LayoutApp = ({ children }) => {
                 Logout
               </Menu.Item>
               <Menu.Item key="6">
-                <Link to="/viewProducts">Wishes</Link>
+                <Link to="/viewProducts">My Wishes</Link>
               </Menu.Item>
               <Menu.Item key="7">
                 <Link to="/MyItems">My Items</Link>

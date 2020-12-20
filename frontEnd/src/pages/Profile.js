@@ -20,24 +20,36 @@ const Profile = ({ history }) => {
           {/* ID: {user._id}
           <br></br> */}
         </Typography.Title>
+        <p>This is your profile, you can do a lot from here</p>
       </Col>
       <Divider />
-
-      <Link to="/editUser">
-        <Button type="primary" block>
-          Edit User
-        </Button>
-      </Link>
+      <div>
+        <p>You can edit your info and add pic to yor profile </p>
+        <br />
+        <Link to="/editUser">
+          <Button type="primary" block>
+            Edit User
+          </Button>
+        </Link>
+      </div>
       <Divider />
-      <Link to="/createProduct">
-        <Button type="primary" block>
-          Create a wish
-        </Button>
-      </Link>
+      <div>
+        <p>You can create a product</p>
+        <br />
+        <Link to="/createProduct">
+          <Button type="primary" block>
+            Create a wish
+          </Button>
+        </Link>
+      </div>
       <Divider />
-      <Button type="primary">
-        <Link to="/itemForm">Create an Item</Link>
-      </Button>
+      <div>
+        <p>You can create an item</p>
+        <br />
+        <Button type="primary">
+          <Link to="/itemForm">Create an Item</Link>
+        </Button>
+      </div>
     </Row>
   ) : (
     <Redirect to="/" />
