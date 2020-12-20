@@ -27,7 +27,7 @@ import {
   RadiusBottomleftOutlined,
   RadiusBottomrightOutlined,
 } from '@ant-design/icons';
-const style = { background: '#2742AF', padding: '10px' };
+const style = { background: '#2742AF', padding: '1px' };
 const { Meta } = Card;
 const { Title, Text } = Typography;
 
