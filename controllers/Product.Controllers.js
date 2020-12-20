@@ -9,7 +9,9 @@ exports.createProcessProduct = async (req, res) => {
     if (!image || !name || !description || !category) {
       return res
         .status(400)
-        .json({ message: 'Provide image, name, description, category' });
+        .json({
+          message: 'Provide image, name, description, category and image',
+        });
     }
 
     const product = await Product.findOne({
