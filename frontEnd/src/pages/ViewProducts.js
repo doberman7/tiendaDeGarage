@@ -13,6 +13,7 @@ import {
   Image,
   Typography,
   Spin,
+  Tag,
 } from 'antd';
 import { getUserProductsFn } from '../services/auth';
 import {
@@ -26,7 +27,7 @@ import {
   RadiusBottomleftOutlined,
   RadiusBottomrightOutlined,
 } from '@ant-design/icons';
-const style = { background: '#800080', padding: '10px' };
+const style = { background: '#2742AF', padding: '10px' };
 const { Meta } = Card;
 const { Title, Text } = Typography;
 
@@ -95,8 +96,12 @@ const ViewProducts = ({ history }) => {
                   >
                     <Meta
                       title={product.name}
-                      description={product.description}
+                      // iterar entre las categorias del product, mostrarlas como tagas azules
+                      description={product.category.map((c) => (
+                        <Tag color="geekblue">{c}</Tag>
+                      ))}
                     />
+                    <p>{product.description}</p>
                   </Card>
                 </div>
               </Col>
