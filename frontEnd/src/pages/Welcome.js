@@ -18,7 +18,9 @@ const Router = () => {
         <Divider />
         <ImageDemo />
         <Divider />
-        <p>You have created a user with email: {user.email}</p>
+        <p>
+          Greetings <b>{user.name}</b>
+        </p>
         <p>In this app you can create Wishes and Items</p>
 
         <p>

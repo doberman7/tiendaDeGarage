@@ -62,6 +62,9 @@ const Signup = ({ history }) => {
       <Divider />
       <Col span={24}>
         <Form layout="vertical" form={form} onFinish={handleSubmit}>
+          <Form.Item name="name" label="Name:">
+            <Input />
+          </Form.Item>
           <Form.Item name="email" label="Email:">
             <Input />
           </Form.Item>
