@@ -42,10 +42,10 @@ function MyItems() {
       <div style={{ padding: '1rem 3rem' }}>
         <Title level={1}>Items</Title>
         <div>
-          <p>From here you can create and see all the items you want to buy</p>
+          <p>From here you can create and see all the items you want to sell</p>
           <br />
-          <Button type="primary">
-            <Link to="/createItem">Create an Item</Link>
+          <Button type="primary " ghost>
+            <Link to="/createItem">Create Item</Link>
           </Button>
           <Divider />
         </div>
@@ -65,9 +65,15 @@ function MyItems() {
                     title={item.title}
                     extra={<Link to={`/item/${item._id}`}>Edit</Link>}
                   >
-                    <p>{item.status}</p>
-                    <p>{item.description}</p>
-                    <p>{item.price}</p>
+                    <p>
+                      <b>Description:</b> {item.description}
+                    </p>
+                    <p>
+                      <b>Status:</b> {item.status}
+                    </p>
+                    <p>
+                      <b>$</b> {item.price}
+                    </p>
                     <Image src={item.image} />
                     {/* este div es para que JSC reconosca el espacio */}
                     <div>

@@ -111,7 +111,7 @@ function CreateItemForm({ history }) {
 
         <Form.Item name="status" label="Status:">
           <Select initialvalue="available" style={{ width: '20%' }}>
-            <Select.Option value="available">available</Select.Option>
+            <Select.Option value="available">Available</Select.Option>
             <Select.Option value="sold">Sold</Select.Option>
           </Select>
         </Form.Item>

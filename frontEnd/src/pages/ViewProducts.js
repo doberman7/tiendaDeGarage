@@ -65,10 +65,12 @@ const ViewProducts = ({ history }) => {
       <div style={{ padding: '1rem 3rem' }}>
         <Title level={1}>Wishes</Title>
         <div>
-          <p>You can create a product</p>
+          <p>You can create a product you wish to buy</p>
           <br />
           <Link to="/createProduct">
-            <Button type="primary">Create a wish</Button>
+            <Button type="primary" ghost>
+              Create Wish
+            </Button>
           </Link>
           <Divider />
         </div>
@@ -94,7 +96,9 @@ const ViewProducts = ({ history }) => {
                     ]}
                     key={product.id}
                   >
-                    <p>Description:{product.description}</p>
+                    <p>
+                      <b>Description:</b> {product.description}
+                    </p>
                     <Image src={product.picture} />
                     {/* este div es para que JSC reconosca el espacio */}
                     <div>
