@@ -51,7 +51,7 @@ const Signup = ({ history }) => {
 
       signup(data);
 
-      //esto redirige a profile
+      //esto redirige a welcome
       history.push('/welcome');
 
       countDown();
