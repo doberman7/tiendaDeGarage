@@ -54,7 +54,7 @@ const Router = () => {
   const { user } = useContextInfo();
   return !user ? (
     <>
-      <div className="site-button-ghost-wrapper">
+      <div className="buttonsHome">
         <h1>Tienda de Garage</h1>
         <Carousel autoplay>
           <div>

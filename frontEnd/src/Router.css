@@ -2,6 +2,10 @@
   /* background: rgb(190, 200, 200); */
   padding: 6em;
 }
+.buttonsHome {
+  /* background: rgb(190, 200, 200); */
+  padding: 1em;
+}
 
 .hidden {
   display: none;
