@@ -76,10 +76,7 @@ const CreateProduct = ({ history }) => {
       <Col span={24}>
         <Title level={1}>Create Wish</Title>
 
-        <p>
-          Hi user with the email {user.email} fill the form to create a product
-          you desire
-        </p>
+        <p>Fill the form to create a product you desire</p>
         {error && <Alert message={error} type="error" />}
       </Col>
       <Divider />
