@@ -45,6 +45,7 @@ function CreateItemForm({ history }) {
       values.image = img;
       await createItem(values);
       history.push('/MyItems');
+      message.success('Item Created');
     }
   }
 

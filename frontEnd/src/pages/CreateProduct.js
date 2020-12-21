@@ -10,6 +10,7 @@ import {
   Upload,
   Alert,
   Select,
+  message,
 } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
@@ -43,6 +44,7 @@ const CreateProduct = ({ history }) => {
       //esto redirigira a products created page
       // history.push('/profile');
       history.push('/viewProducts');
+      message.success('Wish created');
     } catch (e) {
       console.log(e);
       setError(e.response.data.message);
