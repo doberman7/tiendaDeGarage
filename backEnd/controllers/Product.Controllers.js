@@ -7,23 +7,21 @@ exports.createProcessProduct = async (req, res) => {
     const { image, name, description, category } = req.body;
     const userId = req.session.passport.user;
     if (!image || !name || !description || !category) {
-      return res
-        .status(400)
-        .json({
-          message: 'Provide image, name, description, category and image',
-        });
+      return res.status(400).json({
+        message: 'Provide image, name, description, category and image',
+      });
     }
 
     const product = await Product.findOne({
       name,
     });
 
-    if (product) {
-      console.log('product already created');
-      return res.status(400).json({
-        message: 'product with that name already exists, give it a new name',
-      });
-    }
+    // if (product) {
+    //   console.log('product already created');
+    //   return res.status(400).json({
+    //     message: 'product with that name already exists, give it a new name',
+    //   });
+    // }
 
     let newProduct = await Product.create({
       idUser: userId,
