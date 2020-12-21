@@ -12,22 +12,7 @@ function ImageDemo() {
 }
 const Welcomee = () => {
   const { user, setUserUpdtade } = useContextInfo();
-  // useEffect(() => {
-  //   async function getUser() {
-  //     try {
-  //       const response = await currentUserFn();
-  //       setUserUpdtade(true);
-  //       // console.log(response.data.googleId); //si se obtiene
-  //     } catch (e) {
-  //       console.log(e);
-  //     } finally {
-  //     }
-  //   }
-  //
-  //   getUser();
-  // }, []);
 
-  // const Router = () => {
   console.log(user);
   return user ? (
     <>

@@ -15,6 +15,7 @@ import {
   Space,
   Spin,
   Tag,
+  Alert,
 } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { Redirect, Link } from 'react-router-dom';
@@ -97,7 +98,16 @@ function MyItems() {
       </div>
     </>
   ) : (
-    <Redirect to="/" />
+    // <Redirect to="/" />
+    <>
+      <Spin tip="Loading...">
+        <Alert
+          message="This is taking to much time"
+          description="You may not be signed in, go Home and sing in please"
+          type="info"
+        />
+      </Spin>
+    </>
   );
 }
 export default MyItems;

@@ -14,6 +14,7 @@ import {
   Typography,
   Spin,
   Tag,
+  Alert,
 } from 'antd';
 import { getUserProductsFn } from '../services/auth';
 import {
@@ -122,7 +123,16 @@ const ViewProducts = ({ history }) => {
       </div>
     </>
   ) : (
-    <Redirect to="/" />
+    // <Redirect to="/" />
+    <>
+      <Spin tip="Loading...">
+        <Alert
+          message="This is taking to much time"
+          description="You may not be signed in, go Home and sing in please"
+          type="info"
+        />
+      </Spin>
+    </>
   );
 };
 
