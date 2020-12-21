@@ -35,6 +35,7 @@ const Login = ({ history }) => {
       // console.log('DATA:', data);
       login(data);
       history.push('/profile');
+      message.success('Welcome');
     } catch (e) {
       //cacha message de back
       console.dir(e.response.data.message);
