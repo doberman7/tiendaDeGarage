@@ -14,6 +14,7 @@ const {
   currentUser,
   googleProcess,
   googleCallback,
+  isAuthorized,
 } = require('../controllers/User.Controllers');
 const uploadPicture = require('../config/cloudinary');
 
@@ -33,5 +34,6 @@ router.get('/current-user', currentUser);
 
 router.get('/google', googleProcess);
 router.get('/google/callback', googleCallback);
+router.get('/is-authorized', isAuthorized);
 
 module.exports = router;
