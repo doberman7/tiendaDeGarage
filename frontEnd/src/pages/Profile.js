@@ -10,6 +10,7 @@ const Profile = ({ history }) => {
   return user ? (
     <Row>
       <Col xs={24} sm={24} md={12}>
+        <p>This is your info</p>
         <Typography.Title level={3}>
           <Image width={100} src={user.picture} />
           <br></br>
@@ -20,14 +21,12 @@ const Profile = ({ history }) => {
           {/* ID: {user._id}
           <br></br> */}
         </Typography.Title>
-        <p>This is your profile, you can do a lot from here</p>
       </Col>
       <Divider />
-      <div>
+      <div className="">
         <p>You can edit your info and add pic to yor profile </p>
-        <br />
         <Link to="/editUser">
-          <Button type="primary" block>
+          <Button type="primary" block ghost>
             Edit User
           </Button>
         </Link>
