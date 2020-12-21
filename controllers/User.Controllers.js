@@ -201,11 +201,20 @@ exports.googleCallback = (req, res, next) => {
         res.status(500).json({ err }).json({ message: err.message });
       }
       //todo salio bien? redirigir a al profile
-      return res.redirect(
-        process.env.ENV === 'development'
-          ? 'http://localhost:3001/welcome'
-          : '/welcome'
-      );
+
+      if (user.products.length == 0 && user.products.length == 0) {
+        return res.redirect(
+          process.env.ENV === 'development'
+            ? 'http://localhost:3001/welcome'
+            : '/welcome'
+        );
+      } else {
+        return res.redirect(
+          process.env.ENV === 'development'
+            ? 'http://localhost:3001/profile'
+            : '/profile'
+        );
+      }
     });
   })(req, res, next);
 };
