@@ -34,6 +34,6 @@ router.get('/current-user', currentUser);
 
 router.get('/google', googleProcess);
 router.get('/google/callback', googleCallback);
-router.get('/is-authorized', isAuthorized);
+// router.get('/is-authorized', isAuthorized);
 
 module.exports = router;
