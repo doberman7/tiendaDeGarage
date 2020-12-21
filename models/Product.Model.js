@@ -18,11 +18,7 @@ const productSchema = new Schema(
       trim: true,
       default: 'The product i want',
     },
-    picture: {
-      type: String,
-      default:
-        'https://image.shutterstock.com/image-vector/user-avatar-icon-sign-profile-260nw-1145752283.jpg',
-    },
+    picture: String,
   },
   {
     timestamps: true,
