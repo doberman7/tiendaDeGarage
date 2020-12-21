@@ -133,3 +133,16 @@ exports.getProductDetails = async (req, res) => {
     console.log('CONTROLLER getProductDetails');
   }
 };
+
+exports.deleteProduct = async (req, res) => {
+  try {
+    const { productId } = req.params;
+    await Product.findByIdAndDelete(productId);
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ message: e.message });
+  } finally {
+    console.log('CONTROLLER deleteProduct');
+  }
+  res.status(200).json({ message: 'Product deleted' });
+};
