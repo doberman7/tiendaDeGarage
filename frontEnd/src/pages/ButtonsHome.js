@@ -52,43 +52,43 @@ const contentStyle = {
 const Router = () => {
   //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
-  return !user ? (
+  return user ? (
     <>
-      <div className="buttonsHome">
-        <h1>Tienda de Garage</h1>
-        <Carousel autoplay>
-          <div>
-            <h3 style={contentStyle.uno}>B U Y</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle.dos}>S E L L</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle.tres}>B U Y</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle.cuatro}>S E L L</h3>
-          </div>
-        </Carousel>
-        <Divider />
-        <p>
-          La experiencia más amena en compras e intercambios de sillas, mesas,
-          trastos, aparatos electronicos, jarras, vasos, plato, cucharas,
-          tenedores reglas, lápizes, mochilas y demás chunches que puedas
-          encontrar en tu garage sólo aquí con su Tienda Garage
-        </p>
-        <Button type="primary" ghost>
-          <Link to="/Signup">Sign up</Link>
-        </Button>
-        <Divider />
-        <Button type="primary" ghost>
-          <Link to="/Login">Login</Link>
-        </Button>
-        <Divider />
-      </div>
+      <Redirect to="/profile" />
     </>
   ) : (
-    <Redirect to="/profile" />
+    <div className="buttonsHome">
+      <h1>Tienda de Garage</h1>
+      <Carousel autoplay>
+        <div>
+          <h3 style={contentStyle.uno}>B U Y</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle.dos}>S E L L</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle.tres}>B U Y</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle.cuatro}>S E L L</h3>
+        </div>
+      </Carousel>
+      <Divider />
+      <p>
+        La experiencia más amena en compras e intercambios de sillas, mesas,
+        trastos, aparatos electronicos, jarras, vasos, plato, cucharas,
+        tenedores reglas, lápizes, mochilas y demás chunches que puedas
+        encontrar en tu garage sólo aquí con su Tienda Garage
+      </p>
+      <Button type="primary" ghost>
+        <Link to="/Signup">Sign up</Link>
+      </Button>
+      <Divider />
+      <Button type="primary" ghost>
+        <Link to="/Login">Login</Link>
+      </Button>
+      <Divider />
+    </div>
   );
 };
 
