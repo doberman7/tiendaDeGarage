@@ -8,7 +8,8 @@ import { Image, Button } from 'antd';
 function ImageDemo() {
   return <Image width={200} src="open.jpg" />;
 }
-const Router = () => {
+const Welcomee = () => {
+  // const Router = () => {
   const { user } = useContextInfo();
 
   return user ? (
@@ -40,4 +41,5 @@ const Router = () => {
   );
 };
 
-export default Router;
+export default Welcomee;
+// export default Router;

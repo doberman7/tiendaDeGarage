@@ -49,7 +49,8 @@ const contentStyle = {
   },
 };
 
-const Router = () => {
+// const Router = () => {
+const Home = () => {
   //es importa recordar que user es el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
   return user ? (
@@ -92,4 +93,5 @@ const Router = () => {
   );
 };
 
-export default Router;
+// export default Router;
+export default Home;

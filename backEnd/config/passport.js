@@ -45,7 +45,7 @@ passport.use(
           confirmed: true,
         });
 
-        console.log('USER', user);
+        // console.log('USER', user);
         done(null, user);
       }
 
