@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useContextInfo } from '../hooks/context';
 import { logoutFn } from '../services/auth';
 const { Header, Content, Footer } = Layout;
 
 const LayoutApp = ({ children }) => {
+  let history = useHistory();
   const { user, logout } = useContextInfo();
-
   async function handleLogout() {
     await logoutFn();
     logout();
+    history.push('/');
   }
 
   return (
