@@ -4,34 +4,32 @@ import { Link, Redirect } from 'react-router-dom';
 import '../Router.css';
 import { Divider } from 'antd';
 import { useContextInfo } from '../hooks/context';
-import { isAuthFn, currentUserFn } from '../services/auth';
+import { currentUserFn } from '../services/auth';
 
-import { Image, Button } from 'antd';
+import { Image, Button, Spin, Alert } from 'antd';
 function ImageDemo() {
   return <Image width={200} src="open.jpg" />;
 }
 const Welcomee = () => {
-  const [currentUserG, setCurrentUserG] = useState(null);
-
-  useEffect(() => {
-    async function getUser() {
-      isAuthFn()
-        .then((response) => {
-          console.log(response.data.user);
-          setCurrentUserG(response.data.user);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-
-    getUser();
-  }, []);
+  const { user, setUserUpdtade } = useContextInfo();
+  // useEffect(() => {
+  //   async function getUser() {
+  //     try {
+  //       const response = await currentUserFn();
+  //       setUserUpdtade(true);
+  //       // console.log(response.data.googleId); //si se obtiene
+  //     } catch (e) {
+  //       console.log(e);
+  //     } finally {
+  //     }
+  //   }
+  //
+  //   getUser();
+  // }, []);
 
   // const Router = () => {
-  const { user } = useContextInfo();
-  console.log(currentUserG);
-  return user || currentUserG ? (
+  console.log(user);
+  return user ? (
     <>
       <div className=" welcome">
         <h1>W E L C O M E </h1>
@@ -56,7 +54,15 @@ const Welcomee = () => {
       </div>
     </>
   ) : (
-    <Redirect to="/" />
+    <>
+      <Spin tip="Loading...">
+        <Alert
+          message="This is taking to much time"
+          description="You may not be signed in, go Home and sing in please"
+          type="info"
+        />
+      </Spin>
+    </>
   );
 };
 
