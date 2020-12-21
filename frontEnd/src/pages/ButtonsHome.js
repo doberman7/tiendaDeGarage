@@ -50,7 +50,7 @@ const contentStyle = {
 };
 
 const Router = () => {
-  //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
+  //es importa recordar que user es el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
   return user ? (
     <>
