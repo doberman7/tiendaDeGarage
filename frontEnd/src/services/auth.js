@@ -37,3 +37,7 @@ export const getProductDetailsFn = async (idProduct) => {
 
 export const editProductFn = (idProduct, productInfo) =>
   authService.put(`/product/edit-product/${idProduct}`, productInfo);
+
+export const isAuthFn = async () => {
+  return await authService.get('/is-authorized');
+};

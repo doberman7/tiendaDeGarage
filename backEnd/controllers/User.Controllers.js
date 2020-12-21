@@ -209,3 +209,15 @@ exports.googleCallback = (req, res, next) => {
     });
   })(req, res, next);
 };
+
+exports.isAuthorized = async (req, res) => {
+  console.log('CONTROLLER isAuthorized');
+  User.findById(req.user._id)
+    .then((user) => res.status(200).json({ user }))
+    .catch((err) => res.status(500).json({ err }));
+};
+
+exports.test = (req, res) => {
+  console.log('TEST user controller');
+  res.json(null);
+};

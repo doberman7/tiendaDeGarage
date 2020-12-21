@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import '../Router.css';
 import { Divider } from 'antd';
 import { useContextInfo } from '../hooks/context';
+import { isAuthFn, currentUserFn } from '../services/auth';
+
 import { Image, Button } from 'antd';
 function ImageDemo() {
   return <Image width={200} src="open.jpg" />;
 }
 const Welcomee = () => {
+  const [currentUserG, setCurrentUserG] = useState(null);
+
+  useEffect(() => {
+    async function getUser() {
+      isAuthFn()
+        .then((response) => {
+          console.log(response.data.user);
+          setCurrentUserG(response.data.user);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    getUser();
+  }, []);
+
   // const Router = () => {
   const { user } = useContextInfo();
-
-  return user ? (
+  console.log(currentUserG);
+  return user || currentUserG ? (
     <>
       <div className=" welcome">
         <h1>W E L C O M E </h1>
