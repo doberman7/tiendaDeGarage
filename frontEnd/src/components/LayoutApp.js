@@ -36,14 +36,18 @@ const LayoutApp = ({ children }) => {
               <Menu.Item key="4">
                 <Link to="/profile">Profile</Link>
               </Menu.Item>
-              <Menu.Item key="5" onClick={handleLogout}>
-                Logout
-              </Menu.Item>
-              <Menu.Item key="6">
+
+              <Menu.Item key="5">
                 <Link to="/viewProducts">My Wishes</Link>
               </Menu.Item>
-              <Menu.Item key="7">
+              <Menu.Item key="6">
                 <Link to="/MyItems">My Items</Link>
+              </Menu.Item>
+              <Menu.Item key="7">
+                <Link to="/ItemsAll">All items</Link>
+              </Menu.Item>
+              <Menu.Item key="8" onClick={handleLogout}>
+                Logout
               </Menu.Item>
             </React.Fragment>
           )}

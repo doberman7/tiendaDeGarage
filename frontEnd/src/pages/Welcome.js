@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import '../Router.css';
 import { Divider } from 'antd';
 import { useContextInfo } from '../hooks/context';
-import { currentUserFn } from '../services/auth';
+// import { currentUserFn } from '../services/auth';
 
 import { Image, Button, Spin, Alert } from 'antd';
 function ImageDemo() {

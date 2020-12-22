@@ -16,3 +16,5 @@ export const editItem = (id, item) =>
   itemsService.put(`/item/edit-item/${id}`, item);
 export const deleteItem = (id) =>
   itemsService.delete(`/item/delete-item/${id}`);
+
+export const srvAllItems = () => itemsService.get(`item/all`);
