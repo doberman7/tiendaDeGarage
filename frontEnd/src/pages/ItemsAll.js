@@ -38,6 +38,7 @@ function ItemsAll() {
       const { data } = await srvAllItems();
       //data es la response de back, en este caso todos los items
       setItems(data);
+      // console.log(items);
     }
     getAllItems();
   }, []);
@@ -79,28 +80,9 @@ function ItemsAll() {
     };
   };
 
-  const options = [
-    {
-      label: renderTitle('Libraries'),
-      options: [
-        renderItem('AntDesign', 10000),
-        renderItem('AntDesign UI', 10600),
-      ],
-    },
-    {
-      label: renderTitle('Solutions'),
-      options: [
-        renderItem('AntDesign UI FAQ', 60100),
-        renderItem('AntDesign FAQ', 30010),
-      ],
-    },
-    {
-      label: renderTitle('Articles'),
-      options: [renderItem('AntDesign design language', 100000)],
-    },
-  ];
+  const options = [];
 
-  const SearchBar = () => (
+  const SearchBar = (opts) => (
     <AutoComplete
       dropdownClassName="certain-category-search-dropdown"
       dropdownMatchSelectWidth={500}
@@ -112,9 +94,26 @@ function ItemsAll() {
       <Input.Search size="large" placeholder="input here" />
     </AutoComplete>
   );
+  let opts = [];
+  const TurnIntoOpts = (items) => {
+    items.forEach((item, i) => {
+      // console.log(i);
+      let opt = {
+        label: renderTitle('Sold'),
+        options: [
+          renderItem(item.category, 60100),
+          // renderItem('item.title', 30010),
+        ],
+      };
+      // console.log(opt);
+      options.push(opt);
+    });
+    console.log(options);
+  };
 
   return user ? (
     <>
+      {items ? <p>{TurnIntoOpts(items)}</p> : <p>no hay</p>}
       <div style={{ padding: '1rem 3rem' }}>
         <Title level={1}>Items</Title>
         <div>
