@@ -11,7 +11,7 @@ import CreateItemForm from '../pages/CreateItem';
 const { Meta } = Card;
 const { Title } = Typography;
 
-function ItemCard({ title, description, price, image, _id, category, status }) {
+function ItemCard({ title, description, price, image, _id, categorys, status }) {
   return (
     <Card
       style={{ width: 300 }}

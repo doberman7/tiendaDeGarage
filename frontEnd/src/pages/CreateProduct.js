@@ -90,7 +90,7 @@ const CreateProduct = ({ history }) => {
           <Form.Item name="description" label="Description:">
             <Input placeholder={'Add description'} />
           </Form.Item>
-          <Form.Item name="category" label="Category tags:">
+          <Form.Item name="categorys" label="categorys tags:">
             <Select mode="tags" style={{ width: '100%' }} />
           </Form.Item>
           <Form.Item name="image" label="Image:">

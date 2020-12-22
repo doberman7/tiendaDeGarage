@@ -1,20 +1,20 @@
-const {
-  Schema,
-  model
-} = require('mongoose')
+const { Schema, model } = require('mongoose');
 
-const ItemSchema = new Schema({
-  title:String,
-  description:String,
-  image:String,
-  price:Number,
-  category:[String],
-  status:{
-    type:String,
-    enum:["sold","available"]
+const ItemSchema = new Schema(
+  {
+    title: String,
+    description: String,
+    image: String,
+    price: Number,
+    categorys: [String],
+    status: {
+      type: String,
+      enum: ['sold', 'available'],
+    },
+  },
+  {
+    timestamps: true,
   }
-}, {
-  timestamps: true
-})
+);
 
-module.exports = model("Item", ItemSchema)
+module.exports = model('Item', ItemSchema);

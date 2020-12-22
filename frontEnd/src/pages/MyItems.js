@@ -83,7 +83,7 @@ function MyItems() {
                     <Meta
                       // iterar entre las categorias del product, mostrarlas como tagas azules
                       //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
-                      description={item.category.map((i) => (
+                      description={item.categorys.map((i) => (
                         <Tag color="cyan">{i}</Tag>
                       ))}
                     />
