@@ -22,7 +22,7 @@ import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 const { Title, Text } = Typography;
 const { Meta } = Card;
-const style = { background: '#1D99A9', padding: '1px' };
+const style = { background: '#1C84B9', padding: '1px' };
 
 function MyItems() {
   //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
