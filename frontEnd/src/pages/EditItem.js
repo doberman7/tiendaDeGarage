@@ -148,21 +148,19 @@ function EditItem({
           Update
         </Button>
         <p></p>
-        {/* //// TODO: change Link to for history push and put out of form*/}
-        <Link to="/MyItems">
-          <br />
-          <Button
-            type="ghost"
-            size="small"
-            htmlType="submit"
-            onClick={handleDelete}
-            danger
-            block
-          >
-            Delete
-          </Button>
-        </Link>
       </Form>
+
+      <br />
+      <Button
+        type="ghost"
+        size="small"
+        htmlType="submit"
+        onClick={handleDelete}
+        danger
+        block
+      >
+        Delete
+      </Button>
     </>
   ) : (
     <div>
