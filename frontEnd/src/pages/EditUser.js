@@ -9,6 +9,7 @@ import {
   Divider,
   Upload,
   Alert,
+  message,
 } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
@@ -43,6 +44,7 @@ const EditUser = ({ history }) => {
 
       //esto redirige a login
       history.push('/profile');
+      message.success('User edited');
     } catch (e) {
       console.log(e);
       setError(e.response.data.message);

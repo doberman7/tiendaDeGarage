@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 // import { useContextInfo } from '../hooks/context';
 import { editProductFn } from '../services/auth';
 import { getProductDetailsFn, deleteProductFn } from '../services/auth';
-import { Form, Button, Input, Alert, Upload } from 'antd';
+import { Form, Button, Input, Alert, Upload, message } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 const cloudinaryAPI =
@@ -37,6 +37,7 @@ function EditProduct({
 
       await editProductFn(product._id, values);
       history.push('/viewProducts');
+      message.success('Product edited');
     } catch (e) {
       console.log(e.response.data.message);
       setError(e.response.data.message);
@@ -66,6 +67,7 @@ function EditProduct({
     console.log(productId);
     await deleteProductFn(productId);
     history.push('/ViewProducts');
+    message.success('Product deleted');
   }
   return (
     <>

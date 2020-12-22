@@ -65,6 +65,7 @@ function EditItem({
         await editItem(itemId, values);
 
         history.push('/MyItems');
+        message.success('Item edited');
       } catch (e) {
         console.log(e);
         setError(e.response.data.message);
@@ -102,6 +103,7 @@ function EditItem({
   async function handleDelete() {
     await deleteItem(itemId);
     history.push('/MyItems');
+    message.success('Item deleted');
   }
 
   return item ? (
