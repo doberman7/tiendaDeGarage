@@ -45,7 +45,6 @@ function ItemsAll() {
         <Title level={1}>Items</Title>
         <div>
           <p>From here you can all the items for you to buy</p>
-          <br />
 
           <Divider />
         </div>

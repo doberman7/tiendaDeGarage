@@ -28,7 +28,7 @@ import {
   RadiusBottomleftOutlined,
   RadiusBottomrightOutlined,
 } from '@ant-design/icons';
-const style = { background: '#2742AF', padding: '1px' };
+const style = { background: '#8742AF', padding: '1px' };
 const { Meta } = Card;
 const { Title, Text } = Typography;
 
@@ -67,7 +67,7 @@ const ViewProducts = ({ history }) => {
         <Title level={1}>Wishes</Title>
         <div>
           <p>You can create a product you wish to buy</p>
-          <br />
+          {/* <br /> */}
           <Link to="/createProduct">
             <Button type="primary" ghost>
               Create Wish

@@ -44,7 +44,7 @@ function MyItems() {
         <Title level={1}>Items</Title>
         <div>
           <p>From here you can create and see all the items you want to sell</p>
-          <br />
+          {/* <br /> */}
           <Button type="primary " ghost>
             <Link to="/createItem">Create Item</Link>
           </Button>
