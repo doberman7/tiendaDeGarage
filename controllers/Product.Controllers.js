@@ -4,11 +4,11 @@ const log = require('chalk-animation');
 
 exports.createProcessProduct = async (req, res) => {
   try {
-    const { image, name, description, category } = req.body;
+    const { image, name, description, categorys } = req.body;
     const userId = req.session.passport.user;
-    if (!image || !name || !description || !category) {
+    if (!image || !name || !description || !categorys) {
       return res.status(400).json({
-        message: 'Provide image, name, description, category and image',
+        message: 'Provide image, name, description, categorys and image',
       });
     }
 
@@ -28,7 +28,7 @@ exports.createProcessProduct = async (req, res) => {
       name: name,
       picture: image,
       description: description,
-      category,
+      categorys,
     });
 
     await User.findByIdAndUpdate(
