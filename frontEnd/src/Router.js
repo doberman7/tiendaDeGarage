@@ -14,7 +14,7 @@ import CreateProduct from './pages/CreateProduct';
 import MyItems from './pages/MyItems'; //añado items del usuario
 import CreateItemForm from './pages/CreateItem'; //añado formulario de items del usuario
 import EditItem from './pages/EditItem'; //añado edicion del formulario del usuario
-import itemsAll from './pages/ItemsAll';
+import ItemsAll from './pages/ItemsAll';
 
 //añado createItemForm,MyItems y Edit Item
 const Router = () => {
@@ -34,7 +34,7 @@ const Router = () => {
           <Route path="/createItem" component={CreateItemForm} exact />
           <Route path="/MyItems" component={MyItems} exact />
           <Route path="/item/:itemId" component={EditItem} exact />
-          <Route path="/ItemsAll" component={itemsAll} exact />
+          <Route path="/ItemsAll" component={ItemsAll} exact />
         </Switch>
       </LayoutApp>
     </BrowserRouter>

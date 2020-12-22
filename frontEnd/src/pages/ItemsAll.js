@@ -24,7 +24,7 @@ const { Title, Text } = Typography;
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
 
-function itemsAll() {
+function ItemsAll() {
   //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
 
@@ -83,7 +83,7 @@ function itemsAll() {
                       // iterar entre las categorias del product, mostrarlas como tagas azules
                       //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
                       description={item.category.map((i) => (
-                        <Tag color="cyan">{i}</Tag>
+                        <Tag color="magenta">{i}</Tag>
                       ))}
                     />
                   </Card>
@@ -109,4 +109,4 @@ function itemsAll() {
     </>
   );
 }
-export default itemsAll;
+export default ItemsAll;
