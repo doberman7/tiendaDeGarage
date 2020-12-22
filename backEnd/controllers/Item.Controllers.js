@@ -61,3 +61,9 @@ exports.deleteItem = async (req, res) => {
   await Item.findByIdAndDelete(itemId);
   res.status(200).json({ message: 'item deleted' });
 };
+
+exports.allitems = async (req, res) => {
+  //read all items
+  const itemsAll = await Item.find();
+  res.status(200).json(itemsAll);
+};
