@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 // import { useContextInfo } from '../hooks/context';
 import { editProductFn } from '../services/auth';
-import { getProductDetailsFn } from '../services/auth';
+import { getProductDetailsFn, deleteProductFn } from '../services/auth';
 import { Form, Button, Input, Alert, Upload } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
@@ -62,6 +62,11 @@ function EditProduct({
       <div style={{ marginTop: 8 }}>Upload</div>
     </div>
   );
+  async function handleDelete() {
+    console.log(productId);
+    await deleteProductFn(productId);
+    history.push('/ViewProducts');
+  }
   return (
     <>
       <h1>Update Product</h1>
@@ -91,6 +96,17 @@ function EditProduct({
           Update
         </Button>
       </Form>
+      <br />
+      <Button
+        type="ghost"
+        size="small"
+        htmlType="submit"
+        onClick={handleDelete}
+        danger
+        block
+      >
+        Delete
+      </Button>
     </>
   );
 }
