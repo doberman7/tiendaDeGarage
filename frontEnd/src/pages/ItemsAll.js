@@ -22,7 +22,7 @@ import {
 import React, { useState, useEffect } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
-import { UserOutlined } from '@ant-design/icons';
+import { TagOutlined } from '@ant-design/icons';
 const { Title, Text } = Typography;
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
@@ -36,7 +36,7 @@ function ItemsAll() {
   useEffect(() => {
     async function getAllItems() {
       const { data } = await srvAllItems();
-      //may data.items
+      //data es la response de back, en este caso todos los items
       setItems(data);
     }
     getAllItems();
@@ -72,7 +72,7 @@ function ItemsAll() {
         >
           {title}
           <span>
-            <UserOutlined /> {count}
+            <TagOutlined /> {count}
           </span>
         </div>
       ),
