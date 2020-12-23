@@ -22,7 +22,7 @@ import {
 import React, { useState, useEffect } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import { ShoppingOutlined } from '@ant-design/icons';
 const { Title, Text } = Typography;
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
@@ -72,7 +72,7 @@ function ItemsAll() {
         >
           {title}
           <span>
-            <ShoppingCartOutlined /> {count}
+            <ShoppingOutlined /> {count}
           </span>
         </div>
       ),
