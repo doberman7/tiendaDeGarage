@@ -22,13 +22,15 @@ exports.createItem = async (req, res) => {
   const {
     user: { id },
   } = req;
-
+  taggsMin = [];
+  taggs.map((tagg) => taggsMin.push(tagg.toLowerCase()));
+  console.log(taggsMin);
   const newItem = await Item.create({
-    title,
+    title: title.toLowerCase(),
     description,
     image,
     price,
-    taggs,
+    taggs: taggsMin,
     department,
   });
 
