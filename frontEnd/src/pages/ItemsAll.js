@@ -105,16 +105,16 @@ function ItemsAll() {
       if (item.department == 'electronics') depElectrics.push(item);
     });
     //unificar por taggs
-    let taggs = [];
+    let bookTaggs = [];
     depBooks.map((item) => {
-      //asignamos el atributo taggs del item, que es un array, porque no permite hacer for directamente
-      taggs.push(item.taggs);
-      taggs.sort();
-      for (let i = 0; i < taggs.length; i++) {
-        // console.log(taggs[i]);
+      //empujamos el atributo bookTaggs del item, que es un array, porque no permite hacer for directamente
+      bookTaggs.push(item.taggs);
+      bookTaggs.sort();
+      for (let i = 0; i < bookTaggs.length; i++) {
+        // console.log(bookTaggs[i]);
       }
     });
-    console.log(taggs);
+    console.log(bookTaggs);
   };
 
   return user ? (
