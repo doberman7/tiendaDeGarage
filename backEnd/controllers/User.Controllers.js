@@ -6,7 +6,7 @@ exports.signupProcessUser = async (req, res) => {
   try {
     const { email, password, name } = req.body;
     //si no ingresa todo en el formulario
-    if (!email || !password || !name) {
+    if (!email || !password) {
       return res.status(403).json({ message: 'Provide email and password' });
     }
     const user = await User.findOne({

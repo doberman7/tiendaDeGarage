@@ -6,10 +6,10 @@ const ItemSchema = new Schema(
     description: String,
     image: String,
     price: Number,
-    categorys: [String],
-    status: {
+    taggs: [String],
+    departament: {
       type: String,
-      enum: ['sold', 'available'],
+      enum: ['electronics', 'books'],
     },
   },
   {

@@ -84,7 +84,7 @@ function ItemsAll() {
 
   const SearchBar = (opts) => (
     <AutoComplete
-      dropdownClassName="certain-categorys-search-dropdown"
+      dropdownClassName="certain-taggs-search-dropdown"
       dropdownMatchSelectWidth={500}
       style={{
         width: 250,
@@ -101,7 +101,7 @@ function ItemsAll() {
       let opt = {
         label: renderTitle('Sold'),
         options: [
-          renderItem(item.categorys, 60100),
+          renderItem(item.taggs, 60100),
           // renderItem('item.title', 30010),
         ],
       };
@@ -141,7 +141,7 @@ function ItemsAll() {
                       <b>Description:</b> {item.description}
                     </p>
                     <p>
-                      <b>Status:</b> {item.status}
+                      <b>departament:</b> {item.departament}
                     </p>
                     <p>
                       <b>$</b> {item.price}
@@ -154,7 +154,7 @@ function ItemsAll() {
                     <Meta
                       // iterar entre las categorias del product, mostrarlas como tagas azules
                       //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
-                      description={item.categorys.map((i) => (
+                      description={item.taggs.map((i) => (
                         <Tag color="magenta">{i}</Tag>
                       ))}
                     />
