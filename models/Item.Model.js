@@ -7,7 +7,7 @@ const ItemSchema = new Schema(
     image: String,
     price: Number,
     taggs: [String],
-    departament: {
+    department: {
       type: String,
       enum: ['electronics', 'books'],
     },
