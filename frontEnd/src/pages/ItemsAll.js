@@ -135,7 +135,7 @@ function ItemsAll() {
                 <div style={style}>
                   <Card
                     title={item.title}
-                    extra={<Link to={`/item/${item._id}`}>Edit</Link>}
+                    // extra={<Link to={`/item/${item._id}`}>Edit</Link>}
                   >
                     <p>
                       <b>Description:</b> {item.description}
