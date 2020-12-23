@@ -112,17 +112,17 @@ function ItemsAll() {
       //empujamos el atributo taggs dentro de otro array para poder manipular con "for"
       bookTaggs.push(item.taggs);
     });
-    //unificar todos los tas de books en un aray ordenado
+    //unificar todos los taggs de books en un aray ordenado semi-alfabeticamente
     let bookTaggsMerged = bookTaggs.flat().sort();
-    function count() {
+    function count(array) {
       let current = null;
       var cnt = 0;
-      for (var i = 0; i < bookTaggsMerged.length; i++) {
-        if (bookTaggsMerged[i] != current) {
+      for (var i = 0; i < array.length; i++) {
+        if (array[i] != current) {
           if (cnt > 0) {
             console.log(current + ' comes --> ' + cnt + ' times');
           }
-          current = bookTaggsMerged[i];
+          current = array[i];
           cnt = 1;
         } else {
           cnt++;
@@ -133,7 +133,7 @@ function ItemsAll() {
       }
     }
 
-    count();
+    count(bookTaggsMerged);
   };
 
   return user ? (
