@@ -7,12 +7,8 @@ import {
   Col,
   Typography,
   Card,
-  Button,
-  Modal,
   Divider,
   Image,
-  Avatar,
-  Space,
   Spin,
   Tag,
   Alert,
@@ -20,10 +16,8 @@ import {
   AutoComplete,
 } from 'antd';
 import React, { useState, useEffect } from 'react';
-import { Redirect, Link } from 'react-router-dom';
-import axios from 'axios';
 import { ShoppingOutlined } from '@ant-design/icons';
-const { Title, Text } = Typography;
+const { Title } = Typography;
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
 
@@ -85,8 +79,8 @@ function ItemsAll() {
 
     //separar por department
     items.forEach((item, i) => {
-      if (item.department == 'books') depBooks.push(item);
-      if (item.department == 'electronics') depElectrics.push(item);
+      if (item.department === 'books') depBooks.push(item);
+      if (item.department === 'electronics') depElectrics.push(item);
     });
 
     let opt = {
