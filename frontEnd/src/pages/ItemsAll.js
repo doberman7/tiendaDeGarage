@@ -99,30 +99,27 @@ function ItemsAll() {
     let depBooks = [];
     let depElectrics = [];
 
+    //separar por department
     items.forEach((item, i) => {
-      //separar por department
-      if (item.department == 'electronics') depElectrics.push(item);
       if (item.department == 'books') depBooks.push(item);
-
-      let opt = {
-        //aca el department
-        label: renderTitle('Sold'),
-
-        options: [
-          //aca un array con los tags unificados y su length
-          renderItem(item.taggs, 60100),
-          // renderItem('item.title', 30010),
-        ],
-      };
-      // console.log(opt);
-      options.push(opt);
+      if (item.department == 'electronics') depElectrics.push(item);
     });
-    console.log(options);
+    //unificar por taggs
+    let taggs = [];
+    depBooks.map((item) => {
+      //asignamos el atributo taggs del item, que es un array, porque no permite hacer for directamente
+      taggs.push(item.taggs);
+    });
+    taggs.sort();
+    for (let i = 0; i < taggs.length; i++) {
+      // console.log(taggs[i]);
+    }
+    console.log(taggs);
   };
 
   return user ? (
     <>
-      {items ? <p>{TurnIntoOpts(items)}</p> : <p>no hay</p>}
+      {items ? <p>{TurnIntoOpts(items)}</p> : <p>no hay items</p>}
       <div style={{ padding: '1rem 3rem' }}>
         <Title level={1}>Items</Title>
         <div>
