@@ -109,11 +109,11 @@ function ItemsAll() {
     depBooks.map((item) => {
       //asignamos el atributo taggs del item, que es un array, porque no permite hacer for directamente
       taggs.push(item.taggs);
+      taggs.sort();
+      for (let i = 0; i < taggs.length; i++) {
+        // console.log(taggs[i]);
+      }
     });
-    taggs.sort();
-    for (let i = 0; i < taggs.length; i++) {
-      // console.log(taggs[i]);
-    }
     console.log(taggs);
   };
 
