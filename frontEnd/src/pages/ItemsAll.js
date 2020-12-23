@@ -22,7 +22,7 @@ import {
 import React, { useState, useEffect } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
-import { TagOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined } from '@ant-design/icons';
 const { Title, Text } = Typography;
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
@@ -42,7 +42,7 @@ function ItemsAll() {
     }
     getAllItems();
   }, []);
-
+  //funciones para la barra de búsqueda
   const renderTitle = (title) => {
     return (
       <span>
@@ -60,7 +60,6 @@ function ItemsAll() {
       </span>
     );
   };
-
   const renderItem = (title, count) => {
     return {
       value: title,
@@ -73,28 +72,13 @@ function ItemsAll() {
         >
           {title}
           <span>
-            <TagOutlined /> {count}
+            <ShoppingCartOutlined /> {count}
           </span>
         </div>
       ),
     };
   };
-
   const options = [];
-
-  const SearchBar = (opts) => (
-    <AutoComplete
-      dropdownClassName="certain-taggs-search-dropdown"
-      dropdownMatchSelectWidth={500}
-      style={{
-        width: 250,
-      }}
-      options={options}
-    >
-      <Input.Search size="large" placeholder="input here" />
-    </AutoComplete>
-  );
-  let opts = [];
   const TurnIntoOpts = (items) => {
     let depBooks = [];
     let depElectrics = [];
@@ -114,6 +98,18 @@ function ItemsAll() {
     };
     options.push(opt);
   };
+  const SearchBar = () => (
+    <AutoComplete
+      dropdownClassName="certain-taggs-search-dropdown"
+      dropdownMatchSelectWidth={500}
+      style={{
+        width: 250,
+      }}
+      options={options}
+    >
+      <Input.Search size="large" placeholder="input here" />
+    </AutoComplete>
+  );
 
   return user ? (
     <>
