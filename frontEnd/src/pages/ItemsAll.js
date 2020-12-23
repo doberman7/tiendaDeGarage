@@ -111,9 +111,6 @@ function ItemsAll() {
     depBooks.map((item) => {
       //empujamos el atributo taggs dentro de otro array para poder manipular con "for"
       bookTaggs.push(item.taggs);
-      for (let i = 0; i < bookTaggs.length; i++) {
-        // console.log(bookTaggs[i]);
-      }
     });
     //unificar todos los tas de books en un aray ordenado
     let bookTaggsMerged = bookTaggs.flat().sort();
