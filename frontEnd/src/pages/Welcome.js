@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import '../Router.css';
 import { Divider } from 'antd';
@@ -11,9 +11,8 @@ function ImageDemo() {
   return <Image width={200} src="open.jpg" />;
 }
 const Welcomee = () => {
-  const { user, setUserUpdtade } = useContextInfo();
+  const { user } = useContextInfo();
 
-  console.log(user);
   return user ? (
     <>
       <div className=" welcome">
