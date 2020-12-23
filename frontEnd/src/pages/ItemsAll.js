@@ -96,11 +96,20 @@ function ItemsAll() {
   );
   let opts = [];
   const TurnIntoOpts = (items) => {
+    let depBooks = [];
+    let depElectrics = [];
+
     items.forEach((item, i) => {
-      // console.log(i);
+      //separar por department
+      if (item.department == 'electronics') depElectrics.push(item);
+      if (item.department == 'books') depBooks.push(item);
+
       let opt = {
+        //aca el department
         label: renderTitle('Sold'),
+
         options: [
+          //aca un array con los tags unificados y su length
           renderItem(item.taggs, 60100),
           // renderItem('item.title', 30010),
         ],
@@ -141,7 +150,7 @@ function ItemsAll() {
                       <b>Description:</b> {item.description}
                     </p>
                     <p>
-                      <b>departament:</b> {item.departament}
+                      <b>department:</b> {item.department}
                     </p>
                     <p>
                       <b>$</b> {item.price}

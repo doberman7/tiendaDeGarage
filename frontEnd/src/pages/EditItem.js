@@ -123,7 +123,7 @@ function EditItem({
           <Input placeholder={item.price} />
         </Form.Item>
 
-        <Form.Item name="departament" label="departament:">
+        <Form.Item name="department" label="department:">
           <Select initialvalue="available" style={{ width: '20%' }}>
             <Select.Option value="books">Books</Select.Option>
             <Select.Option value="electronics">Electronics</Select.Option>

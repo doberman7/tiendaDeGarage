@@ -70,7 +70,7 @@ function MyItems() {
                       <b>Description:</b> {item.description}
                     </p>
                     <p>
-                      <b>departament:</b> {item.departament}
+                      <b>department:</b> {item.department}
                     </p>
                     <p>
                       <b>$</b> {item.price}
