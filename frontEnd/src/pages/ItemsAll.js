@@ -105,35 +105,14 @@ function ItemsAll() {
       if (item.department == 'electronics') depElectrics.push(item);
     });
 
-    //BOOKS DEPARTMENT
-    //unificar por taggs
-    let bookTaggs = [];
-    depBooks.map((item) => {
-      //empujamos el atributo taggs dentro de otro array para poder manipular con "for"
-      bookTaggs.push(item.taggs);
-    });
-    //unificar todos los taggs de books en un aray ordenado semi-alfabeticamente
-    let bookTaggsMerged = bookTaggs.flat().sort();
-    function count(array) {
-      let current = null;
-      var cnt = 0;
-      for (var i = 0; i < array.length; i++) {
-        if (array[i] != current) {
-          if (cnt > 0) {
-            console.log(current + ' comes --> ' + cnt + ' times');
-          }
-          current = array[i];
-          cnt = 1;
-        } else {
-          cnt++;
-        }
-      }
-      if (cnt > 0) {
-        console.log(current + ' comes --> ' + cnt + ' times');
-      }
-    }
-
-    count(bookTaggsMerged);
+    let opt = {
+      label: renderTitle('Departments'),
+      options: [
+        renderItem('Books', depBooks.length),
+        renderItem('Electronics', depElectrics.length),
+      ],
+    };
+    options.push(opt);
   };
 
   return user ? (
