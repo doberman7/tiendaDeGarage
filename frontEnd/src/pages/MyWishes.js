@@ -16,7 +16,7 @@ import {
   Tag,
   Alert,
 } from 'antd';
-import { getUserProductsFn } from '../services/auth';
+import { getUserWishesFn } from '../services/auth';
 import {
   EditOutlined,
   EllipsisOutlined,
@@ -38,19 +38,20 @@ const openNotification = (message) => {
     description: message,
   });
 };
-const ViewProducts = ({ history }) => {
+const MyWishes = ({ history }) => {
   //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
 
-  const [userProducts, setProducts] = useState(null);
+  const [userWishes, setWishes] = useState(null);
 
-  async function getProducts() {
-    const products = await getUserProductsFn();
-    setProducts(products);
+  async function getWishes() {
+    const wishes = await getUserWishesFn();
+    console.log(wishes);
+    setWishes(wishes);
   }
 
   useEffect(() => {
-    getProducts();
+    getWishes();
   }, []);
 
   function ImageDemo() {
@@ -61,14 +62,15 @@ const ViewProducts = ({ history }) => {
       />
     );
   }
+  // console.log(user);
   return user ? (
     <>
       <div style={{ padding: '1rem 3rem' }}>
         <Title level={1}>Wishes</Title>
         <div>
-          <p>You can create a product you wish to buy</p>
+          <p>You can create a wish you wish to buy</p>
           {/* <br /> */}
-          <Link to="/createProduct">
+          <Link to="/createWish">
             <Button type="primary" ghost>
               Create Wish
             </Button>
@@ -77,38 +79,38 @@ const ViewProducts = ({ history }) => {
         </div>
 
         <Row gutter={[16, 24]}>
-          {userProducts ? (
-            userProducts.map((product) => (
+          {userWishes ? (
+            userWishes.map((wish) => (
               <Col
                 className="gutter-row"
                 span={6}
                 xs={24}
                 sm={24}
                 md={8}
-                key={product._id}
+                key={wish._id}
               >
                 <div style={style}>
                   <Card
-                    title={product.name}
+                    title={wish.name}
                     actions={[
-                      <Link to={`/product/${product._id}`}>
+                      <Link to={`/wish/${wish._id}`}>
                         <EditOutlined key={'edit'} />
                       </Link>,
                     ]}
-                    key={product.id}
+                    key={wish.id}
                   >
                     <p>
-                      <b>Description:</b> {product.description}
+                      <b>Description:</b> {wish.description}
                     </p>
-                    <Image src={product.picture} />
+                    <Image src={wish.picture} />
                     {/* este div es para que JSC reconosca el espacio */}
                     <div>
                       <br />
                     </div>
                     <Meta
-                      // iterar entre las categorias del product, mostrarlas como tagas azules
+                      // iterar entre las categorias del wish, mostrarlas como tagas azules
                       //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
-                      description=<Tag color="geekblue">{product.category}</Tag>
+                      description=<Tag color="geekblue">{wish.category}</Tag>
                     />
                   </Card>
                 </div>
@@ -134,4 +136,4 @@ const ViewProducts = ({ history }) => {
   );
 };
 
-export default ViewProducts;
+export default MyWishes;

@@ -25,10 +25,10 @@ const userSchema = new Schema(
       },
     ],
 
-    products: [
+    wishes: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Product',
+        ref: 'Wish',
       },
     ],
     googleId: String,

@@ -21,22 +21,22 @@ export const deleteFn = () => authService.get('/deleteProfile');
 export const editProfileFn = (userInfo) =>
   authService.put('/editProfile', userInfo);
 ///PRODUCTS
-export const createProductFn = (userInfo) =>
-  authService.post('/product/create', userInfo);
+export const createWishFn = (userInfo) =>
+  authService.post('/wish/create', userInfo);
 
-export const getUserProductsFn = async () => {
-  const { data } = await authService.get('/product/get-user-products');
+export const getUserWishesFn = async () => {
+  const { data } = await authService.get('/wish/get-user-wishes');
   return data;
 };
-export const getProductDetailsFn = async (idProduct) => {
+export const getWishDetailsFn = async (idWish) => {
   const { data } = await authService.get(
-    `/product/get-product-details/${idProduct}`
+    `/wish/get-wish-details/${idWish}`
   );
   return data;
 };
 
-export const editProductFn = (idProduct, productInfo) =>
-  authService.put(`/product/edit-product/${idProduct}`, productInfo);
+export const editWishFn = (idWish, wishInfo) =>
+  authService.put(`/wish/edit-wish/${idWish}`, wishInfo);
 
-export const deleteProductFn = (idProduct) =>
-  authService.delete(`/product/delete-product/${idProduct}`);
+export const deleteWishFn = (idWish) =>
+  authService.delete(`/wish/delete-wish/${idWish}`);

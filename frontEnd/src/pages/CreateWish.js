@@ -14,7 +14,7 @@ import {
 } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
-import { createProductFn } from '../services/auth';
+import { createWishFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
 
 const cloudinaryAPI =
@@ -22,7 +22,7 @@ const cloudinaryAPI =
 
 const { Title } = Typography;
 
-const CreateProduct = ({ history }) => {
+const CreateWish = ({ history }) => {
   const [form] = Form.useForm();
   const { setUserUpdtade } = useContextInfo();
   const [error, setError] = useState(null);
@@ -32,18 +32,18 @@ const CreateProduct = ({ history }) => {
   const [img, setImg] = useState(null);
   const [loading, setLoading] = useState(null);
 
-  async function handleCreateProduct(userInput) {
+  async function handleCreateWish(userInput) {
     try {
       //cómo ingresar la imagen la userInput, algo como, picture: image
       userInput.image = img;
-      const { data } = await createProductFn(userInput);
+      const { data } = await createWishFn(userInput);
 
       //señalar que user ha sido actualizado
       setUserUpdtade(true);
 
-      //esto redirigira a products created page
+      //esto redirigira a wishes created page
       // history.push('/profile');
-      history.push('/viewProducts');
+      history.push('/MyWishes');
       message.success('Wish created');
     } catch (e) {
       console.log(e);
@@ -78,12 +78,12 @@ const CreateProduct = ({ history }) => {
       <Col span={24}>
         <Title level={1}>Create Wish</Title>
 
-        <p>Fill the form to create a product you desire</p>
+        <p>Fill the form to create a wish you desire</p>
         {error && <Alert message={error} type="error" />}
       </Col>
       <Divider />
       <Col span={24}>
-        <Form layout="vertical" form={form} onFinish={handleCreateProduct}>
+        <Form layout="vertical" form={form} onFinish={handleCreateWish}>
           <Form.Item name="name" label="Name:">
             <Input placeholder={'add a name to you Wish'} />
           </Form.Item>
@@ -113,7 +113,7 @@ const CreateProduct = ({ history }) => {
           </Form.Item>
 
           <Button type="primary" htmlType="submit" block>
-            Create Product
+            Create Wish
           </Button>
         </Form>
       </Col>
@@ -123,4 +123,4 @@ const CreateProduct = ({ history }) => {
   );
 };
 
-export default CreateProduct;
+export default CreateWish;

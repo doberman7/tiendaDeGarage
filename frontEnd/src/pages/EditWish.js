@@ -1,43 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 // import { useContextInfo } from '../hooks/context';
-import { editProductFn } from '../services/auth';
-import { getProductDetailsFn, deleteProductFn } from '../services/auth';
+import { editWishFn } from '../services/auth';
+import { getWishDetailsFn, deleteWishFn } from '../services/auth';
 import { Form, Button, Input, Alert, Upload, message } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 const cloudinaryAPI =
   'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
 
-function EditProduct({
+function EditWish({
   match: {
-    params: { productId },
+    params: { wishId },
   },
 }) {
   const [form] = Form.useForm();
   let history = useHistory();
   const [error, setError] = useState(null);
-  const [product, setProduct] = useState(null);
+  const [wish, setWish] = useState(null);
   //esto para la imagen
   const [img, setImg] = useState(null);
   const [loading, setLoading] = useState(null);
 
   useEffect(() => {
     async function getDetails() {
-      const data = await getProductDetailsFn(productId);
+      const data = await getWishDetailsFn(wishId);
 
-      setProduct(data);
+      setWish(data);
     }
     getDetails();
   }, []);
 
-  async function handleEditProduct(values) {
+  async function handleEditWish(values) {
     try {
       values.image = img;
 
-      await editProductFn(product._id, values);
-      history.push('/viewProducts');
-      message.success('Product edited');
+      await editWishFn(wish._id, values);
+      history.push('/MyWishes');
+      message.success('Wish edited');
     } catch (e) {
       console.log(e.response.data.message);
       setError(e.response.data.message);
@@ -64,22 +64,22 @@ function EditProduct({
     </div>
   );
   async function handleDelete() {
-    console.log(productId);
-    await deleteProductFn(productId);
-    history.push('/ViewProducts');
-    message.success('Product deleted');
+    console.log(wishId);
+    await deleteWishFn(wishId);
+    history.push('/MyWishes');
+    message.success('Wish deleted');
   }
   return (
     <>
-      <h1>Update Product</h1>
+      <h1>Update Wish</h1>
       {error && <Alert message={error} type="error" />}
-      <Form form={form} layout="vertical" onFinish={handleEditProduct}>
+      <Form form={form} layout="vertical" onFinish={handleEditWish}>
         <Form.Item name="name" label="Name:">
-          <Input placeholder={product ? product.name : 'cargando'} />
+          <Input placeholder={wish ? wish.name : 'cargando'} />
         </Form.Item>
 
         <Form.Item name="description" label="Description:">
-          <Input placeholder={product ? product.description : 'cargando'} />
+          <Input placeholder={wish ? wish.description : 'cargando'} />
         </Form.Item>
 
         <Form.Item name="image" label="Image:">
@@ -113,4 +113,4 @@ function EditProduct({
   );
 }
 
-export default EditProduct;
+export default EditWish;

@@ -79,7 +79,7 @@ function MyItems() {
                       <br />
                     </div>
                     <Meta
-                      // iterar entre las categorias del product, mostrarlas como tagas azules
+                      // iterar entre las categorias del wish, mostrarlas como tagas azules
                       //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
                       description=<Tag color="cyan">{item.category}</Tag>
                     />

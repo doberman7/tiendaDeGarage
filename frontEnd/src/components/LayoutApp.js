@@ -38,7 +38,7 @@ const LayoutApp = ({ children }) => {
               </Menu.Item>
 
               <Menu.Item key="5">
-                <Link to="/viewProducts">My Wishes</Link>
+                <Link to="/MyWishes">My Wishes</Link>
               </Menu.Item>
               <Menu.Item key="6">
                 <Link to="/MyItems">My Items</Link>

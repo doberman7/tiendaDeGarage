@@ -29,7 +29,7 @@ export const AppCtxProvider = (props) => {
     setUser(userInfo);
   };
 
-  // const getProducts = (userInfo) => {
+  // const getWishes = (userInfo) => {
   //   setUser(userInfo);
   // };
 

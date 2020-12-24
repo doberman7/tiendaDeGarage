@@ -202,7 +202,7 @@ exports.googleCallback = (req, res, next) => {
       }
       //todo salio bien? redirigir a al profile
 
-      if (user.products.length == 0 && user.products.length == 0) {
+      if (user.wishes.length == 0 && user.wishes.length == 0) {
         return res.redirect(
           process.env.ENV === 'development'
             ? 'http://localhost:3001/welcome'
