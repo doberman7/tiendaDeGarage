@@ -6,10 +6,10 @@ const ItemSchema = new Schema(
     description: String,
     image: String,
     price: Number,
-    taggs: [{ type: String, trim: true }],
-    department: {
+    // taggs: [{ type: String, trim: true }],
+    category: {
       type: String,
-      enum: ['electronics', 'books'],
+      enum: ['electronics', 'books', 'clothes', 'other'],
     },
   },
   {
