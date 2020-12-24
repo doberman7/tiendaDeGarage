@@ -37,82 +37,69 @@ function ItemsAll() {
     getAllItems();
   }, []);
   //funciones para la barra de búsqueda
-  const renderTitle = (title) => {
-    return (
-      <span>
-        {title}
-        <a
-          style={{
-            float: 'right',
-          }}
-          href="https://www.google.com/search?q=antd"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          more
-        </a>
-      </span>
-    );
-  };
-  const renderItem = (title, count) => {
-    return {
-      value: title,
-      label: (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}
-        >
-          {title}
-          <span>
-            <ShoppingOutlined /> {count}
-          </span>
-        </div>
-      ),
-    };
-  };
-  const options = [];
-  const TurnIntoOpts = (items) => {
-    let depBooks = [];
-    let depElectrics = [];
+  function getRandomInt(max, min = 0) {
+    return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
+  }
 
-    //separar por category
-    items.forEach((item, i) => {
-      if (item.category === 'books') depBooks.push(item);
-      if (item.category === 'electronics') depElectrics.push(item);
-    });
-
-    let opt = {
-      label: renderTitle('categorys'),
-      options: [
-        renderItem('Books', depBooks.length),
-        renderItem('Electronics', depElectrics.length),
-      ],
-    };
-    options.push(opt);
+  const searchResult = (query) => {
+    return new Array(getRandomInt(5))
+      .join('.')
+      .split('.')
+      .map((item, idx) => {
+        const category = `${query}${idx}`;
+        return {
+          value: category,
+          label: (
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+              }}
+            >
+              <span>
+                Found {query} on{' '}
+                <a
+                  href={`https://s.taobao.com/search?q=${query}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {category}
+                </a>
+              </span>
+              <span>{getRandomInt(200, 100)} results</span>
+            </div>
+          ),
+        };
+      });
   };
-  const SearchBar = () => (
-    <AutoComplete
-      dropdownClassName="certain-taggs-search-dropdown"
-      dropdownMatchSelectWidth={500}
-      style={{
-        width: 250,
-      }}
-      options={options}
-    >
-      <Input.Search size="large" placeholder="input here" />
-    </AutoComplete>
-  );
+  const [options, setOptions] = useState([]);
+
+  const handleSearch = (value) => {
+    setOptions(value ? searchResult(value) : []);
+  };
+
+  const onSelect = (value) => {
+    console.log('onSelect', value);
+  };
 
   return user ? (
     <>
-      {items ? <p>{TurnIntoOpts(items)}</p> : <p>no hay items</p>}
       <div style={{ padding: '1rem 3rem' }}>
         <Title level={1}>Items</Title>
         <div>
           <p>From here you can all the items for you to buy</p>
-          <SearchBar />
+          <AutoComplete
+            dropdownMatchSelectWidth={252}
+            style={{
+              width: 300,
+            }}
+            options={options}
+            onSelect={onSelect}
+            onSearch={handleSearch}
+          >
+            <Input.Search size="large" placeholder="input here" enterButton />
+          </AutoComplete>
+
           <Divider />
         </div>
         <Row gutter={[16, 24]}>
