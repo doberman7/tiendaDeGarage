@@ -69,9 +69,7 @@ function MyItems() {
                     <p>
                       <b>Description:</b> {item.description}
                     </p>
-                    <p>
-                      <b>department:</b> {item.department}
-                    </p>
+
                     <p>
                       <b>$</b> {item.price}
                     </p>
@@ -83,9 +81,7 @@ function MyItems() {
                     <Meta
                       // iterar entre las categorias del product, mostrarlas como tagas azules
                       //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
-                      description={item.taggs.map((i) => (
-                        <Tag color="cyan">{i}</Tag>
-                      ))}
+                      description=<Tag color="cyan">{item.category}</Tag>
                     />
                   </Card>
                 </div>

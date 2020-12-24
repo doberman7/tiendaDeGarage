@@ -18,20 +18,17 @@ exports.getItemDetails = async (req, res) => {
 };
 
 exports.createItem = async (req, res) => {
-  const { title, description, image, price, taggs, department } = req.body;
+  const { title, description, image, price, category } = req.body;
   const {
     user: { id },
   } = req;
-  taggsMin = [];
-  taggs.map((tagg) => taggsMin.push(tagg.toLowerCase()));
-  console.log(taggsMin);
+
   const newItem = await Item.create({
     title: title.toLowerCase(),
     description,
     image,
     price,
-    taggs: taggsMin,
-    department,
+    category,
   });
 
   await User.findByIdAndUpdate(id, { $push: { items: newItem._id } });
@@ -41,7 +38,7 @@ exports.createItem = async (req, res) => {
 
 exports.editItem = async (req, res) => {
   const { itemId } = req.params;
-  const { title, description, image, price, taggs, department } = req.body;
+  const { title, description, image, price, category } = req.body;
 
   const updatedItem = await Item.findByIdAndUpdate(
     itemId,
@@ -50,8 +47,8 @@ exports.editItem = async (req, res) => {
       description,
       image,
       price,
-      taggs,
-      department,
+
+      category,
     },
     { new: true }
   );

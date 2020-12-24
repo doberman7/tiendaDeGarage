@@ -77,14 +77,14 @@ function ItemsAll() {
     let depBooks = [];
     let depElectrics = [];
 
-    //separar por department
+    //separar por category
     items.forEach((item, i) => {
-      if (item.department === 'books') depBooks.push(item);
-      if (item.department === 'electronics') depElectrics.push(item);
+      if (item.category === 'books') depBooks.push(item);
+      if (item.category === 'electronics') depElectrics.push(item);
     });
 
     let opt = {
-      label: renderTitle('Departments'),
+      label: renderTitle('categorys'),
       options: [
         renderItem('Books', depBooks.length),
         renderItem('Electronics', depElectrics.length),
@@ -127,16 +127,11 @@ function ItemsAll() {
                 key={item._id}
               >
                 <div style={style}>
-                  <Card
-                    title={item.title}
-                    // extra={<Link to={`/item/${item._id}`}>Edit</Link>}
-                  >
+                  <Card title={item.title}>
                     <p>
                       <b>Description:</b> {item.description}
                     </p>
-                    <p>
-                      <b>department:</b> {item.department}
-                    </p>
+
                     <p>
                       <b>$</b> {item.price}
                     </p>
@@ -148,9 +143,7 @@ function ItemsAll() {
                     <Meta
                       // iterar entre las categorias del product, mostrarlas como tagas azules
                       //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
-                      description={item.taggs.map((i) => (
-                        <Tag color="magenta">{i}</Tag>
-                      ))}
+                      description=<Tag color="cyan">{item.category}</Tag>
                     />
                   </Card>
                 </div>

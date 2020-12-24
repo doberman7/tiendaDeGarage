@@ -90,9 +90,9 @@ const CreateProduct = ({ history }) => {
           <Form.Item name="description" label="Description:">
             <Input placeholder={'Add description'} />
           </Form.Item>
-          <Form.Item name="taggs" label="taggs tags:">
+          {/* <Form.Item name="taggs" label="taggs tags:">
             <Select mode="tags" style={{ width: '100%' }} />
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item name="image" label="Image:">
             <Upload
               name="avatar"
@@ -102,6 +102,14 @@ const CreateProduct = ({ history }) => {
             >
               {img ? <img src={img} style={{ width: '100%' }} /> : uploadButton}
             </Upload>
+          </Form.Item>
+          <Form.Item name="category" label="category:">
+            <Select initialvalue="" style={{ width: '20%' }}>
+              <Select.Option value="books">Books</Select.Option>
+              <Select.Option value="electronics">Electronics</Select.Option>
+              <Select.Option value="clothes">Clothes</Select.Option>
+              <Select.Option value="other">Other</Select.Option>
+            </Select>
           </Form.Item>
 
           <Button type="primary" htmlType="submit" block>

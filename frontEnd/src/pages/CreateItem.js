@@ -94,9 +94,9 @@ function CreateItemForm({ history }) {
           <Input />
         </Form.Item>
 
-        <Form.Item name="taggs" label="taggs tags:">
+        {/* <Form.Item name="taggs" label="taggs tags:">
           <Select mode="tags" style={{ width: '100%' }} />
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item name="image" label="Image:">
           <Upload
@@ -110,10 +110,12 @@ function CreateItemForm({ history }) {
           </Upload>
         </Form.Item>
 
-        <Form.Item name="department" label="department:">
+        <Form.Item name="category" label="category:">
           <Select initialvalue="" style={{ width: '20%' }}>
             <Select.Option value="books">Books</Select.Option>
             <Select.Option value="electronics">Electronics</Select.Option>
+            <Select.Option value="clothes">Clothes</Select.Option>
+            <Select.Option value="other">Other</Select.Option>
           </Select>
         </Form.Item>
 
