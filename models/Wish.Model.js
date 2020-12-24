@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const productSchema = new Schema(
+const wishSchema = new Schema(
   {
     idUser: Schema.Types.ObjectId,
     // taggs: [String],
@@ -12,7 +12,7 @@ const productSchema = new Schema(
     description: {
       type: String,
       trim: true,
-      default: 'The product i want',
+      default: 'The Wish i want',
     },
     category: {
       type: String,
@@ -25,4 +25,4 @@ const productSchema = new Schema(
   }
 );
 
-module.exports = model('Product', productSchema);
+module.exports = model('Wish', wishSchema);

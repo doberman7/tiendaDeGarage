@@ -55,13 +55,13 @@ app.use(
 require('./config/session')(app);
 
 const userRoutes = require('./routes/userRoutes');
-const productRoutes = require('./routes/productRoutes');
+const wishRoutes = require('./routes/wishRoutes');
 const itemRoutes = require('./routes/itemRoutes');
 //usar el buiild
 app.use(express.static(path.join(__dirname, 'public/build')));
 
 app.use('/', userRoutes);
-app.use('/product', productRoutes);
+app.use('/wish', wishRoutes);
 app.use('/item', itemRoutes);
 //si no haya otras rutas, usa esta
 app.get('*', (req, res) => {
