@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useContextInfo } from '../hooks/context';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   Card,
   Row,
   Divider,
   Col,
-  Avatar,
-  notification,
-  Space,
   Button,
   Image,
   Typography,
@@ -17,27 +14,12 @@ import {
   Alert,
 } from 'antd';
 import { getUserWishesFn } from '../services/auth';
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
-import {
-  RadiusUpleftOutlined,
-  RadiusUprightOutlined,
-  RadiusBottomleftOutlined,
-  RadiusBottomrightOutlined,
-} from '@ant-design/icons';
+import { EditOutlined } from '@ant-design/icons';
+
 const style = { background: '#8742AF', padding: '1px' };
 const { Meta } = Card;
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
-const openNotification = (message) => {
-  notification.info({
-    message: `${message}`,
-    description: message,
-  });
-};
 const MyWishes = ({ history }) => {
   //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
@@ -46,7 +28,6 @@ const MyWishes = ({ history }) => {
 
   async function getWishes() {
     const wishes = await getUserWishesFn();
-    console.log(wishes);
     setWishes(wishes);
   }
 
@@ -54,14 +35,6 @@ const MyWishes = ({ history }) => {
     getWishes();
   }, []);
 
-  function ImageDemo() {
-    return (
-      <Image
-        width={200}
-        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-      />
-    );
-  }
   // console.log(user);
   return user ? (
     <>
