@@ -16,7 +16,6 @@ import {
   AutoComplete,
 } from 'antd';
 import React, { useState, useEffect } from 'react';
-import { ShoppingOutlined } from '@ant-design/icons';
 const { Title } = Typography;
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
@@ -36,13 +35,36 @@ function ItemsAll() {
     }
     getAllItems();
   }, []);
+
   //funciones para la barra de búsqueda
   function getRandomInt(max, min = 0) {
     return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
   }
 
   const searchResult = (query) => {
-    return new Array(getRandomInt(5))
+    //separar por categorias
+    let electronics = [];
+    let books = [];
+    let clothes = [];
+    let other = [];
+    items.map((itm) => {
+      switch (itm.category) {
+        case 'electronics':
+          electronics.push(itm);
+          break;
+        case 'books':
+          books.push(itm);
+          break;
+        case 'clothes':
+          clothes.push(itm);
+          break;
+        default:
+          other.push(itm);
+      }
+    });
+    let categories = [electronics, books, clothes, other];
+    console.log(categories);
+    return new Array(categories.length)
       .join('.')
       .split('.')
       .map((item, idx) => {
