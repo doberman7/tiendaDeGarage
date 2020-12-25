@@ -62,15 +62,38 @@ function ItemsAll() {
           other.push(itm);
       }
     });
-    let categories = [electronics, books, clothes, other];
-    console.log(categories);
+    // let categories = [electronics, books, clothes, other];
+
+    let categories = [
+      { electronics: electronics },
+      { books: books },
+      { clothes: clothes },
+      { other: other },
+    ];
+
+    let result = null;
     return new Array(categories.length)
       .join('.')
       .split('.')
-      .map((item, idx) => {
-        const category = `${query}${idx}`;
+      .map((c, idx) => {
+        console.log(idx);
+        switch (idx) {
+          case 0:
+            result = 'electronics';
+            break;
+          case 1:
+            result = 'books';
+            break;
+          case 2:
+            result = 'clothes';
+            break;
+          default:
+            result = 'other';
+        }
+
+        const searchResult = ` ${result}${idx}`;
         return {
-          value: category,
+          value: searchResult,
           label: (
             <div
               style={{
@@ -79,13 +102,13 @@ function ItemsAll() {
               }}
             >
               <span>
-                Found {query} on{' '}
+                Found {query} on
                 <a
                   href={`https://s.taobao.com/search?q=${query}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {category}
+                  {searchResult}
                 </a>
               </span>
               <span>{getRandomInt(200, 100)} results</span>
