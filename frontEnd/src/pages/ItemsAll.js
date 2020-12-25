@@ -70,28 +70,39 @@ function ItemsAll() {
       { clothes: clothes },
       { other: other },
     ];
-
     let result = null;
+    let categoria;
     return new Array(categories.length)
       .join('.')
       .split('.')
       .map((c, idx) => {
-        console.log(idx);
+        // console.log(idx);
         switch (idx) {
           case 0:
-            result = 'electronics';
+            // console.log(electronics);
+            result = 0;
+            categoria = 'electronics';
             break;
           case 1:
-            result = 'books';
+            result = 0;
+            categoria = 'books';
             break;
           case 2:
-            result = 'clothes';
+            result = 0;
+            clothes.filter((item) => {
+              if (item.title === query) {
+                result += 1;
+                console.log(result);
+              }
+            });
+            categoria = 'clothes';
             break;
           default:
-            result = 'other';
+            result = 0;
+            categoria = 'other';
         }
 
-        const searchResult = ` ${result}${idx}`;
+        const searchResult = ` ${categoria}`;
         return {
           value: searchResult,
           label: (
@@ -111,7 +122,7 @@ function ItemsAll() {
                   {searchResult}
                 </a>
               </span>
-              <span>{getRandomInt(200, 100)} results</span>
+              <span>{result} results</span>
             </div>
           ),
         };
