@@ -76,15 +76,23 @@ function ItemsAll() {
       .join('.')
       .split('.')
       .map((c, idx) => {
-        // console.log(idx);
         switch (idx) {
           case 0:
-            // console.log(electronics);
             result = 0;
+            electronics.filter((item) => {
+              if (item.title === query) {
+                result += 1;
+              }
+            });
             categoria = 'electronics';
             break;
           case 1:
             result = 0;
+            books.filter((item) => {
+              if (item.title === query) {
+                result += 1;
+              }
+            });
             categoria = 'books';
             break;
           case 2:
@@ -92,14 +100,20 @@ function ItemsAll() {
             clothes.filter((item) => {
               if (item.title === query) {
                 result += 1;
-                console.log(result);
               }
             });
             categoria = 'clothes';
             break;
-          default:
+          case 3:
             result = 0;
+            other.filter((item) => {
+              if (item.title === query) {
+                result += 1;
+              }
+            });
             categoria = 'other';
+            break;
+          default:
         }
 
         const searchResult = ` ${categoria}`;
