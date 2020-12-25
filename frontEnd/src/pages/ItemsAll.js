@@ -77,8 +77,8 @@ function ItemsAll() {
               if (item.title === query) {
                 result += 1;
               }
+              return (categoria = 'electronics');
             });
-            categoria = 'electronics';
             break;
           case 1:
             result = 0;
@@ -86,8 +86,8 @@ function ItemsAll() {
               if (item.title === query) {
                 result += 1;
               }
+              return (categoria = 'books');
             });
-            categoria = 'books';
             break;
           case 2:
             result = 0;
@@ -95,8 +95,8 @@ function ItemsAll() {
               if (item.title === query) {
                 result += 1;
               }
+              return (categoria = 'clothes');
             });
-            categoria = 'clothes';
             break;
           case 3:
             result = 0;
@@ -104,8 +104,8 @@ function ItemsAll() {
               if (item.title === query) {
                 result += 1;
               }
+              return (categoria = 'other');
             });
-            categoria = 'other';
             break;
           default:
         }
