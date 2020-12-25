@@ -37,9 +37,6 @@ function ItemsAll() {
   }, []);
 
   //funciones para la barra de búsqueda
-  function getRandomInt(max, min = 0) {
-    return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
-  }
 
   const searchResult = (query) => {
     //separar por categorias
@@ -50,16 +47,13 @@ function ItemsAll() {
     items.map((itm) => {
       switch (itm.category) {
         case 'electronics':
-          electronics.push(itm);
-          break;
+          return electronics.push(itm);
         case 'books':
-          books.push(itm);
-          break;
+          return books.push(itm);
         case 'clothes':
-          clothes.push(itm);
-          break;
+          return clothes.push(itm);
         default:
-          other.push(itm);
+          return other.push(itm);
       }
     });
     // let categories = [electronics, books, clothes, other];
