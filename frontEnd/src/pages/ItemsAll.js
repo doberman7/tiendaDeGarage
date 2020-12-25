@@ -137,12 +137,14 @@ function ItemsAll() {
       });
   };
   const [options, setOptions] = useState([]);
-
+  //se ejecuta cuando se ingresa caracter en input
   const handleSearch = (value) => {
+    console.log(value);
     setOptions(value ? searchResult(value) : []);
   };
 
   const onSelect = (value) => {
+    // TODO: enviar a la categoria
     console.log('onSelect', value);
   };
 
@@ -161,7 +163,12 @@ function ItemsAll() {
             onSelect={onSelect}
             onSearch={handleSearch}
           >
-            <Input.Search size="large" placeholder="input here" enterButton />
+            <Input.Search
+              size="large"
+              placeholder="input here"
+              enterButton
+              onSearch={(value) => alert(value)}
+            />
           </AutoComplete>
 
           <Divider />
