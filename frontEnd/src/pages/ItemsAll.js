@@ -64,15 +64,15 @@ function ItemsAll() {
     });
     // let categories = [electronics, books, clothes, other];
 
-    let categories = {
-      electronics: electronics,
-      books: books,
-      clothes: clothes,
-      other: other,
-    };
+    let categories = [
+      { electronics: electronics },
+      { books: books },
+      { clothes: clothes },
+      { other: other },
+    ];
     let result = null;
     let categoria;
-    return new Array(Object.keys(categories).length)
+    return categories
       .join('.')
       .split('.')
       .map((c, idx) => {
