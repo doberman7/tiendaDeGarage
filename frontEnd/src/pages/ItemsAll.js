@@ -159,17 +159,8 @@ function ItemsAll() {
     }
   };
   const clickSearchIcon = (query) => {
-    // TODO: reparar, no repinta después del 1er filtro
-    let filteredItems = [];
-    console.log('ITEAM ALL:', itemsAll); //works
-    setItems(itemsAll); //dont work, WHY???
-    console.log('items:', items);
-    //filtrar items que concuerdan con el query
-    items.map((item) => {
-      if (item.title === query) return filteredItems.push(item);
-    });
-    //repintar item filtrado con el query
-    setItems(filteredItems); //does work
+    const filteredItems = items.filter((item) => item.title === query);
+    setItems(filteredItems);
   };
 
   return user ? (
