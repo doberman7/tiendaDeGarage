@@ -25,13 +25,13 @@ function ItemsAll() {
   const { user } = useContextInfo();
 
   const [items, setItems] = useState(null);
-
+  const [itemsAll, setItemsAll] = useState(null);
   useEffect(() => {
     async function getAllItems() {
       const { data } = await srvAllItems();
       //data es la response de back, en este caso todos los items
       setItems(data);
-      // console.log(items);
+      setItemsAll(data);
     }
     getAllItems();
   }, []);
@@ -44,7 +44,7 @@ function ItemsAll() {
     let books = [];
     let clothes = [];
     let other = [];
-    items.map((itm) => {
+    itemsAll.map((itm) => {
       switch (itm.category) {
         case 'electronics':
           return electronics.push(itm);
@@ -57,7 +57,7 @@ function ItemsAll() {
       }
     });
     // let categories = [electronics, books, clothes, other];
-
+    //// TODO: reparar: si no hay objetos en una categoria, el espacio en el menu deplegable aparece vacio
     let categories = [
       { electronics: electronics },
       { books: books },
@@ -139,14 +139,13 @@ function ItemsAll() {
   const [options, setOptions] = useState([]);
   //se ejecuta cuando se ingresa caracter en input
   const handleSearch = (value) => {
-    console.log(value);
     setOptions(value ? searchResult(value) : []);
   };
 
   const onSelect = (value) => {
     // TODO: enviar a la categoria
-    console.log('onSelect', value);
   };
+  let filteredItems = [];
 
   return user ? (
     <>
@@ -167,7 +166,16 @@ function ItemsAll() {
               size="large"
               placeholder="input here"
               enterButton
-              onSearch={(value) => alert(value)}
+              onSearch={(query) => {
+                console.log(itemsAll);
+                setItems(itemsAll);
+                //filtrar items que concuerdan con el query
+                items.map((item) => {
+                  if (item.title === query) return filteredItems.push(item);
+                });
+                //repontar item filtrado con el query
+                setItems(filteredItems);
+              }}
             />
           </AutoComplete>
 
