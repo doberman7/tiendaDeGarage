@@ -144,9 +144,19 @@ function ItemsAll() {
     setOptions(value ? searchResult(value) : []);
   };
 
-  const onSelect = (value) => {
+  const onSelect = (category) => {
     // TODO: enviar a la categoria
-    history.push('/category');
+    console.log(typeof category);
+    switch (category) {
+      case 'electronics':
+        return history.push('/electronics');
+      case 'books':
+        return history.push('/electronics');
+      case 'clothes':
+        return history.push('/clothes');
+      default:
+        history.push('/other');
+    }
   };
   const clickSearchIcon = (query) => {
     // TODO: reparar, no repinta después del 1er filtro
