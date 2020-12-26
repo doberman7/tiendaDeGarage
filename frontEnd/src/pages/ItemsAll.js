@@ -145,7 +145,19 @@ function ItemsAll() {
   const onSelect = (value) => {
     // TODO: enviar a la categoria
   };
-  let filteredItems = [];
+
+  const clickSearchIcon = (query) => {
+    let filteredItems = [];
+    console.log('ITEAM ALL:', itemsAll); //works
+    setItems(itemsAll); //dont work, WHY???
+    console.log('items:', items);
+    //filtrar items que concuerdan con el query
+    items.map((item) => {
+      if (item.title === query) return filteredItems.push(item);
+    });
+    //repintar item filtrado con el query
+    setItems(filteredItems); //does work
+  };
 
   return user ? (
     <>
@@ -166,16 +178,7 @@ function ItemsAll() {
               size="large"
               placeholder="input here"
               enterButton
-              onSearch={(query) => {
-                console.log(itemsAll);
-                setItems(itemsAll);
-                //filtrar items que concuerdan con el query
-                items.map((item) => {
-                  if (item.title === query) return filteredItems.push(item);
-                });
-                //repontar item filtrado con el query
-                setItems(filteredItems);
-              }}
+              onSearch={clickSearchIcon}
             />
           </AutoComplete>
 
