@@ -28,38 +28,42 @@ const Other = () => {
       {
         <Row gutter={[16, 24]}>
           {items ? (
-            items.map((item) => (
-              <Col
-                className="gutter-row"
-                span={6}
-                xs={24}
-                sm={24}
-                md={8}
-                key={item._id}
-              >
-                <div style={style}>
-                  <Card title={item.title}>
-                    <p>
-                      <b>Description:</b> {item.description}
-                    </p>
+            items.map((item) =>
+              item.category === 'other' ? (
+                <Col
+                  className="gutter-row"
+                  span={6}
+                  xs={24}
+                  sm={24}
+                  md={8}
+                  key={item._id}
+                >
+                  <div style={style}>
+                    <Card title={item.title}>
+                      <p>
+                        <b>Description:</b> {item.description}
+                      </p>
 
-                    <p>
-                      <b>$</b> {item.price}
-                    </p>
-                    <Image src={item.image} />
-                    {/* este div es para que JSC reconosca el espacio */}
-                    <div>
-                      <br />
-                    </div>
-                    <Meta
-                      // iterar entre las categorias del wish, mostrarlas como tagas azules
-                      //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
-                      description=<Tag color="cyan">{item.category}</Tag>
-                    />
-                  </Card>
-                </div>
-              </Col>
-            ))
+                      <p>
+                        <b>$</b> {item.price}
+                      </p>
+                      <Image src={item.image} />
+                      {/* este div es para que JSC reconosca el espacio */}
+                      <div>
+                        <br />
+                      </div>
+                      <Meta
+                        // iterar entre las categorias del wish, mostrarlas como tagas azules
+                        //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
+                        description=<Tag color="cyan">{item.category}</Tag>
+                      />
+                    </Card>
+                  </div>
+                </Col>
+              ) : (
+                <p></p>
+              )
+            )
           ) : (
             <Spin size="large" />
           )}
