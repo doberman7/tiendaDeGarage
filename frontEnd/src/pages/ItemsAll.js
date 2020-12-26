@@ -1,7 +1,7 @@
 import { srvAllItems } from '../services/Items';
 
 import { useContextInfo } from '../hooks/context';
-
+import { Link, useHistory } from 'react-router-dom';
 import {
   Row,
   Col,
@@ -21,6 +21,8 @@ const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
 
 function ItemsAll() {
+  let history = useHistory();
+
   //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
 
@@ -144,9 +146,10 @@ function ItemsAll() {
 
   const onSelect = (value) => {
     // TODO: enviar a la categoria
+    history.push('/category');
   };
-
   const clickSearchIcon = (query) => {
+    // TODO: reparar, no repinta después del 1er filtro
     let filteredItems = [];
     console.log('ITEAM ALL:', itemsAll); //works
     setItems(itemsAll); //dont work, WHY???
