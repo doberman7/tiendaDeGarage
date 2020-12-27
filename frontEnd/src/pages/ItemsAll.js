@@ -17,152 +17,36 @@ import {
 } from 'antd';
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
+import Search from './Search';
 
 const { Title } = Typography;
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
 
-function ItemsAll() {
-  let history = useHistory();
-
+function ItemsAll(props) {
   //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario
   const { user } = useContextInfo();
+  const [input, setInput] = useState('');
 
   const [items, setItems] = useState(null);
-  const [itemsAll, setItemsAll] = useState(null);
+  const [itemListDefault, setItemListDefault] = useState(null);
   useEffect(() => {
     async function getAllItems() {
       const { data } = await srvAllItems();
       //data es la response de back, en este caso todos los items
       setItems(data);
-      setItemsAll(data);
+      setItemListDefault(data);
     }
     getAllItems();
   }, []);
 
   //funciones para la barra de búsqueda
-
-  const searchResult = (query) => {
-    //separar por categorias
-    let electronics = [];
-    let books = [];
-    let clothes = [];
-    let other = [];
-    itemsAll.map((itm) => {
-      switch (itm.category) {
-        case 'electronics':
-          return electronics.push(itm);
-        case 'books':
-          return books.push(itm);
-        case 'clothes':
-          return clothes.push(itm);
-        default:
-          return other.push(itm);
-      }
+  const updateInput = async (input) => {
+    const filtered = itemListDefault.filter((item) => {
+      return item.title.toLowerCase().includes(input.toLowerCase());
     });
-    // let categories = [electronics, books, clothes, other];
-    //// TODO: reparar: si no hay objetos en una categoria, el espacio en el menu deplegable aparece vacio
-    let categories = [
-      { electronics: electronics },
-      { books: books },
-      { clothes: clothes },
-      { other: other },
-    ];
-    let result = null;
-    let categoria;
-    return categories
-      .join('.')
-      .split('.')
-      .map((c, idx) => {
-        switch (idx) {
-          case 0:
-            result = 0;
-            electronics.filter((item) => {
-              if (item.title === query) {
-                result += 1;
-              }
-              return (categoria = 'electronics');
-            });
-            break;
-          case 1:
-            result = 0;
-            books.filter((item) => {
-              if (item.title === query) {
-                result += 1;
-              }
-              return (categoria = 'books');
-            });
-            break;
-          case 2:
-            result = 0;
-            clothes.filter((item) => {
-              if (item.title === query) {
-                result += 1;
-              }
-              return (categoria = 'clothes');
-            });
-            break;
-          case 3:
-            result = 0;
-            other.filter((item) => {
-              if (item.title === query) {
-                result += 1;
-              }
-              return (categoria = 'other');
-            });
-            break;
-          default:
-        }
-
-        const searchResult = ` ${categoria}`;
-        return {
-          value: searchResult,
-          label: (
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-              }}
-            >
-              <span>
-                Found {query} on
-                <a
-                  href={`https://s.taobao.com/search?q=${query}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {searchResult}
-                </a>
-              </span>
-              <span>{result} results</span>
-            </div>
-          ),
-        };
-      });
-  };
-  const [options, setOptions] = useState([]);
-  //se ejecuta cuando se ingresa caracter en input
-  const handleSearch = (value) => {
-    setOptions(value ? searchResult(value) : []);
-  };
-
-  const onSelect = (category) => {
-    // TODO: enviar a la categoria
-    console.log(typeof category);
-    switch (category) {
-      case 'electronics':
-        return history.push('/electronics');
-      case 'books':
-        return history.push('/electronics');
-      case 'clothes':
-        return history.push('/clothes');
-      default:
-        history.push('/other');
-    }
-  };
-  const clickSearchIcon = (query) => {
-    const filteredItems = items.filter((item) => item.title === query);
-    setItems(filteredItems);
+    setInput(input);
+    setItems(filtered);
   };
 
   return user ? (
@@ -171,22 +55,7 @@ function ItemsAll() {
         <Title level={1}>Items</Title>
         <div>
           <p>From here you can all the items for you to buy</p>
-          <AutoComplete
-            dropdownMatchSelectWidth={252}
-            style={{
-              width: 300,
-            }}
-            options={options}
-            onSelect={onSelect}
-            onSearch={handleSearch}
-          >
-            <Input.Search
-              size="large"
-              placeholder="input here"
-              enterButton
-              onSearch={clickSearchIcon}
-            />
-          </AutoComplete>
+          <Search input={input} onChange={updateInput} />
 
           <Divider />
         </div>
