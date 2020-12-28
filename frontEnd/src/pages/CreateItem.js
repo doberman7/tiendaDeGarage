@@ -1,17 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Form,
-  Button,
-  Input,
-  InputNumber,
-  Select,
-  Upload,
-  message,
-  Alert,
-} from 'antd';
+import React, { useState } from 'react';
+import { Form, Button, Input, Select, Upload, message, Alert } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { createItem } from '../services/Items';
-import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const cloudinaryAPI =
@@ -106,7 +96,11 @@ function CreateItemForm({ history }) {
             showUploadList={false}
             beforeUpload={handleUploadFile}
           >
-            {img ? <img src={img} style={{ width: '50%' }} /> : uploadButton}
+            {img ? (
+              <img src={img} alt="pic" style={{ width: '50%' }} />
+            ) : (
+              uploadButton
+            )}
           </Upload>
         </Form.Item>
 

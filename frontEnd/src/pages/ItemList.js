@@ -1,28 +1,13 @@
-import { srvAllItems } from '../services/Items';
+// import { srvAllItems } from '../services/Items';
 
-import { useContextInfo } from '../hooks/context';
-import { Link, useHistory } from 'react-router-dom';
-import {
-  Row,
-  Col,
-  Typography,
-  Card,
-  Divider,
-  Image,
-  Spin,
-  Tag,
-  Alert,
-  Input,
-  AutoComplete,
-} from 'antd';
-import React, { useState, useEffect } from 'react';
-const { Title } = Typography;
+// import { useContextInfo } from '../hooks/context';
+
+import { Row, Col, Card, Image, Spin, Tag } from 'antd';
+import React from 'react';
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
 
 function ItemList({ items = [] }) {
-  let history = useHistory();
-
   return (
     <>
       <div style={{ padding: '1rem 3rem' }}>

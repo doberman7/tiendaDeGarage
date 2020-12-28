@@ -1,27 +1,27 @@
 import { srvAllItems } from '../services/Items';
 
 import { useContextInfo } from '../hooks/context';
-import { Link, useHistory } from 'react-router-dom';
+// import {  useHistory } from 'react-router-dom';
 import {
-  Row,
-  Col,
+  // Row,
+  // Col,
   Typography,
-  Card,
+  // Card,
   Divider,
-  Image,
+  // Image,
   Spin,
-  Tag,
+  // Tag,
   Alert,
-  Input,
-  AutoComplete,
+  // Input,
+  // AutoComplete,
 } from 'antd';
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
 import Search from './Search';
 
 const { Title } = Typography;
-const { Meta } = Card;
-const style = { background: '#1D99A9', padding: '1px' };
+// const { Meta } = Card;
+// const style = { background: '#1D99A9', padding: '1px' };
 
 function ItemsAll(props) {
   //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario

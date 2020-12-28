@@ -90,7 +90,11 @@ function EditWish({
             beforeUpload={handleUploadFile}
             className="avatar-uploader"
           >
-            {img ? <img src={img} style={{ width: '100%' }} /> : uploadButton}
+            {img ? (
+              <img src={img} style={{ width: '100%' }} alt="no pic" />
+            ) : (
+              uploadButton
+            )}
           </Upload>
         </Form.Item>
 

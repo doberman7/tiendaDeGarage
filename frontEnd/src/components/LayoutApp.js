@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Layout, Menu } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
 import { useContextInfo } from '../hooks/context';
 import { logoutFn } from '../services/auth';
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const LayoutApp = ({ children }) => {
   let history = useHistory();

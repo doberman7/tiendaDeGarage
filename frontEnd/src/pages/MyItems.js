@@ -1,5 +1,5 @@
 import { getUserItems } from '../services/Items';
-import { getItemDetails } from '../services/Items';
+// import { getItemDetails } from '../services/Items';
 import { useContextInfo } from '../hooks/context';
 
 import {
@@ -8,19 +8,19 @@ import {
   Typography,
   Card,
   Button,
-  Modal,
+  // Modal,
   Divider,
   Image,
-  Avatar,
-  Space,
+  // Avatar,
+  // Space,
   Spin,
   Tag,
   Alert,
 } from 'antd';
 import React, { useState, useEffect } from 'react';
-import { Redirect, Link } from 'react-router-dom';
-import axios from 'axios';
-const { Title, Text } = Typography;
+import { Link } from 'react-router-dom';
+// import axios from 'axios';
+const { Title } = Typography;
 const { Meta } = Card;
 const style = { background: '#1C84B9', padding: '1px' };
 

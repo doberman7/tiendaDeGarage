@@ -1,20 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useContextInfo } from '../hooks/context';
 import { editItem, getItemDetails, deleteItem } from '../services/Items';
 
-import {
-  Form,
-  Button,
-  Input,
-  InputNumber,
-  Select,
-  Upload,
-  message,
-  Alert,
-} from 'antd';
+import { Form, Button, Input, Select, Upload, message, Alert } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const cloudinaryAPI =
