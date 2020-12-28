@@ -5,7 +5,6 @@ const log = require('chalk-animation');
 exports.createProcessWish = async (req, res) => {
   try {
     const { image, name, description, category } = req.body;
-    console.log(req.body);
     const userId = req.session.passport.user;
     if (!image || !name || !description || !category) {
       return res.status(400).json({
@@ -45,7 +44,7 @@ exports.createProcessWish = async (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: e.message });
   } finally {
-    console.log('CONTROLLER CREATE PRODUCT PROCESS');
+    console.log('CONTROLLER CREATE WISH  PROCESS');
   }
 };
 
@@ -104,7 +103,7 @@ exports.deleteWish = async (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: e.message });
   } finally {
-    console.log('CONTROLLER DELETE PRODUCT');
+    console.log('CONTROLLER DELETE WISH ');
   }
 };
 
