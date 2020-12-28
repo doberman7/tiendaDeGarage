@@ -36,11 +36,35 @@ function ItemList({ items = [] }) {
                     <div>
                       <br />
                     </div>
-                    <Meta
-                      // iterar entre las categorias del wish, mostrarlas como tagas azules
-                      //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
-                      description=<Tag color="cyan">{item.category}</Tag>
-                    />
+                    {/* depending on the category assign a color to each tag */}
+                    {item.category === 'electronics' ? (
+                      <Meta
+                        description=<Tag color="volcano">{item.category}</Tag>
+                      />
+                    ) : (
+                      false
+                    )}
+                    {item.category === 'books' ? (
+                      <Meta
+                        description=<Tag color="gold">{item.category}</Tag>
+                      />
+                    ) : (
+                      false
+                    )}
+                    {item.category === 'clothes' ? (
+                      <Meta
+                        description=<Tag color="orange">{item.category}</Tag>
+                      />
+                    ) : (
+                      false
+                    )}
+                    {item.category === 'other' ? (
+                      <Meta
+                        description=<Tag color="lime">{item.category}</Tag>
+                      />
+                    ) : (
+                      false
+                    )}
                   </Card>
                 </div>
               </Col>
