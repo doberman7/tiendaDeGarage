@@ -112,7 +112,7 @@ exports.getUserWishes = async (req, res) => {
   try {
     const idUser = req.session.passport.user;
     const { wishes } = await User.findById(idUser).populate('wishes');
-    console.log(wishes);
+    // console.log(wishes);
     res.status(200).json(wishes);
   } catch (e) {
     console.log(e.message);
