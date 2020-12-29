@@ -2,17 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import Router from './Router'
+import Router from './Router';
 import reportWebVitals from './reportWebVitals';
-import 'antd/dist/antd.dark.css'
-import { AppCtxProvider } from './hooks/context'
+import 'antd/dist/antd.dark.css';
+import { AppCtxProvider } from './hooks/context';
+import CartContextProvider from './hooks/CartContext';
 
 ReactDOM.render(
   // <React.StrictMode>
   <AppCtxProvider>
-    <Router />
-  </AppCtxProvider>
-  ,// </React.StrictMode>,
+    <CartContextProvider>
+      <Router />
+    </CartContextProvider>
+  </AppCtxProvider>, // </React.StrictMode>,
   document.getElementById('root')
 );
 

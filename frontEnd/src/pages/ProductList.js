@@ -1,9 +1,18 @@
 import { Row, Col, Card, Image, Spin, Tag } from 'antd';
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { CartContext } from '../hooks/CartContext';
+
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
 
 function ProductList({ products = [] }) {
+  // console.log(CartContext.addProduct);
+  const { addProduct, cartItems, increase } = useContext(CartContext);
+
+  const isInCart = (product) => {
+    return !!cartItems.find((item) => item.id === product.id);
+  };
   return (
     <>
       <div style={{ padding: '1rem 3rem' }}>
@@ -31,6 +40,23 @@ function ProductList({ products = [] }) {
                     {/* este div es para que JSC reconosca el espacio */}
                     <div>
                       <br />
+                      {isInCart(product) && (
+                        <button
+                          onClick={() => increase(product)}
+                          className="btn btn-outline-primary btn-sm"
+                        >
+                          Add more
+                        </button>
+                      )}
+
+                      {!isInCart(product) && (
+                        <button
+                          onClick={() => addProduct(product)}
+                          className="btn btn-primary btn-sm"
+                        >
+                          Add to cart
+                        </button>
+                      )}
                     </div>
                     {/* depending on the category assign a color to each tag */}
                     {product.category === 'electronics' ? (

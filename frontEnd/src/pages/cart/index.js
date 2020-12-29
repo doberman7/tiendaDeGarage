@@ -4,9 +4,9 @@ import CartProducts from './CartProducts';
 import { CartContext } from '../../hooks/CartContext';
 import { formatNumber } from '../../helpers/utils';
 import { Link } from 'react-router-dom';
-
+// TODO: identificar
 const Cart = () => {
-  // TODO: identificar
+  console.log(CartContext);
   const {
     total,
     cartItems,

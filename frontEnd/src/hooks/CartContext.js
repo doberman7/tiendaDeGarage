@@ -1,6 +1,5 @@
 import React, { createContext, useReducer } from 'react';
 import { CartReducer, sumItems } from './CartReducer';
-
 export const CartContext = createContext();
 //localStorage permite guardar la info sin temporalidad, y através de distintas tabs del mismo origen
 const storage = localStorage.getItem('cart')
