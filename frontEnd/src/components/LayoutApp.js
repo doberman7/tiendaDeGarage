@@ -43,10 +43,10 @@ const LayoutApp = ({ children }) => {
                 <Link to="/MyWishes">My Wishes</Link>
               </Menu.Item>
               <Menu.Item key="6">
-                <Link to="/MyItems">My Items</Link>
+                <Link to="/MyProducts">My Products</Link>
               </Menu.Item>
               <Menu.Item key="7">
-                <Link to="/ItemsAll">All items</Link>
+                <Link to="/ProductsAll">All products</Link>
               </Menu.Item>
               <Menu.Item key="8" onClick={handleLogout}>
                 Logout

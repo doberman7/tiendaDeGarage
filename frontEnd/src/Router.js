@@ -11,13 +11,12 @@ import './Router.css';
 import ButtonsHome from './pages/ButtonsHome';
 import EditUser from './pages/EditUser';
 import CreateWish from './pages/CreateWish';
-import MyItems from './pages/MyItems'; //añado items del usuario
-import CreateItemForm from './pages/CreateItem'; //añado formulario de items del usuario
-import EditItem from './pages/EditItem'; //añado edicion del formulario del usuario
-import ItemsAll from './pages/ItemsAll';
+import MyProducts from './pages/MyProducts'; //añado products del usuario
+import CreateProductForm from './pages/CreateProduct'; //añado formulario de products del usuario
+import EditProduct from './pages/EditProduct'; //añado edicion del formulario del usuario
+import ProductsAll from './pages/ProductsAll';
 import Cart from './pages/cart';
 
-//añado createItemForm,MyItems y Edit Item
 const Router = () => {
   return (
     <BrowserRouter>
@@ -32,10 +31,10 @@ const Router = () => {
           <Route path="/welcome" component={Welcome} exact />
           <Route path="/MyWishes" component={MyWishes} exact />
           <Route path="/wish/:wishId" component={EditWish} exact />
-          <Route path="/createItem" component={CreateItemForm} exact />
-          <Route path="/MyItems" component={MyItems} exact />
-          <Route path="/item/:itemId" component={EditItem} exact />
-          <Route path="/ItemsAll" component={ItemsAll} exact />
+          <Route path="/createProduct" component={CreateProductForm} exact />
+          <Route path="/MyProducts" component={MyProducts} exact />
+          <Route path="/product/:productId" component={EditProduct} exact />
+          <Route path="/ProductsAll" component={ProductsAll} exact />
           <Route path="/cart" component={Cart} />
         </Switch>
       </LayoutApp>

@@ -18,10 +18,10 @@ const userSchema = new Schema(
       default:
         'https://image.shutterstock.com/image-vector/user-avatar-icon-sign-profile-260nw-1145752283.jpg',
     },
-    items: [
+    products: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Item',
+        ref: 'Product',
       },
     ],
 

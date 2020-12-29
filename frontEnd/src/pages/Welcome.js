@@ -23,13 +23,13 @@ const Welcomee = () => {
         <p>
           Greetings <b>{user.name}</b>
         </p>
-        <p>In this app you can create Wishes and Items</p>
+        <p>In this app you can create Wishes and Product</p>
 
         <p>
           <b>Wishes:</b> things you wanna buy
         </p>
         <p>
-          <b>Items:</b> the stuff you have and want to sell
+          <b>Product:</b> the stuff you have and want to sell
         </p>
 
         <Button type="primary" ghost>

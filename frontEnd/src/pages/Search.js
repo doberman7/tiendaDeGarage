@@ -15,7 +15,7 @@ const Search = ({ input: keyword, onChange: setKeyword }) => {
       style={BarStyling}
       key="random1"
       value={keyword}
-      placeholder={'search item'}
+      placeholder={'search product'}
       onChange={(e) => setKeyword(e.target.value)}
     />
   );
