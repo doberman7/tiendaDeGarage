@@ -3,6 +3,8 @@ import { Layout, Menu } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
 import { useContextInfo } from '../hooks/context';
 import { logoutFn } from '../services/auth';
+import { ShoppingCartOutlined } from '@ant-design/icons';
+
 const { Header, Content } = Layout;
 
 const LayoutApp = ({ children }) => {
@@ -48,6 +50,12 @@ const LayoutApp = ({ children }) => {
               </Menu.Item>
               <Menu.Item key="8" onClick={handleLogout}>
                 Logout
+              </Menu.Item>
+
+              <Menu.Item key="9">
+                <Link to="/cart">
+                  <ShoppingCartOutlined />
+                </Link>
               </Menu.Item>
             </React.Fragment>
           )}
