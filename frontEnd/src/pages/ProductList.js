@@ -1,4 +1,4 @@
-import { Row, Col, Card, Image, Spin, Tag } from 'antd';
+import { Row, Col, Card, Image, Spin, Tag, Button } from 'antd';
 import React, { useContext } from 'react';
 
 import { CartContext } from '../hooks/CartContext';
@@ -41,22 +41,27 @@ function ProductList({ products = [] }) {
                     <div>
                       <br />
                       {isInCart(product) && (
-                        <button
+                        <Button
                           onClick={() => increase(product)}
                           className="btn btn-outline-primary btn-sm"
                         >
                           Add more
-                        </button>
+                        </Button>
                       )}
 
                       {!isInCart(product) && (
-                        <button
+                        <Button
                           onClick={() => addProduct(product)}
                           className="btn btn-primary btn-sm"
                         >
                           Add to cart
-                        </button>
+                        </Button>
                       )}
+                      <br />
+                      <br />
+                    </div>
+                    <div>
+                      <br />
                     </div>
                     {/* depending on the category assign a color to each tag */}
                     {product.category === 'electronics' ? (

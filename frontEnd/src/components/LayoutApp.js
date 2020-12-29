@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Layout, Menu } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
 import { useContextInfo } from '../hooks/context';
 import { logoutFn } from '../services/auth';
 import { ShoppingCartOutlined } from '@ant-design/icons';
+import { CartContext } from '../hooks/CartContext';
 
 const { Header, Content } = Layout;
 
@@ -15,6 +16,7 @@ const LayoutApp = ({ children }) => {
     logout();
     history.push('/');
   }
+  const { itemCount } = useContext(CartContext);
 
   return (
     <Layout className="layout">
@@ -54,7 +56,7 @@ const LayoutApp = ({ children }) => {
 
               <Menu.Item key="9">
                 <Link to="/cart">
-                  <ShoppingCartOutlined />
+                  <ShoppingCartOutlined />({itemCount})
                 </Link>
               </Menu.Item>
             </React.Fragment>
