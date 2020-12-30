@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
-
+import { Button } from 'antd';
 import CartProducts from './CartProducts';
 import { CartContext } from '../../hooks/CartContext';
 import { formatNumber } from '../../helpers/utils';
 import { Link } from 'react-router-dom';
 // TODO: identificar
 const Cart = () => {
-  console.log(CartContext);
   const {
     total,
     cartItems,
@@ -52,20 +51,20 @@ const Cart = () => {
                 <h3 className="m-0 txt-right">{formatNumber(total)}</h3>
                 <hr className="my-4" />
                 <div className="text-center">
-                  <button
+                  <Button
                     type="button"
                     className="btn btn-primary mb-2"
                     onClick={handleCheckout}
                   >
                     CHECKOUT
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     type="button"
                     className="btn btn-outlineprimary btn-sm"
                     onClick={clearCart}
                   >
                     CLEAR
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

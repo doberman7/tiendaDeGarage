@@ -6,10 +6,11 @@ import CartItem from './CartItem';
 
 const CartProducts = () => {
   const { cartItems } = useContext(CartContext);
-
+  console.log(cartItems.map((product) => console.log(product)));
   return (
     <div>
       <div className="card card-body border-0">
+        {/* <p>CartProducts</p> */}
         {cartItems.map((product) => (
           <CartItem key={product.id} product={product} />
         ))}
