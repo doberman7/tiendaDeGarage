@@ -1,16 +1,18 @@
+//aqui solo crea el carrito sino existe, NO AQUI
 const Storage = (cartItems) => {
   localStorage.setItem(
     'cart',
     JSON.stringify(cartItems.length > 0 ? cartItems : [])
   );
 };
-
+//nop, acá soño suma lo que hay en el carrito, el cual está en storage
 export const sumItems = (cartItems) => {
   Storage(cartItems);
   let itemCount = cartItems.reduce(
     (total, product) => total + product.quantity,
     0
   );
+
   let total = cartItems
     .reduce((total, product) => total + product.price * product.quantity, 0)
     .toFixed(2);

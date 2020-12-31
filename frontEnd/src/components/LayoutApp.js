@@ -37,6 +37,14 @@ const LayoutApp = ({ children }) => {
             </>
           ) : (
             <React.Fragment>
+              <Menu.Item key="9">
+                <Link to="/cart">
+                  <ShoppingCartOutlined />({itemCount})
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="7">
+                <Link to="/ProductsAll">All products</Link>
+              </Menu.Item>
               <Menu.Item key="4">
                 <Link to="/profile">
                   <ProfileOutlined />
@@ -49,17 +57,9 @@ const LayoutApp = ({ children }) => {
               <Menu.Item key="6">
                 <Link to="/MyProducts">My Products</Link>
               </Menu.Item>
-              <Menu.Item key="7">
-                <Link to="/ProductsAll">All products</Link>
-              </Menu.Item>
+
               <Menu.Item key="8" onClick={handleLogout}>
                 Logout
-              </Menu.Item>
-
-              <Menu.Item key="9">
-                <Link to="/cart">
-                  <ShoppingCartOutlined />({itemCount})
-                </Link>
               </Menu.Item>
             </React.Fragment>
           )}

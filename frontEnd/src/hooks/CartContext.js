@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 import { CartReducer, sumItems } from './CartReducer';
 export const CartContext = createContext();
+
 //localStorage permite guardar la info sin temporalidad, y através de distintas tabs del mismo origen
 const storage = localStorage.getItem('cart')
   ? JSON.parse(localStorage.getItem('cart'))
@@ -12,6 +13,8 @@ const initialState = {
 };
 
 const CartContextProvider = ({ children }) => {
+  // console.log(initialState);
+  //podría ser aqui
   const [state, dispatch] = useReducer(CartReducer, initialState);
 
   const increase = (payload) => {
@@ -35,7 +38,7 @@ const CartContextProvider = ({ children }) => {
   };
 
   const handleCheckout = () => {
-    console.log('CHECKOUT', state);
+    // console.log('CHECKOUT', state);
     dispatch({ type: 'CHECKOUT' });
   };
 
