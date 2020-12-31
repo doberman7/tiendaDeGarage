@@ -37,14 +37,15 @@ const CreateWish = ({ history }) => {
       //cómo ingresar la imagen la userInput, algo como, picture: image
       userInput.image = img;
       const { data } = await createWishFn(userInput);
-
       //señalar que user ha sido actualizado
       setUserUpdtade(true);
 
       //esto redirigira a wishes created page
       // history.push('/profile');
       history.push('/MyWishes');
-      message.success('Wish created');
+      // message.success('Wish created');
+
+      message.success(`${data.message}`);
     } catch (e) {
       console.log(e);
       setError(e.response.data.message);
