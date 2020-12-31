@@ -3,7 +3,7 @@ import { Layout, Menu } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
 import { useContextInfo } from '../hooks/context';
 import { logoutFn } from '../services/auth';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, ProfileOutlined } from '@ant-design/icons';
 import { CartContext } from '../hooks/CartContext';
 
 const { Header, Content } = Layout;
@@ -38,7 +38,9 @@ const LayoutApp = ({ children }) => {
           ) : (
             <React.Fragment>
               <Menu.Item key="4">
-                <Link to="/profile">Profile</Link>
+                <Link to="/profile">
+                  <ProfileOutlined />
+                </Link>
               </Menu.Item>
 
               <Menu.Item key="5">
