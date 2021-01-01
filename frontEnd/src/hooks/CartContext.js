@@ -13,9 +13,9 @@ const initialState = {
 };
 
 const CartContextProvider = ({ children }) => {
-  // console.log(initialState);
-  //podría ser aqui
+  //ERROR HERE ?
   const [state, dispatch] = useReducer(CartReducer, initialState);
+  // console.log(state);
 
   const increase = (payload) => {
     dispatch({ type: 'INCREASE', payload });
