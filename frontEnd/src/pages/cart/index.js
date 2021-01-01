@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button } from 'antd';
+import { Button, Divider } from 'antd';
 import CartProducts from './CartProducts';
 import { CartContext } from '../../hooks/CartContext';
 import { formatNumber } from '../../helpers/utils';
@@ -17,7 +17,7 @@ const Cart = () => {
   // TODO: sustiituir className
   return (
     <>
-      <div>
+      <div style={{ textAlign: 'center' }}>
         <div className="text-center mt-5">
           <h1>Cart</h1>
           <p>This is the Cart Page.</p>
@@ -36,7 +36,10 @@ const Cart = () => {
             {checkout && (
               <div className="p-3 text-center text-success">
                 <p>Checkout successfull</p>
-                <Link to="/" className="btn btn-outline-success btn-sm">
+                <Link
+                  to="/ProductsAll"
+                  className="btn btn-outline-success btn-sm"
+                >
                   BUY MORE
                 </Link>
               </div>
@@ -49,7 +52,7 @@ const Cart = () => {
                 <h4 className=" mb-3 txt-right">{itemCount}</h4>
                 <p className="mb-1">Total Payment</p>
                 <h3 className="m-0 txt-right">{formatNumber(total)}</h3>
-                <hr className="my-4" />
+                <Divider />
                 <div className="text-center">
                   <Button
                     type="button"
@@ -58,6 +61,9 @@ const Cart = () => {
                   >
                     CHECKOUT
                   </Button>
+                  <div>
+                    <br />
+                  </div>
                   <Button
                     type="button"
                     className="btn btn-outlineprimary btn-sm"
