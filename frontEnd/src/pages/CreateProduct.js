@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { Form, Button, Input, Select, Upload, message, Alert } from 'antd';
+import {
+  Form,
+  Button,
+  Input,
+  Select,
+  Upload,
+  message,
+  Alert,
+  notification,
+} from 'antd';
+
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { createProduct } from '../services/Products';
 import axios from 'axios';
@@ -12,9 +22,16 @@ function CreateProductForm({ history }) {
   const [img, setImg] = useState(null);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
-
+  const openNotification = (placement, coincidencias) => {
+    notification.info({
+      message: `Coincidences found ${coincidencias}`,
+      description: `We have found ${coincidencias} wishes that may be coincidences of your product`,
+      placement,
+    });
+  };
   async function handleFormSubmit(values) {
     let send = true;
+
     //mensajes de campos vacios en form
     Object.entries(values).map((val) => {
       if (val[1] === undefined) {
@@ -33,9 +50,13 @@ function CreateProductForm({ history }) {
     });
     if (send) {
       values.image = img;
-      await createProduct(values);
+      let { data } = await createProduct(values);
+      if (data.wishCoincidences.length > 0) {
+        openNotification('bottomRight', data.wishCoincidences.length);
+      } //mensajes de coincidencias
       history.push('/MyProducts');
       message.success('Product Created');
+      console.log();
     }
   }
 
