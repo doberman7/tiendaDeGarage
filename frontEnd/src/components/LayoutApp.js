@@ -39,18 +39,24 @@ const LayoutApp = ({ children }) => {
             <React.Fragment>
               <Menu.Item key="4">
                 <Link to="/profile">
-                  <ProfileOutlined />
+                  <ProfileOutlined style={{ color: '#6abe39' }} />
                 </Link>
               </Menu.Item>
 
               <Menu.Item key="5">
-                <Link to="/MyWishes">My Wishes</Link>
+                <Link to="/MyWishes" style={{ color: '#e8d639' }}>
+                  My Wishes
+                </Link>
               </Menu.Item>
               <Menu.Item key="6">
-                <Link to="/MyProducts">My Products</Link>
+                <Link to="/MyProducts" style={{ color: '#a9d134' }}>
+                  My Products
+                </Link>
               </Menu.Item>
               <Menu.Item key="7">
-                <Link to="/ProductsAll">All products</Link>
+                <Link to="/ProductsAll" style={{ color: '#e8b339' }}>
+                  All products
+                </Link>
               </Menu.Item>
               <Menu.Item key="9">
                 <Link to="/cart">
