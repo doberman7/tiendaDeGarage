@@ -26,23 +26,23 @@ exports.createProcessWish = async (req, res) => {
       { $push: { wishes: newWish } },
       { new: true }
     );
+
+    //añadir qué usuario a creado el wish
+    await Wish.find({ idUser: userId }).populate('userCreator');
+
     //revisar si el wish existe entre los products
     const productCoincidence = await Product.find({
       title: newWish.name,
     });
-    // console.log(newWish.id);
-    //si hay coincidencias, ingresar en el nuevo wish
+
+    //si hay coincidencias, ingresarlas en el nuevo wish
     if (productCoincidence) {
-      let coincidencias = await Wish.findByIdAndUpdate(
+      await Wish.findByIdAndUpdate(
         newWish.id,
         { $push: { productCoincidences: productCoincidence } },
         { new: true }
       );
-      console.log(coincidencias);
     }
-
-    //añadir quién a creado el wish
-    await Wish.find({ idUser: userId }).populate('userCreator');
 
     res.status(201).json({ message: 'Wish created' });
   } catch (e) {
