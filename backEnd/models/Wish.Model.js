@@ -19,6 +19,12 @@ const wishSchema = new Schema(
       trim: true,
     },
     picture: String,
+    productCoincidences: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Product',
+      },
+    ],
   },
   {
     timestamps: true,
