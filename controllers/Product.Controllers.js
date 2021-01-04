@@ -46,24 +46,17 @@ exports.createProduct = async (req, res) => {
       { new: true }
     );
   }
-  console.log(newProduct);
-  res.status(201).json(newProduct);
+  //get updated product
+  let newProductUpdated = await Product.findById(newProduct.id);
+  res.status(201).json(newProductUpdated);
 };
 
 exports.editProduct = async (req, res) => {
   const { productId } = req.params;
   const { name, description, image, price, category } = req.body;
-
   const updatedProduct = await Product.findByIdAndUpdate(
     productId,
-    {
-      name,
-      description,
-      image,
-      price,
-
-      category,
-    },
+    { name, description, image, price, category },
     { new: true }
   );
   res.status(200).json(updatedProduct);
