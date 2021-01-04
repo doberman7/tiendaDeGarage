@@ -1,5 +1,6 @@
 const Wish = require('../models/Wish.Model');
 const User = require('../models/User.Model');
+const Product = require('../models/Product.Model');
 const log = require('chalk-animation');
 
 exports.createProcessWish = async (req, res) => {
@@ -12,17 +13,6 @@ exports.createProcessWish = async (req, res) => {
       });
     }
 
-    const wish = await Wish.findOne({
-      name,
-    });
-
-    // if (wish) {
-    //   console.log('wish already created');
-    //   return res.status(400).json({
-    //     message: 'wish with that name already exists, give it a new name',
-    //   });
-    // }
-
     let newWish = await Wish.create({
       idUser: userId,
       name: name,
@@ -30,13 +20,28 @@ exports.createProcessWish = async (req, res) => {
       description: description,
       category,
     });
-
+    //acctualizar el usuario q ha creado el wish para señalar que ha creado el wish
     await User.findByIdAndUpdate(
       userId,
       { $push: { wishes: newWish } },
       { new: true }
     );
+    //revisar si el wish existe entre los products
+    const productCoincidence = await Product.find({
+      title: newWish.name,
+    });
+    // console.log(newWish.id);
+    //si hay coincidencias, ingresar en el nuevo wish
+    if (productCoincidence) {
+      let coincidencias = await Wish.findByIdAndUpdate(
+        newWish.id,
+        { $push: { productCoincidences: productCoincidence } },
+        { new: true }
+      );
+      console.log(coincidencias);
+    }
 
+    //añadir quién a creado el wish
     await Wish.find({ idUser: userId }).populate('userCreator');
 
     res.status(201).json({ message: 'Wish created' });
