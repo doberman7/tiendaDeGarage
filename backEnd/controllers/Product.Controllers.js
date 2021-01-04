@@ -1,5 +1,6 @@
 const Product = require('../models/Product.Model');
 const User = require('../models/User.Model');
+const Wish = require('../models/Wish.Model');
 
 exports.getUserProducts = async (req, res) => {
   const {
@@ -32,6 +33,19 @@ exports.createProduct = async (req, res) => {
   });
 
   await User.findByIdAndUpdate(id, { $push: { products: newProduct._id } });
+
+  //revisar si el product existe entre los wish
+  const wishCoincidence = await Wish.find({
+    name: newProduct.title,
+  });
+  //si hay coincidencias, ingresarlas en el nuevo product
+  if (wishCoincidence) {
+    await Product.findByIdAndUpdate(
+      newProduct.id,
+      { $push: { wishCoincidences: wishCoincidence } },
+      { new: true }
+    );
+  }
 
   res.status(201).json(newProduct);
 };
