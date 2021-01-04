@@ -64,7 +64,7 @@ function MyProducts() {
               >
                 <div style={style}>
                   <Card
-                    title={product.title}
+                    title={product.name}
                     extra={<Link to={`/product/${product._id}`}>Edit</Link>}
                   >
                     <p>

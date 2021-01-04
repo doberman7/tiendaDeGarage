@@ -43,7 +43,7 @@ function ProductsAll(props) {
   //funciones para la barra de búsqueda
   const updateInput = async (input) => {
     const filtered = productListDefault.filter((product) => {
-      return product.title.toLowerCase().includes(input.toLowerCase());
+      return product.name.toLowerCase().includes(input.toLowerCase());
     });
     setInput(input);
     setProducts(filtered);

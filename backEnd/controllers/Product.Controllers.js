@@ -19,13 +19,13 @@ exports.getProductDetails = async (req, res) => {
 };
 
 exports.createProduct = async (req, res) => {
-  const { title, description, image, price, category } = req.body;
+  const { name, description, image, price, category } = req.body;
   const {
     user: { id },
   } = req;
 
   const newProduct = await Product.create({
-    title: title.toLowerCase(),
+    name: name.toLowerCase(),
     description,
     image,
     price,
@@ -36,7 +36,7 @@ exports.createProduct = async (req, res) => {
 
   //revisar si el product existe entre los wish
   const wishCoincidence = await Wish.find({
-    name: newProduct.title,
+    name: newProduct.name,
   });
   //si hay coincidencias, ingresarlas en el nuevo product
   if (wishCoincidence) {
@@ -46,18 +46,18 @@ exports.createProduct = async (req, res) => {
       { new: true }
     );
   }
-
+  console.log(newProduct);
   res.status(201).json(newProduct);
 };
 
 exports.editProduct = async (req, res) => {
   const { productId } = req.params;
-  const { title, description, image, price, category } = req.body;
+  const { name, description, image, price, category } = req.body;
 
   const updatedProduct = await Product.findByIdAndUpdate(
     productId,
     {
-      title,
+      name,
       description,
       image,
       price,

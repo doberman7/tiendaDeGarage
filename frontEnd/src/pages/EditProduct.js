@@ -104,8 +104,8 @@ function EditProduct({
       <Form form={form} layout="vertical" onFinish={handleEditProduct}>
         <h1>Edit your product</h1>
         {error && <Alert message={error} type="error" />}
-        <Form.Item name="title" label="Title:">
-          <Input placeholder={product.title} />
+        <Form.Item name="name" label="Title:">
+          <Input placeholder={product.name} />
         </Form.Item>
 
         <Form.Item name="description" label="Description:">

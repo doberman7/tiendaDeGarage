@@ -28,7 +28,7 @@ function ProductList({ products = [] }) {
                 key={product._id}
               >
                 <div style={style}>
-                  <Card title={product.title}>
+                  <Card title={product.name}>
                     <p>
                       <b>Description:</b> {product.description}
                     </p>

@@ -32,7 +32,7 @@ exports.createProcessWish = async (req, res) => {
 
     //revisar si el wish existe entre los products
     const productCoincidence = await Product.find({
-      title: newWish.name,
+      name: newWish.name,
     });
 
     //si hay coincidencias, ingresarlas en el nuevo wish
