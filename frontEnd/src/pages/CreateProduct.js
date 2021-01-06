@@ -55,8 +55,7 @@ function CreateProductForm({ history }) {
         openNotification('bottomRight', data.wishCoincidences.length);
       } //mensajes de coincidencias
       history.push('/MyProducts');
-      message.success('Product Created');
-      console.log();
+      message.success(`${data.name} created`);
     }
   }
 

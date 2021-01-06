@@ -11,6 +11,7 @@ import {
   Alert,
   Select,
   message,
+  notification,
 } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
@@ -32,6 +33,13 @@ const CreateWish = ({ history }) => {
   const [img, setImg] = useState(null);
   const [loading, setLoading] = useState(null);
 
+  const openNotification = (placement, coincidencias) => {
+    notification.info({
+      message: `Coincidences found ${coincidencias}`,
+      description: `We have found ${coincidencias} wishes that may be coincidences of your product`,
+      placement,
+    });
+  };
   async function handleCreateWish(userInput) {
     try {
       //cómo ingresar la imagen la userInput, algo como, picture: image
@@ -39,7 +47,9 @@ const CreateWish = ({ history }) => {
       const { data } = await createWishFn(userInput);
       //señalar que user ha sido actualizado
       setUserUpdtade(true);
-
+      if (data.productCoincidences.length > 0) {
+        openNotification('bottomRight', data.wishCoincidences.length);
+      } //mensajes de coincidencias
       history.push('/MyWishes');
       message.success(`${data.name} created`);
     } catch (e) {
