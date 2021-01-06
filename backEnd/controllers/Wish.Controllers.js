@@ -43,8 +43,9 @@ exports.createProcessWish = async (req, res) => {
         { new: true }
       );
     }
+    let newWishUpdated = await Wish.findById(newWish.id);
 
-    res.status(201).json({ message: 'Wish created' });
+    res.status(201).json(newWishUpdated);
   } catch (e) {
     console.log(e.message);
     res.status(500).json({ message: e.message });

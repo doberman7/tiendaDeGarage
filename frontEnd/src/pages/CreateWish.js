@@ -40,12 +40,8 @@ const CreateWish = ({ history }) => {
       //señalar que user ha sido actualizado
       setUserUpdtade(true);
 
-      //esto redirigira a wishes created page
-      // history.push('/profile');
       history.push('/MyWishes');
-      // message.success('Wish created');
-
-      message.success(`${data.message}`);
+      message.success(`${data.name} created`);
     } catch (e) {
       console.log(e);
       setError(e.response.data.message);
