@@ -32,6 +32,8 @@ export const CartReducer = (state, action) => {
         //
         // Hint 5
         // spread operator […array] doesn’t modify array but just returns a new array
+        //state => obj
+        //cartItems => array
         state.cartItems.push({
           ...action.payload,
           quantity: 1,
