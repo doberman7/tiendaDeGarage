@@ -20,9 +20,18 @@ export const sumItems = (cartItems) => {
 };
 
 export const CartReducer = (state, action) => {
+  console.log(state);
   switch (action.type) {
     case 'ADD_ITEM':
       if (!state.cartItems.find((item) => item.id === action.payload.id)) {
+        // Hint 3
+        // .concat() doesn’t modify array but just returns a new array
+        //
+        // Hint 4
+        // .slice() doesn’t modify array but just returns a new array
+        //
+        // Hint 5
+        // spread operator […array] doesn’t modify array but just returns a new array
         state.cartItems.push({
           ...action.payload,
           quantity: 1,
