@@ -26,7 +26,6 @@ async function seed() {
     });
     await User.findByIdAndUpdate(user.id, { $push: { products: p._id } });
     await Product.find({ idUser: user.id }).populate('userCreator');
-    await console.log(Product.find());
     await mongoose.disconnect();
     console.log('done');
   } catch (error) {
