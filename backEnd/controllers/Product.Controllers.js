@@ -25,6 +25,7 @@ exports.createProduct = async (req, res) => {
   } = req;
 
   const newProduct = await Product.create({
+    idUser: id,
     name: name.toLowerCase(),
     description,
     image,
@@ -33,7 +34,7 @@ exports.createProduct = async (req, res) => {
   });
 
   await User.findByIdAndUpdate(id, { $push: { products: newProduct._id } });
-
+  await Product.find({ idUser: id }).populate('userCreator');
   //revisar si el product existe entre los wish
   const wishCoincidence = await Wish.find({
     name: newProduct.name,

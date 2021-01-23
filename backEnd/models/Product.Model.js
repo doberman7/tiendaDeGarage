@@ -6,7 +6,8 @@ const ProductSchema = new Schema(
     description: String,
     image: String,
     price: Number,
-    // taggs: [{ type: String, trim: true }],
+    idUser: Schema.Types.ObjectId,
+    userCreator: { type: Schema.Types.ObjectId, ref: 'User' },
     category: {
       type: String,
       enum: ['electronics', 'books', 'clothes', 'other'],
