@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const bcrypt = require('bcrypt'),
   Product = require('../models/Product.Model'),
   User = require('../models/User.Model'),
@@ -49,7 +51,8 @@ async function seed() {
 
 mongoose
   .set('useCreateIndex', true)
-  .connect(process.env.DB || 'mongodb://localhost/tiendaDeGarage', {
+  // .connect(process.env.DB || 'mongodb://localhost/tiendaDeGarage', {
+  .connect(process.env.DB , {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
