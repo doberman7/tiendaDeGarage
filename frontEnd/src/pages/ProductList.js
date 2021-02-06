@@ -29,6 +29,8 @@ function ProductList({ products = [] }) {
               >
                 <div style={style}>
                   <Card title={product.name}>
+                    <Image src={product.image} />
+
                     <p>
                       <b>Description:</b> {product.description}
                     </p>
@@ -36,7 +38,6 @@ function ProductList({ products = [] }) {
                     <p>
                       <b>$</b> {product.price}
                     </p>
-                    <Image src={product.image} />
                     {/* este div es para que JSC reconosca el espacio */}
                     <div>
                       <br />
