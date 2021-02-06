@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "dev": "DEBUG=project3:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www",
-    "seed": "node ./seeder/seedProducts.js"
+    "mySeed": "node ./seeder/seedProducts.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
