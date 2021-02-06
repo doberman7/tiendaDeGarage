@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import '../Router.css';
-import { Button, Carousel, Divider } from 'antd';
+import { Button, Carousel, Divider, message, Alert } from 'antd';
 import { useContextInfo } from '../hooks/context';
+import { loginFn } from '../services/auth';
+
+import { useHistory } from 'react-router-dom';
 
 let Background1 = 'tasas.jpeg';
 let Background2 = 'cosas.jpeg';
@@ -48,7 +51,27 @@ const contentStyle = {
 // const Router = () => {
 const Home = () => {
   //es importa recordar que user es el JSON de la respuesta del back end, no necesariamente un usuario
-  const { user } = useContextInfo();
+  const { user, login } = useContextInfo();
+  const [error, setError] = useState(null);
+
+  async function testUser() {
+    try {
+      const { data } = await loginFn({
+        name: 'test',
+        email: 'test@mail.com',
+        password: 'test',
+      });
+      console.log('DATA:', data);
+      login(data);
+      useHistory.push('/profile');
+
+      message.success('Welcome');
+    } catch (e) {
+      // console.dir(e.response.data.message);
+      // setError(e.response.data.message);
+    }
+  }
+
   return user ? (
     <>
       <Redirect to="/profile" />
@@ -56,6 +79,8 @@ const Home = () => {
   ) : (
     <div className="buttonsHome">
       <h1>Tienda de Garage</h1>
+      {error && <Alert message={error} type="error" showIcon />}
+
       <Carousel autoplay>
         <div>
           <h3 style={contentStyle.uno}>B U Y</h3>
@@ -72,10 +97,10 @@ const Home = () => {
       </Carousel>
       <Divider />
       <p>
-        La experiencia más amena en compras e intercambios de sillas, mesas,
-        trastos, aparatos electronicos, jarras, vasos, plato, cucharas,
-        tenedores reglas, lápizes, mochilas y demás chunches que puedas
-        encontrar en tu garage sólo aquí con su Tienda Garage
+        The most enjoyable experience in purchases and exchanges of chairs,
+        tables, dishes, electronic devices, jugs, glasses, plate, spoons, forks,
+        rulers, pencils, backpacks and other junk you can find in your garage
+        only here with your Tienda de Garage
       </p>
       <Button type="primary" ghost>
         <Link to="/Signup">Sign up</Link>
@@ -85,6 +110,9 @@ const Home = () => {
         <Link to="/Login">Login</Link>
       </Button>
       <Divider />
+      <Button type="primary" ghost onClick={testUser}>
+        User for tests
+      </Button>
     </div>
   );
 };

@@ -1,27 +1,9 @@
 import React, { useState } from 'react';
 
-import {
-  Row,
-  Col,
-  Form,
-  Input,
-  Button,
-  Typography,
-  Divider,
-  message,
-  Alert,
-} from 'antd';
 import { loginFn } from '../services/auth';
 import { useContextInfo } from '../hooks/context';
-import { GoogleOutlined } from '@ant-design/icons';
 
-const { Title } = Typography;
-const googleUrl =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000/google'
-    : '/google';
-
-const Login = ({ history }) => {
+const UserForTest = ({}) => {
   const [form] = Form.useForm();
   const { login } = useContextInfo();
   const [error, setError] = useState(null);
@@ -29,11 +11,10 @@ const Login = ({ history }) => {
   async function handleSubmit(userInput) {
     try {
       // ESTE ES EL export const loginFn = (userInfo) => authService.post('/login', userInfo); authService USA AXIOS
-      console.log(userInput);
+
       const { data } = await loginFn(userInput);
       // console.log('DATA:', data);
       login(data);
-      history.push('/profile');
       message.success('Welcome');
     } catch (e) {
       //cacha message de back
@@ -79,4 +60,4 @@ const Login = ({ history }) => {
   );
 };
 
-export default Login;
+export default UserForTest;
