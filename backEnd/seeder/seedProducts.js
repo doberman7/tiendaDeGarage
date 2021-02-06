@@ -1,24 +1,21 @@
-const Product = require('../models/Product.Model');
-const User = require('../models/User.Model');
-const mongoose = require('mongoose');
-const path = require('path');
-const axios = require('axios');
+const bcrypt = require('bcrypt'),
+  Product = require('../models/Product.Model'),
+  User = require('../models/User.Model'),
+  mongoose = require('mongoose'),
+  path = require('path'),
+  axios = require('axios');
 
 //create your array. i inserted only 1 object here
 async function seed() {
   let times = 19;
   try {
-    //a random number no biger that 30 to add to names, mail and iterator
-    // let n = Math.floor(Math.random() * (30 - 1) + 1);
-    let n = Math.floor(Math.random());
-    // let n = 4;
+    const salt = bcrypt.genSaltSync(12);
+    const hashPass = bcrypt.hashSync('test', salt);
     //create user
     const user = await User.create({
-      email: 'seed' + n + '@mail.com',
-      password: 'seed',
-      name: 'seed' + n,
-      picture:
-        'https://lh3.googleusercontent.com/proxy/dmHyFpMzk8e5gcIAIPR1Yk7Tobz1fBSlkL49CVcd9oWbd6p7k9AtzHtQ9U1FJNyx-8iyiWpSiy7ZPSRI3KL_dC5o3hh9mG28wxyPJXQbq6bq836IIt11h8zfzDWJPOEZ5KF8',
+      email: 'test@mail.com',
+      password: hashPass,
+      name: 'test',
     });
     //este data es un ary
     const { data } = await axios.get(`https://fakestoreapi.com/products/`);

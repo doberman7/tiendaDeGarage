@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
 import { loginFn } from '../../services/auth';
 import { useContextInfo } from '../../hooks/context';
@@ -16,7 +16,6 @@ const UserForTest = () => {
         email: 'test@mail.com',
         password: 'test',
       });
-      console.log('DATA:', data);
       login(data);
       useHistory.push('/profile');
 
