@@ -90,9 +90,11 @@ const EditUser = ({ history }) => {
             <Input placeholder={user.name} />
           </Form.Item>
 
-          <Form.Item name="password" label="Password:">
-            <Input.Password />
-          </Form.Item>
+          {user.name === 'test' ? null : (
+            <Form.Item name="password" label="Password:">
+              <Input.Password />
+            </Form.Item>
+          )}
 
           <Form.Item name="image" label="Image:">
             <Upload
@@ -102,7 +104,11 @@ const EditUser = ({ history }) => {
               beforeUpload={handleUploadFile}
               className="avatar-uploader"
             >
-              {img ? <img src={img} style={{ width: '100%' }} /> : uploadButton}
+              {img ? (
+                <img alt="not found" src={img} style={{ width: '100%' }} />
+              ) : (
+                uploadButton
+              )}
             </Upload>
           </Form.Item>
 
