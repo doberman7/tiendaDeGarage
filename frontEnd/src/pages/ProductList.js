@@ -15,7 +15,7 @@ function ProductList({ products = [] }) {
   };
   return (
     <>
-      <div style={{ padding: '1rem 3rem' }}>
+      <div style={{ padding: '1rem 2rem' }}>
         <Row gutter={[16, 24]}>
           {products ? (
             products.map((product) => (

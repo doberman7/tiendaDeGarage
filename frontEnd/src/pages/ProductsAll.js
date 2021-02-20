@@ -51,7 +51,8 @@ function ProductsAll(props) {
 
   return user ? (
     <>
-      <div style={{ padding: '1rem 3rem' }}>
+      {/* <div style={{ padding: '1rem 3rem' }}> */}
+      <div>
         <Title level={1}>Products</Title>
         <div>
           <p>From here you can all the products for you to buy</p>
