@@ -12,6 +12,7 @@ exports.signupProcessUser = async (req, res) => {
     const user = await User.findOne({
       email,
     });
+
     if (user) {
       return res.status(401).json({ message: 'user already exists' });
     }
@@ -101,6 +102,16 @@ exports.editProfile = async (req, res) => {
     const { email, password, image, name } = req.body;
     //obtener user ID
     const userId = req.session.passport.user;
+
+    const testUser = await User.findOne({
+      email: 'test@mail.com',
+    });
+
+    //condicion para no editar el usuario de prueba
+    testUser.id === userId
+      ? res.status(400).json({ message: 'cant edit test user' })
+      : null;
+
     //update email
     if (email) {
       const user = await User.findByIdAndUpdate(
@@ -127,6 +138,7 @@ exports.editProfile = async (req, res) => {
       );
       res.status(202).json(user);
     }
+
     //update name
     if (name) {
       const user = await User.findByIdAndUpdate(
