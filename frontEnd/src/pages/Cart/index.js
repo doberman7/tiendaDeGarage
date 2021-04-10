@@ -1,11 +1,5 @@
-import ShoppingCartOutlined from '@ant-design/icons';
 const Cart = () => {
-  return (
-    <>
-      Cart
-      <ShoppingCartOutlined />;
-    </>
-  );
+  return <>turn into drawer</>;
 };
 
 export default Cart;
