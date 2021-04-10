@@ -6,14 +6,11 @@ import Router from './Router';
 import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.dark.css';
 import { AppCtxProvider } from './hooks/context';
-import CartContextProvider from './hooks/CartContext';
 
 ReactDOM.render(
   // <React.StrictMode>
   <AppCtxProvider>
-    <CartContextProvider>
-      <Router />
-    </CartContextProvider>
+    <Router />
   </AppCtxProvider>, // </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,18 +1,10 @@
-import { Row, Col, Card, Image, Spin, Tag, Button } from 'antd';
-import React, { useContext } from 'react';
-
-import { CartContext } from '../hooks/CartContext';
+import { Row, Col, Card, Image, Spin, Tag } from 'antd';
+import React from 'react';
 
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
 
 function ProductList({ products = [] }) {
-  // console.log(CartContext.addProduct);
-  const { addProduct, cartItems, increase } = useContext(CartContext);
-
-  const isInCart = (product) => {
-    return !!cartItems.find((item) => item.id === product.id);
-  };
   return (
     <>
       <div style={{ padding: '1rem 2rem' }}>
@@ -39,28 +31,7 @@ function ProductList({ products = [] }) {
                       <b>$</b> {product.price}
                     </p>
                     {/* este div es para que JSC reconosca el espacio */}
-                    <div>
-                      <br />
-                      {isInCart(product) && (
-                        <Button
-                          onClick={() => increase(product)}
-                          className="btn btn-outline-primary btn-sm"
-                        >
-                          Add more
-                        </Button>
-                      )}
 
-                      {!isInCart(product) && (
-                        <Button
-                          onClick={() => addProduct(product)}
-                          className="btn btn-primary btn-sm"
-                        >
-                          Add to cart
-                        </Button>
-                      )}
-                      <br />
-                      <br />
-                    </div>
                     <div>
                       <br />
                     </div>

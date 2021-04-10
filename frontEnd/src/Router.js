@@ -15,7 +15,6 @@ import MyProducts from './pages/MyProducts'; //añado products del usuario
 import CreateProductForm from './pages/CreateProduct'; //añado formulario de products del usuario
 import EditProduct from './pages/EditProduct'; //añado edicion del formulario del usuario
 import ProductsAll from './pages/ProductsAll';
-import Cart from './pages/cart';
 
 const Router = () => {
   return (
@@ -35,7 +34,6 @@ const Router = () => {
           <Route path="/MyProducts" component={MyProducts} exact />
           <Route path="/product/:productId" component={EditProduct} exact />
           <Route path="/ProductsAll" component={ProductsAll} exact />
-          <Route path="/cart" component={Cart} />
         </Switch>
       </LayoutApp>
     </BrowserRouter>
