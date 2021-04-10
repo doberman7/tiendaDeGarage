@@ -56,7 +56,9 @@ const LayoutApp = ({ children }) => {
                   All products
                 </Link>
               </Menu.Item>
-              <Menu.Item key="9"></Menu.Item>
+              <Menu.Item key="9">
+                <Link to="/Cart">Cart</Link>
+              </Menu.Item>
               <Menu.Item
                 key="8"
                 onClick={handleLogout}
