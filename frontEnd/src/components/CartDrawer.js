@@ -15,9 +15,20 @@ const CartDrawer = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showDrawer} className="styledButton">
+      <Button
+        type="dashed"
+        // ghost
+        onClick={showDrawer}
+        style={{
+          position: 'fixed',
+          zIndex: '100',
+          right: '20px',
+          top: '20px',
+        }}
+      >
         <ShoppingCartOutlined />
       </Button>
+
       <Drawer
         title="Basic Drawer"
         placement="right"

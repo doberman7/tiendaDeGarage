@@ -34,13 +34,13 @@ const LayoutApp = ({ children }) => {
               </Menu.Item>
             </>
           ) : (
-            <React.Fragment>
+            <>
+              <CartDrawer />
               <Menu.Item key="4">
                 <Link to="/profile">
                   <ProfileOutlined style={{ color: '#6abe39' }} />
                 </Link>
               </Menu.Item>
-
               <Menu.Item key="5">
                 <Link to="/MyWishes" style={{ color: '#e8d639' }}>
                   My Wishes
@@ -56,9 +56,7 @@ const LayoutApp = ({ children }) => {
                   All products
                 </Link>
               </Menu.Item>
-              <Menu.Item key="9">
-                <CartDrawer />
-              </Menu.Item>
+              <Menu.Item key="9"></Menu.Item>
               <Menu.Item
                 key="8"
                 onClick={handleLogout}
@@ -66,7 +64,7 @@ const LayoutApp = ({ children }) => {
               >
                 Logout
               </Menu.Item>
-            </React.Fragment>
+            </>
           )}
         </Menu>
       </Header>
