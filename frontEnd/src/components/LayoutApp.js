@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useContextInfo } from '../hooks/context';
 import { logoutFn } from '../services/auth';
 import { ProfileOutlined, ShoppingCartOutlined } from '@ant-design/icons';
-
+import CartDrawer from './CartDrawer';
 const { Header, Content } = Layout;
 
 const LayoutApp = ({ children }) => {
@@ -57,9 +57,10 @@ const LayoutApp = ({ children }) => {
                 </Link>
               </Menu.Item>
               <Menu.Item key="9">
-                <Link to="/Cart">
+                <CartDrawer />
+                {/* <Link to="/Cart">
                   <ShoppingCartOutlined />
-                </Link>
+                </Link> */}
               </Menu.Item>
               <Menu.Item
                 key="8"
