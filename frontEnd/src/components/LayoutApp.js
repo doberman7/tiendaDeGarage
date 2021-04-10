@@ -3,7 +3,7 @@ import { Layout, Menu } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
 import { useContextInfo } from '../hooks/context';
 import { logoutFn } from '../services/auth';
-import { ProfileOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { ProfileOutlined } from '@ant-design/icons';
 import CartDrawer from './CartDrawer';
 const { Header, Content } = Layout;
 
@@ -58,9 +58,6 @@ const LayoutApp = ({ children }) => {
               </Menu.Item>
               <Menu.Item key="9">
                 <CartDrawer />
-                {/* <Link to="/Cart">
-                  <ShoppingCartOutlined />
-                </Link> */}
               </Menu.Item>
               <Menu.Item
                 key="8"

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Drawer, Button } from 'antd';
-
+import { ShoppingCartOutlined } from '@ant-design/icons';
 const CartDrawer = () => {
   const [visible, setVisible] = useState(false);
 
@@ -15,7 +15,7 @@ const CartDrawer = () => {
   return (
     <>
       <Button type="primary" onClick={showDrawer}>
-        Open
+        <ShoppingCartOutlined />
       </Button>
       <Drawer
         title="Basic Drawer"
