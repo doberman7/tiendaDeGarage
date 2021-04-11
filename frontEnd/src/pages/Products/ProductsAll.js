@@ -1,6 +1,6 @@
-import { srvAllProducts } from '../services/Products';
+import { srvAllProducts } from '../../services/Products';
 
-import { useContextInfo } from '../hooks/context';
+import { useContextInfo } from '../../hooks/context';
 // import {  useHistory } from 'react-router-dom';
 import {
   // Row,
@@ -17,7 +17,7 @@ import {
 } from 'antd';
 import React, { useState, useEffect } from 'react';
 import ProductList from './ProductList';
-import Search from './Search';
+import Search from '../Search';
 
 const { Title } = Typography;
 // const { Meta } = Card;
@@ -76,3 +76,4 @@ function ProductsAll(props) {
   );
 }
 export default ProductsAll;
+//TODO:a list with no user loged

@@ -24,6 +24,7 @@ const CartDrawer = () => {
           zIndex: '100',
           right: '20px',
           top: '20px',
+          color: '#eb2f96',
         }}
       >
         <ShoppingCartOutlined />

@@ -11,12 +11,11 @@ import {
 } from 'antd';
 
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import { createProduct } from '../services/Products';
+import { createProduct } from '../../services/Products';
 import axios from 'axios';
 
 const cloudinaryAPI =
   'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
-const { Option } = Select;
 
 function CreateProductForm({ history }) {
   const [img, setImg] = useState(null);

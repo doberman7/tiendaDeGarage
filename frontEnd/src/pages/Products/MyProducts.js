@@ -1,5 +1,5 @@
-import { getUserProducts } from '../services/Products';
-import { useContextInfo } from '../hooks/context';
+import { getUserProducts } from '../../services/Products';
+import { useContextInfo } from '../../hooks/context';
 
 import {
   Row,

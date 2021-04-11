@@ -11,11 +11,10 @@ import './Router.css';
 import ButtonsHome from './pages/ButtonsHome';
 import EditUser from './pages/EditUser';
 import CreateWish from './pages/CreateWish';
-import MyProducts from './pages/MyProducts'; //añado products del usuario
-import CreateProductForm from './pages/CreateProduct'; //añado formulario de products del usuario
+import MyProducts from './pages/Products/MyProducts'; //añado products del usuario
+import CreateProductForm from './pages/Products/CreateProduct'; //añado formulario de products del usuario
 import EditProduct from './pages/EditProduct'; //añado edicion del formulario del usuario
-import ProductsAll from './pages/ProductsAll';
-import Cart from './pages/Cart';
+import ProductsAll from './pages/Products/ProductsAll';
 
 const Router = () => {
   return (
@@ -35,7 +34,6 @@ const Router = () => {
           <Route path="/MyProducts" component={MyProducts} exact />
           <Route path="/product/:productId" component={EditProduct} exact />
           <Route path="/ProductsAll" component={ProductsAll} exact />
-          <Route path="/Cart" component={Cart} exact />
         </Switch>
       </LayoutApp>
     </BrowserRouter>
