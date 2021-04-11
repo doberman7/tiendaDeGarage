@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Drawer, Button } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
-import '../App.css';
+import Cart from './Cart';
 const CartDrawer = () => {
   const [visible, setVisible] = useState(false);
 
@@ -37,9 +37,7 @@ const CartDrawer = () => {
         onClose={onClose}
         visible={visible}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <Cart />
       </Drawer>
     </>
   );

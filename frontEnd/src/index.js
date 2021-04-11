@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
+import { CartProvider } from 'react-use-cart';
 import Router from './Router';
 import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.dark.css';
@@ -10,7 +10,9 @@ import { AppCtxProvider } from './hooks/context';
 ReactDOM.render(
   // <React.StrictMode>
   <AppCtxProvider>
-    <Router />
+    <CartProvider>
+      <Router />
+    </CartProvider>
   </AppCtxProvider>, // </React.StrictMode>,
   document.getElementById('root')
 );
