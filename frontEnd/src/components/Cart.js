@@ -12,7 +12,7 @@ const Cart = () => {
 
   return (
     <>
-      <h1>Cart ({totalUniqueItems})</h1>
+      <h1>({totalUniqueItems}) diferent items</h1>
 
       <ul>
         {items.map((item) => (

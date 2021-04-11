@@ -7,7 +7,6 @@ const style = { background: '#1D99A9', padding: '1px' };
 
 function ProductList({ products = [] }) {
   const { addItem } = useCart();
-  let id = null;
   return (
     <>
       <div style={{ padding: '1rem 2rem' }}>

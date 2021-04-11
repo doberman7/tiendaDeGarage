@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { Drawer, Button } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import Cart from './Cart';
+import { useCart } from 'react-use-cart';
+
 const CartDrawer = () => {
+  const { totalItems } = useCart();
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -12,6 +15,7 @@ const CartDrawer = () => {
   const onClose = () => {
     setVisible(false);
   };
+  let itemsOnCart = totalItems;
 
   return (
     <>
@@ -28,6 +32,8 @@ const CartDrawer = () => {
         }}
       >
         <ShoppingCartOutlined />
+        <totalItems />
+        <>{itemsOnCart}</>
       </Button>
 
       <Drawer
