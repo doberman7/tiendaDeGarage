@@ -7,7 +7,7 @@ const style = { background: '#1D99A9', padding: '1px' };
 
 function ProductList({ products = [] }) {
   const { addItem } = useCart();
-
+  let id = null;
   return (
     <>
       <div style={{ padding: '1rem 2rem' }}>
@@ -23,7 +23,10 @@ function ProductList({ products = [] }) {
                 key={product._id}
               >
                 <div style={style}>
-                  {/* {console.log(product)} */}
+                  {/* cart needs an id property, but mangose created only _id, so its fixed with this */}
+                  <div style={{ display: 'none' }}>
+                    {(product.id = product._id)}
+                  </div>
                   <Card title={product.name}>
                     <Image src={product.image} />
                     <p>
