@@ -24,6 +24,7 @@ const Cart = () => {
         {items.map((item) => (
           <li key={item.id}>
             {item.quantity} x {item.name}
+            <br />
             <Button
               onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
             >
