@@ -1,12 +1,29 @@
 import { Row, Col, Card, Image, Spin, Tag, Button } from 'antd';
 import React from 'react';
 import { useCart } from 'react-use-cart';
+import { motion } from 'framer-motion';
 
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
 
-function ProductList({ products = [] }) {
+const AddButton = ({ product }) => {
   const { addItem } = useCart();
+
+  return (
+    <>
+      <Button
+        type="dashed"
+        ghost
+        style={{ color: '#9e1068' }}
+        onClick={() => addItem(product)}
+      >
+        Add to cart
+      </Button>
+    </>
+  );
+};
+
+function ProductList({ products = [] }) {
   return (
     <>
       <div style={{ padding: '1rem 2rem' }}>
@@ -36,15 +53,16 @@ function ProductList({ products = [] }) {
                     </p>
                     {/* este div es para que JSC reconosca el espacio */}
                     <div>
-                      <Button
-                        type="dashed"
-                        ghost
-                        style={{ color: '#9e1068' }}
-                        onClick={() => addItem(product)}
+                      <motion.div
+                        whileHover={{ scale: 1.2, rotate: 1 }}
+                        whileTap={{
+                          scale: 0.95,
+                        }}
+                        // drag="x"
+                        // dragConstraints={{ left: 0, right: 20 }}
                       >
-                        Add to cart
-                      </Button>
-                      <br />
+                        <AddButton product={product} />
+                      </motion.div>
                       <br />
                     </div>
 
