@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useContextInfo } from '../hooks/context';
 import { logoutFn } from '../services/auth';
 import { ProfileOutlined } from '@ant-design/icons';
-import CartDrawer from './CartDrawer';
+import CartDrawer from './Cart/CartDrawer';
 const { Header, Content } = Layout;
 
 const LayoutApp = ({ children }) => {

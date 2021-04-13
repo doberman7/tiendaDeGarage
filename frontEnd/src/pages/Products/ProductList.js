@@ -1,27 +1,9 @@
-import { Row, Col, Card, Image, Spin, Tag, Button } from 'antd';
+import { Row, Col, Card, Image, Spin, Tag } from 'antd';
 import React from 'react';
-import { useCart } from 'react-use-cart';
 import { motion } from 'framer-motion';
-
+import AddButton from './AddButton';
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
-
-const AddButton = ({ product }) => {
-  const { addItem } = useCart();
-
-  return (
-    <>
-      <Button
-        type="dashed"
-        ghost
-        style={{ color: '#9e1068' }}
-        onClick={() => addItem(product)}
-      >
-        Add to cart
-      </Button>
-    </>
-  );
-};
 
 function ProductList({ products = [] }) {
   return (
