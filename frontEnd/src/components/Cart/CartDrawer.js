@@ -37,7 +37,7 @@ const CartDrawer = () => {
       </Button>
 
       <Drawer
-        title="Basic Drawer"
+        title="My Cart"
         placement="right"
         closable={false}
         onClose={onClose}
