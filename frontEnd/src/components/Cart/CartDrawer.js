@@ -3,6 +3,7 @@ import { Drawer, Button } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import Cart from './Cart';
 import { useCart } from 'react-use-cart';
+import { motion } from 'framer-motion';
 
 const CartDrawer = () => {
   const { totalItems } = useCart();
@@ -31,9 +32,11 @@ const CartDrawer = () => {
           color: '#eb2f96',
         }}
       >
-        <ShoppingCartOutlined />
-        <totalItems />
-        <>{itemsOnCart}</>
+        <motion.div whileHover={{ scale: 1.8 }}>
+          <ShoppingCartOutlined />
+          <totalItems />
+          <>{itemsOnCart}</>
+        </motion.div>
       </Button>
 
       <Drawer
