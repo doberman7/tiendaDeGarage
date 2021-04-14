@@ -40,8 +40,6 @@ function ProductList({ products = [] }) {
                         whileTap={{
                           scale: 0.95,
                         }}
-                        // drag="x"
-                        // dragConstraints={{ left: 0, right: 20 }}
                       >
                         <AddButton product={product} />
                       </motion.div>
