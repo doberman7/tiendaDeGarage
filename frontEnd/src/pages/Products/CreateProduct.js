@@ -9,7 +9,7 @@ import {
   Alert,
   notification,
 } from 'antd';
-
+import AddImages from './AddImages.js';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { createProduct } from '../../services/Products';
 import axios from 'axios';
@@ -121,6 +121,7 @@ function CreateProductForm({ history }) {
               uploadButton
             )}
           </Upload>
+          <AddImages />
         </Form.Item>
 
         <Form.Item name="category" label="category:">
