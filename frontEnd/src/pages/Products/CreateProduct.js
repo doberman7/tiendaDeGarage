@@ -9,7 +9,7 @@ import {
   Alert,
   notification,
 } from 'antd';
-import AddImages from './AddImages.js';
+import { AddImages } from './AddImages.js';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { createProduct } from '../../services/Products';
 import axios from 'axios';
@@ -30,14 +30,14 @@ function CreateProductForm({ history }) {
   };
   async function handleFormSubmit(values) {
     let send = true;
-
+    console.log(values);
     //mensajes de campos vacios en form
     Object.entries(values).map((val) => {
       if (val[1] === undefined) {
         message.error(`Add ${val[0].toUpperCase()} field is empty`);
         send = false;
       }
-      if (val[0] == 'price') {
+      if (val[0] === 'price') {
         setError(
           'All the fields must be filled and the price must have numbers,not letters!'
         );
@@ -107,7 +107,7 @@ function CreateProductForm({ history }) {
           <Select mode="tags" style={{ width: '100%' }} />
         </Form.Item> */}
 
-        <Form.Item name="image" label="Image:">
+        {/* <Form.Item name="image" label="Image:">
           <Upload
             name="avatar"
             listType="picture-card"
@@ -121,6 +121,9 @@ function CreateProductForm({ history }) {
               uploadButton
             )}
           </Upload>
+        </Form.Item> */}
+
+        <Form.Item name="images" label="Images:">
           <AddImages />
         </Form.Item>
 
