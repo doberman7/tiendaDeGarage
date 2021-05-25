@@ -54,6 +54,7 @@ export const AddImage = () => {
         className="avatar-uploader"
         showUploadList={false}
         beforeUpload={handleUploadFile}
+        action={() => alert(img)}
       >
         {img ? (
           <img src={img} alt="pic" style={{ width: '50%' }} />
