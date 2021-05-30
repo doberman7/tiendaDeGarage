@@ -12,7 +12,9 @@ import { AddImage } from './AddImage.js';
 import { createProduct } from '../../services/Products';
 
 function CreateProductForm({ history }) {
-  const [img, setImg] = useState(null);
+  // const [img, setImg] = useState(null);
+  const [imgUrl, setImgUrl] = useState(null);
+
   const [error, setError] = useState(null);
 
   const openNotification = (placement, coincidencias) => {
@@ -25,9 +27,8 @@ function CreateProductForm({ history }) {
   async function handleFormSubmit(values) {
     let send = true;
 
-    console.log(img);
-    // need to update img to ut in the values and send it to the Db
-    // values.image = img; /
+    //stablish the image Url from <AddImage>,  need to update img to ut in the values and send it to the Db
+    values.image = imgUrl;
 
     //mensajes de campos vacios en form
     Object.entries(values).map((val) => {
@@ -73,9 +74,10 @@ function CreateProductForm({ history }) {
         </Form.Item>
 
         <Form.Item name="image" label="Image:">
-          {/* This returns img, which is an url, how do I get it?*/}
-          <AddImage />
-          {img & img ? img : 'not reading img'}
+          {/* This returns img, which is an url, how do I 
+          get it?*/}
+          <AddImage setImgUrl={(url) => setImgUrl(url)} />
+          {imgUrl & imgUrl ? imgUrl : 'not reading img'}
         </Form.Item>
 
         <Form.Item name="category" label="category:">

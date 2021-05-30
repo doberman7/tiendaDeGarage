@@ -18,42 +18,42 @@ export const AddImages = () => {
       previewImage: '',
       previewTitle: '',
       fileList: [
-        {
-          uid: '-1',
-          name: 'image.png',
-          status: 'done',
-          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        },
-        {
-          uid: '-2',
-          name: 'image.png',
-          status: 'done',
-          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        },
-        {
-          uid: '-3',
-          name: 'image.png',
-          status: 'done',
-          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        },
-        {
-          uid: '-4',
-          name: 'image.png',
-          status: 'done',
-          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        },
-        {
-          uid: '-xxx',
-          percent: 50,
-          name: 'image.png',
-          status: 'uploading',
-          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        },
-        {
-          uid: '-5',
-          name: 'image.png',
-          status: 'error',
-        },
+        // {
+        //   uid: '-1',
+        //   name: 'image.png',
+        //   status: 'done',
+        //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        // },
+        // {
+        //   uid: '-2',
+        //   name: 'image.png',
+        //   status: 'done',
+        //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        // },
+        // {
+        //   uid: '-3',
+        //   name: 'image.png',
+        //   status: 'done',
+        //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        // },
+        // {
+        //   uid: '-4',
+        //   name: 'image.png',
+        //   status: 'done',
+        //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        // },
+        // {
+        //   uid: '-xxx',
+        //   percent: 50,
+        //   name: 'image.png',
+        //   status: 'uploading',
+        //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        // },
+        // {
+        //   uid: '-5',
+        //   name: 'image.png',
+        //   status: 'error',
+        // },
       ],
     };
 
@@ -86,7 +86,8 @@ export const AddImages = () => {
       return (
         <>
           <Upload
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            action={() => console.log('ACTION', this.state)}
+            beforeUpload={() => console.log('BEFORE', this.state)}
             listType="picture-card"
             fileList={fileList}
             onPreview={this.handlePreview}

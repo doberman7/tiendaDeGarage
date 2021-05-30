@@ -1,13 +1,4 @@
-import {
-  Form,
-  Button,
-  Input,
-  Select,
-  Upload,
-  message,
-  Alert,
-  notification,
-} from 'antd';
+import { Upload } from 'antd';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
@@ -15,13 +6,14 @@ import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 const cloudinaryAPI =
   'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
 
-export const AddImage = () => {
+export const AddImage = ({ setImgUrl }) => {
   const [img, setImg] = useState(null);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
   async function handleUploadFile(file) {
     try {
       setLoading(true);
+
       const data = new FormData();
       //esto sube a el archivo a cloudinary
       data.append('file', file);
@@ -30,7 +22,7 @@ export const AddImage = () => {
       const {
         data: { secure_url },
       } = await axios.post(cloudinaryAPI, data);
-
+      setImgUrl(secure_url);
       setImg(secure_url);
       setLoading(false);
     } catch (e) {
@@ -54,7 +46,7 @@ export const AddImage = () => {
         className="avatar-uploader"
         showUploadList={false}
         beforeUpload={handleUploadFile}
-        action={() => alert(img)}
+        // action={() => alert(img)}
       >
         {img ? (
           <img src={img} alt="pic" style={{ width: '50%' }} />
