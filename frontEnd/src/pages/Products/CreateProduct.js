@@ -12,7 +12,6 @@ import { AddImage } from './AddImage.js';
 import { createProduct } from '../../services/Products';
 
 function CreateProductForm({ history }) {
-  // const [img, setImg] = useState(null);
   const [imgUrl, setImgUrl] = useState(null);
 
   const [error, setError] = useState(null);
@@ -74,8 +73,6 @@ function CreateProductForm({ history }) {
         </Form.Item>
 
         <Form.Item name="image" label="Image:">
-          {/* This returns img, which is an url, how do I 
-          get it?*/}
           <AddImage setImgUrl={(url) => setImgUrl(url)} />
           {imgUrl & imgUrl ? imgUrl : 'not reading img'}
         </Form.Item>
