@@ -8,7 +8,7 @@ import {
   Alert,
   notification,
 } from 'antd';
-import { AddImage } from './AddImage.js';
+import { AddImages } from './AddImages.js';
 import { createProduct } from '../../services/Products';
 
 function CreateProductForm({ history }) {
@@ -26,7 +26,7 @@ function CreateProductForm({ history }) {
   async function handleFormSubmit(values) {
     let send = true;
 
-    //stablish the image Url from <AddImage>,  need to update img to ut in the values and send it to the Db
+    //stablish the image Url from <AddImages>,  need to update img to ut in the values and send it to the Db
     values.image = imgUrl;
 
     //mensajes de campos vacios en form
@@ -73,8 +73,7 @@ function CreateProductForm({ history }) {
         </Form.Item>
 
         <Form.Item name="image" label="Image:">
-          <AddImage setImgUrl={(url) => setImgUrl(url)} />
-          {imgUrl & imgUrl ? imgUrl : 'not reading img'}
+          <AddImages setImgUrl={(url) => setImgUrl(url)} />
         </Form.Item>
 
         <Form.Item name="category" label="category:">

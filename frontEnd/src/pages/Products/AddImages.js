@@ -1,8 +1,38 @@
 import React, { useState } from 'react';
 
-import { Upload, Modal } from 'antd';
+import { Alert, Upload, Modal } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-export const AddImages = () => {
+import axios from 'axios';
+const cloudinaryAPI =
+  'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
+
+export const AddImages = ({ setImgUrl }) => {
+  const [img, setImg] = useState(null);
+  // const [loading, setLoading] = useState(null);
+  const [error, setError] = useState(null);
+
+  async function handleUploadFile(file) {
+    try {
+      // setLoading(true);
+
+      const data = new FormData();
+      //esto sube a el archivo a cloudinary
+      data.append('file', file);
+      data.append('upload_preset', 'uploadfilestiendaDeGarage');
+      //esto manda al backend? me manda CORS
+      const {
+        data: { secure_url },
+      } = await axios.post(cloudinaryAPI, data);
+      setImgUrl(secure_url);
+      setImg(secure_url);
+      console.log(data);
+      // setLoading(false);
+    } catch (e) {
+      console.dir(e.response.data.message);
+      setError(e.response.data.message);
+    }
+  }
+
   function getBase64(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -17,44 +47,7 @@ export const AddImages = () => {
       previewVisible: false,
       previewImage: '',
       previewTitle: '',
-      fileList: [
-        // {
-        //   uid: '-1',
-        //   name: 'image.png',
-        //   status: 'done',
-        //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        // },
-        // {
-        //   uid: '-2',
-        //   name: 'image.png',
-        //   status: 'done',
-        //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        // },
-        // {
-        //   uid: '-3',
-        //   name: 'image.png',
-        //   status: 'done',
-        //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        // },
-        // {
-        //   uid: '-4',
-        //   name: 'image.png',
-        //   status: 'done',
-        //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        // },
-        // {
-        //   uid: '-xxx',
-        //   percent: 50,
-        //   name: 'image.png',
-        //   status: 'uploading',
-        //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        // },
-        // {
-        //   uid: '-5',
-        //   name: 'image.png',
-        //   status: 'error',
-        // },
-      ],
+      fileList: [],
     };
 
     handleCancel = () => this.setState({ previewVisible: false });
@@ -86,15 +79,18 @@ export const AddImages = () => {
       return (
         <>
           <Upload
-            action={() => console.log('ACTION', this.state)}
-            beforeUpload={() => console.log('BEFORE', this.state)}
+            // action={() => console.log('ACTION', this.state)}
+            // beforeUpload={() => console.log('BEFORE', this.state)}
+            beforeUpload={handleUploadFile}
             listType="picture-card"
             fileList={fileList}
             onPreview={this.handlePreview}
-            onChange={this.handleChange}
+            // onChange={this.handleChange}
           >
             {fileList.length >= 8 ? null : uploadButton}
           </Upload>
+          {error && <Alert message={error} type="error" />}
+
           <Modal
             visible={previewVisible}
             title={previewTitle}
