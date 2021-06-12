@@ -7,10 +7,10 @@ const cloudinaryAPI =
   'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
 
 export const AddImages = ({ setImgUrl }) => {
-  const [img, setImg] = useState(null);
-  // const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
+  // const [urls, setUrls] = useState([]);
+  const urls = [];
   async function handleUploadFile(file) {
     try {
       const data = new FormData();
@@ -19,76 +19,61 @@ export const AddImages = ({ setImgUrl }) => {
       const {
         data: { secure_url },
       } = await axios.post(cloudinaryAPI, data);
-      console.log(data);
 
-      // setImgUrl(secure_url);
-      // setImg(secure_url);
+      urls.push(secure_url);
+      // setImgUrl(null);
     } catch (e) {
       console.dir(e.response.data.message);
       setError(e.response.data.message);
     }
   }
+  const [previewVisible, setPreviewVisible] = useState(false);
+  const [previewImage, setPreviewImage] = useState('');
+  const [previewTitle, setpreviewTitle] = useState('');
+  const [fileList, setfileList] = useState([]);
 
-  class PicturesWall extends React.Component {
-    state = {
-      previewVisible: false,
-      previewImage: '',
-      previewTitle: '',
-      fileList: [],
-    };
+  const handleCancel = () => setPreviewVisible(false);
 
-    handleCancel = () => this.setState({ previewVisible: false });
+  const handlePreview = async (file) => {
+    setPreviewImage(file.url || file.preview);
+    setPreviewVisible(true);
+    setpreviewTitle(
+      file.name || file.url.substring(file.url.lastIndexOf('/') + 1)
+    );
+  };
 
-    handlePreview = async (file) => {
-      this.setState({
-        previewImage: file.url || file.preview,
-        previewVisible: true,
-        previewTitle:
-          file.name || file.url.substring(file.url.lastIndexOf('/') + 1),
-      });
-    };
+  const handleChange = ({ fileList }) => {
+    setfileList(fileList);
+  };
 
-    handleChange = ({ fileList }) => this.setState({ fileList });
-
-    render() {
-      const { previewVisible, previewImage, fileList, previewTitle } =
-        this.state;
-      const uploadButton = (
-        <div>
-          <PlusOutlined />
-          <div style={{ marginTop: 8 }}>Upload</div>
-        </div>
-      );
-      return (
-        <>
-          <Upload
-            action={handleUploadFile} // HERE
-            // beforeUpload={handleUploadFile}
-            listType="picture-card"
-            fileList={fileList}
-            onPreview={this.handlePreview}
-            onChange={this.handleChange} //
-          >
-            {fileList.length >= 8 ? null : uploadButton}
-          </Upload>
-          {error && <Alert message={error} type="error" />}
-
-          <Modal
-            visible={previewVisible}
-            title={previewTitle}
-            footer={null}
-            onCancel={this.handleCancel}
-          >
-            <img alt="example" style={{ width: '100%' }} src={previewImage} />
-          </Modal>
-        </>
-      );
-    }
-  }
-
+  const uploadButton = (
+    <div>
+      <PlusOutlined />
+      <div style={{ marginTop: 8 }}>Upload</div>
+    </div>
+  );
   return (
     <>
-      <PicturesWall />
+      <Upload
+        // action={handleAction} // HERE
+        beforeUpload={handleUploadFile}
+        listType="picture-card"
+        fileList={fileList}
+        onPreview={handlePreview}
+        onChange={handleChange} //
+      >
+        {fileList.length >= 8 ? null : uploadButton}
+      </Upload>
+      {error && <Alert message={error} type="error" />}
+
+      <Modal
+        visible={previewVisible}
+        title={previewTitle}
+        footer={null}
+        onCancel={handleCancel}
+      >
+        <img alt="example" style={{ width: '100%' }} src={previewImage} />
+      </Modal>
     </>
   );
 };
