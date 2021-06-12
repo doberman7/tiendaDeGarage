@@ -4,18 +4,24 @@ import {
   Button,
   Input,
   Select,
+  // Upload,
   message,
   Alert,
   notification,
 } from 'antd';
 import { AddImages } from './AddImages.js';
+import { AddImage } from './AddImage.js';
+// import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { createProduct } from '../../services/Products';
+// import axios from 'axios';
+
+// const cloudinaryAPI =
+//   'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
 
 function CreateProductForm({ history }) {
-  const [imgUrl, setImgUrl] = useState(null);
-
+  const [img, setImg] = useState(null);
+  // const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
-
   const openNotification = (placement, coincidencias) => {
     notification.info({
       message: `Coincidences found ${coincidencias}`,
@@ -25,9 +31,8 @@ function CreateProductForm({ history }) {
   };
   async function handleFormSubmit(values) {
     let send = true;
-
-    //stablish the image Url from <AddImages>,  need to update img to ut in the values and send it to the Db
-    values.image = imgUrl;
+    console.log(img);
+    // values.image = img; //here the magic
 
     //mensajes de campos vacios en form
     Object.entries(values).map((val) => {
@@ -46,6 +51,8 @@ function CreateProductForm({ history }) {
       }
     });
     if (send) {
+      console.log(img);
+      values.image = img; //here the magic
       let { data } = await createProduct(values);
       if (data.wishCoincidences.length > 0) {
         openNotification('bottomRight', data.wishCoincidences.length);
@@ -54,6 +61,34 @@ function CreateProductForm({ history }) {
       message.success(`${data.name} created`);
     }
   }
+
+  //subir imagenes
+  // async function handleUploadFile(file) {
+  //   try {
+  //     setLoading(true);
+  //     const data = new FormData();
+  //     //esto sube a el archivo a cloudinary
+  //     data.append('file', file);
+  //     data.append('upload_preset', 'uploadfilestiendaDeGarage');
+  //     //esto manda al backend? me manda CORS
+  //     const {
+  //       data: { secure_url },
+  //     } = await axios.post(cloudinaryAPI, data);
+
+  //     setImg(secure_url);
+  //     setLoading(false);
+  //   } catch (e) {
+  //     console.dir(e.response.data.message);
+  //     setError(e.response.data.message);
+  //   }
+  // }
+
+  // const uploadButton = (
+  //   <div>
+  //     {loading ? <LoadingOutlined /> : <PlusOutlined />}
+  //     <div style={{ marginTop: 8 }}>Upload</div>
+  //   </div>
+  // );
 
   return (
     <>
@@ -72,9 +107,31 @@ function CreateProductForm({ history }) {
           <Input />
         </Form.Item>
 
+        {/* <Form.Item name="taggs" label="taggs tags:">
+          <Select mode="tags" style={{ width: '100%' }} />
+        </Form.Item> */}
+
+        {/* <Form.Item name="image" label="Image:">
+          <Upload
+            name="avatar"
+            listType="picture-card"
+            className="avatar-uploader"
+            showUploadList={false}
+            beforeUpload={handleUploadFile}
+          >
+            {img ? (
+              <img src={img} alt="pic" style={{ width: '50%' }} />
+            ) : (
+              uploadButton
+            )}
+          </Upload>
+        </Form.Item> */}
+
+        {/* <Form.Item name="images" label="Images:">
+          <AddImages />
+        </Form.Item> */}
         <Form.Item name="image" label="Image:">
-          {/* <AddImages setImgUrl={(url) => setImgUrl(url)} /> */}
-          <AddImages setImgUrl={(url) => setImgUrl(url)} />
+          <AddImage />
         </Form.Item>
 
         <Form.Item name="category" label="category:">

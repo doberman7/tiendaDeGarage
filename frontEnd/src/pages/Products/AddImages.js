@@ -13,33 +13,20 @@ export const AddImages = ({ setImgUrl }) => {
 
   async function handleUploadFile(file) {
     try {
-      // setLoading(true);
-
       const data = new FormData();
-      //esto sube a el archivo a cloudinary
       data.append('file', file);
       data.append('upload_preset', 'uploadfilestiendaDeGarage');
-      //esto manda al backend? me manda CORS
       const {
         data: { secure_url },
       } = await axios.post(cloudinaryAPI, data);
-      setImgUrl(secure_url);
-      setImg(secure_url);
       console.log(data);
-      // setLoading(false);
+
+      // setImgUrl(secure_url);
+      // setImg(secure_url);
     } catch (e) {
       console.dir(e.response.data.message);
       setError(e.response.data.message);
     }
-  }
-
-  function getBase64(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
   }
 
   class PicturesWall extends React.Component {
@@ -53,10 +40,6 @@ export const AddImages = ({ setImgUrl }) => {
     handleCancel = () => this.setState({ previewVisible: false });
 
     handlePreview = async (file) => {
-      if (!file.url && !file.preview) {
-        file.preview = await getBase64(file.originFileObj);
-      }
-
       this.setState({
         previewImage: file.url || file.preview,
         previewVisible: true,
@@ -79,13 +62,12 @@ export const AddImages = ({ setImgUrl }) => {
       return (
         <>
           <Upload
-            // action={() => console.log('ACTION', this.state)}
-            // beforeUpload={() => console.log('BEFORE', this.state)}
-            beforeUpload={handleUploadFile}
+            action={handleUploadFile} // HERE
+            // beforeUpload={handleUploadFile}
             listType="picture-card"
             fileList={fileList}
             onPreview={this.handlePreview}
-            // onChange={this.handleChange}
+            onChange={this.handleChange} //
           >
             {fileList.length >= 8 ? null : uploadButton}
           </Upload>
