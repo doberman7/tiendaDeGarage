@@ -21,7 +21,7 @@ export const AddImages = ({ setImgUrl }) => {
       } = await axios.post(cloudinaryAPI, data);
 
       urls.push(secure_url);
-      // setImgUrl(null);
+      setImgUrl(urls);
     } catch (e) {
       console.dir(e.response.data.message);
       setError(e.response.data.message);
@@ -44,6 +44,7 @@ export const AddImages = ({ setImgUrl }) => {
 
   const handleChange = ({ fileList }) => {
     setfileList(fileList);
+    console.log(fileList);
   };
 
   const uploadButton = (
