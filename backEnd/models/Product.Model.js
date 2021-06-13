@@ -4,7 +4,7 @@ const ProductSchema = new Schema(
   {
     name: String,
     description: String,
-    image: String,
+    image: Array,
     price: Number,
     idUser: Schema.Types.ObjectId,
     userCreator: { type: Schema.Types.ObjectId, ref: 'User' },

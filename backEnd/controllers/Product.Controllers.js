@@ -20,6 +20,7 @@ exports.getProductDetails = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
   const { name, description, image, price, category } = req.body;
+
   const {
     user: { id },
   } = req;
@@ -49,6 +50,7 @@ exports.createProduct = async (req, res) => {
   }
   //get updated product
   let newProductUpdated = await Product.findById(newProduct.id);
+  console.log('NEW product' + newProductUpdated);
   res.status(201).json(newProductUpdated);
 };
 

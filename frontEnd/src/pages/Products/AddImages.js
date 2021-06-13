@@ -8,9 +8,7 @@ const cloudinaryAPI =
 
 export const AddImages = ({ setImgUrl }) => {
   const [error, setError] = useState(null);
-
-  // const [urls, setUrls] = useState([]);
-  const urls = [];
+  const [urls] = useState([]);
   async function handleUploadFile(file) {
     try {
       const data = new FormData();
@@ -21,6 +19,7 @@ export const AddImages = ({ setImgUrl }) => {
       } = await axios.post(cloudinaryAPI, data);
 
       urls.push(secure_url);
+      // console.log(urls.length);
       setImgUrl(urls);
     } catch (e) {
       console.dir(e.response.data.message);
@@ -44,7 +43,7 @@ export const AddImages = ({ setImgUrl }) => {
 
   const handleChange = ({ fileList }) => {
     setfileList(fileList);
-    console.log(fileList);
+    // console.log(fileList);
   };
 
   const uploadButton = (

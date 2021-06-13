@@ -73,8 +73,8 @@ function CreateProductForm({ history }) {
         </Form.Item>
 
         <Form.Item name="image" label="Image:">
-          {/* <AddImages setImgUrl={(url) => setImgUrl(url)} /> */}
-          <AddImages setImgUrl={(url) => setImgUrl(url)} />
+          <AddImages setImgUrl={(imgUrl) => setImgUrl(imgUrl)} />
+          {/* {imgUrl ? imgUrl : 'no'} */}
         </Form.Item>
 
         <Form.Item name="category" label="category:">
