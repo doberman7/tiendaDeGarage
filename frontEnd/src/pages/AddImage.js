@@ -2,7 +2,6 @@ import { Upload } from 'antd';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-
 const cloudinaryAPI =
   'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
 

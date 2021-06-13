@@ -31,7 +31,6 @@ function EditProduct({
 
   async function handleEditProduct(values) {
     let send = true;
-    console.log(imgUrl);
     values.image = imgUrl;
     //esto es usado para el los mensajes de error dde la forma
     Object.entries(values).map((val) => {
