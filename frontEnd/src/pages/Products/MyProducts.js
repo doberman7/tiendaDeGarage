@@ -18,7 +18,7 @@ import {
 } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import { Carrusel } from './Carrusel';
 const { Title } = Typography;
 const { Meta } = Card;
 const style = { background: '#1C84B9', padding: '1px' };
@@ -75,6 +75,7 @@ function MyProducts() {
                       <b>$</b> {product.price}
                     </p>
                     <Image src={product.image} />
+                    <Carrusel images={product.image} />
                     {/* este div es para que JSC reconosca el espacio */}
                     <div>
                       <br />
