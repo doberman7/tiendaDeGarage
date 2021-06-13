@@ -74,7 +74,6 @@ function MyProducts() {
                     <p>
                       <b>$</b> {product.price}
                     </p>
-                    <Image src={product.image} />
                     <Carrusel images={product.image} />
                     {/* este div es para que JSC reconosca el espacio */}
                     <div>

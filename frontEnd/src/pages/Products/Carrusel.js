@@ -1,5 +1,5 @@
 import { Carousel, Image } from 'antd';
-
+import { Imagen } from './Imagen';
 export const Carrusel = ({ images }) => {
   const contentStyle = {
     height: '160px',
@@ -8,29 +8,18 @@ export const Carrusel = ({ images }) => {
     textAlign: 'center',
     background: '#364d79',
   };
-  //   console.log(images);
-  //   images.map((image) => console.log(image));
+
   return (
     <>
       <Carousel autoplay>
         {images.map((img) => {
           return (
             <div>
-              <h3 style={contentStyle}>
-                <Image src={img} />
-              </h3>
+              {/* <Image style={contentStyle} src={img} /> */}
+              <Imagen style={contentStyle} image={img} />
             </div>
           );
         })}
-        {/* <div>
-          <h3 style={contentStyle}>2</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>3</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>4</h3>
-        </div> */}
       </Carousel>
     </>
   );
