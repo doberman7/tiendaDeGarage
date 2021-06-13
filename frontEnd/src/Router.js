@@ -13,7 +13,7 @@ import EditUser from './pages/EditUser';
 import CreateWish from './pages/CreateWish';
 import MyProducts from './pages/Products/MyProducts'; //añado products del usuario
 import CreateProductForm from './pages/Products/CreateProduct'; //añado formulario de products del usuario
-import EditProduct from './pages/EditProduct'; //añado edicion del formulario del usuario
+import EditProduct from './pages/Products/EditProduct'; //añado edicion del formulario del usuario
 import ProductsAll from './pages/Products/ProductsAll';
 
 const Router = () => {

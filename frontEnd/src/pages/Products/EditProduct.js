@@ -4,29 +4,25 @@ import {
   editProduct,
   getProductDetails,
   deleteProduct,
-} from '../services/Products';
+} from '../../services/Products';
 
 import { Form, Button, Input, Select, Upload, message, Alert } from 'antd';
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import axios from 'axios';
-
-const cloudinaryAPI =
-  'https://api.cloudinary.com/v1_1/lab-file-upload2/image/upload';
+import { AddImages } from './AddImages';
 
 function EditProduct({
   match: {
     params: { productId },
   },
 }) {
+  const [imgUrl, setImgUrl] = useState(3);
   const [form] = Form.useForm();
   const history = useHistory();
   const [error, setError] = useState(null);
   const [product, setProduct] = useState(null);
-  const [img, setImg] = useState(null);
-  const [loading, setLoading] = useState(null);
+
   useEffect(() => {
     async function getDetails() {
-      console.log(product);
+      // console.log(product);
       const { data } = await getProductDetails(productId);
       setProduct(data);
     }
@@ -35,17 +31,18 @@ function EditProduct({
 
   async function handleEditProduct(values) {
     let send = true;
+    console.log(imgUrl);
+    values.image = imgUrl;
     //esto es usado para el los mensajes de error dde la forma
     Object.entries(values).map((val) => {
       if (val[1] === undefined) {
+        setError('All the fields must be filled');
         message.error(`add ${val[0].toUpperCase()} field is empty`);
         send = false;
       }
-      if (val[0] == 'price') {
-        setError(
-          'All the fields must be filled and the price must have numbers,not letters!'
-        );
-
+      if (val[0] === 'price') {
+        // setError('Use only numbers on price');
+        message.warning('Price uses only numbers');
         let valor = Number(val[1]);
         if (typeof valor !== 'number') {
           send = false;
@@ -54,7 +51,6 @@ function EditProduct({
     });
     if (send) {
       try {
-        values.image = img;
         await editProduct(productId, values);
 
         history.push('/MyProducts');
@@ -65,33 +61,6 @@ function EditProduct({
       }
     }
   }
-
-  async function handleUploadFile(file) {
-    try {
-      setLoading(true);
-      const data = new FormData();
-      //esto sube a el archivo a cloudinary
-      data.append('file', file);
-      data.append('upload_preset', 'uploadfilestiendaDeGarage');
-      //esto manda al backend? me manda CORS
-      const {
-        data: { secure_url },
-      } = await axios.post(cloudinaryAPI, data);
-
-      setImg(secure_url);
-      setLoading(false);
-    } catch (e) {
-      console.log(e);
-      setError(e.response.data.message);
-    }
-  }
-
-  const uploadButton = (
-    <div>
-      {loading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div style={{ marginTop: 8 }}>Upload</div>
-    </div>
-  );
 
   async function handleDelete() {
     await deleteProduct(productId);
@@ -130,15 +99,8 @@ function EditProduct({
         </Form.Item>
 
         <Form.Item name="image" label="Image:">
-          <Upload
-            name="avatar"
-            listType="picture-card"
-            className="avatar-uploader"
-            showUploadList={false}
-            beforeUpload={handleUploadFile}
-          >
-            {img ? <img src={img} style={{ width: '50%' }} /> : uploadButton}
-          </Upload>
+          <AddImages setImgUrl={(imgUrl) => setImgUrl(imgUrl)} />
+          {imgUrl ? '' : 'loading'}
         </Form.Item>
 
         <Button type="primary" block size="middle" htmlType="submit">
