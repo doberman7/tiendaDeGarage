@@ -1,27 +1,12 @@
 import { srvAllProducts } from '../../services/Products';
 
 import { useContextInfo } from '../../hooks/context';
-// import {  useHistory } from 'react-router-dom';
-import {
-  // Row,
-  // Col,
-  Typography,
-  // Card,
-  Divider,
-  // Image,
-  Spin,
-  // Tag,
-  Alert,
-  // Input,
-  // AutoComplete,
-} from 'antd';
+import { Typography, Divider, Spin, Alert } from 'antd';
 import React, { useState, useEffect } from 'react';
 import ProductList from './ProductList';
 import Search from '../Search';
 
 const { Title } = Typography;
-// const { Meta } = Card;
-// const style = { background: '#1D99A9', padding: '1px' };
 
 function ProductsAll(props) {
   //es importa recordar que user el JSON de la respuesta del back end, no necesariamente un usuario

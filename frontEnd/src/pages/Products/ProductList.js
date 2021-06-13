@@ -2,6 +2,7 @@ import { Row, Col, Card, Image, Spin, Tag } from 'antd';
 import React from 'react';
 import { motion } from 'framer-motion';
 import AddButton from './AddButton';
+import { Carrusel } from './Carrusel';
 const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
 
@@ -26,7 +27,7 @@ function ProductList({ products = [] }) {
                     {(product.id = product._id)}
                   </div>
                   <Card title={product.name}>
-                    <Image src={product.image} />
+                    <Carrusel images={product.image} />
                     <p>
                       <b>Description:</b> {product.description}
                     </p>
