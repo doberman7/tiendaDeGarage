@@ -40,10 +40,10 @@ function EditProduct({
         send = false;
       }
       if (val[0] === 'price') {
-        // setError('Use only numbers on price');
-        message.warning('Price uses only numbers');
         let valor = Number(val[1]);
-        if (typeof valor !== 'number') {
+        if (typeof valor !== 'number' || Number.isNaN(valor)) {
+          setError('Usa solo numeros en el precio');
+          message.warning('Usa números para el precio');
           send = false;
         }
       }
