@@ -7,7 +7,6 @@ exports.getUserProducts = async (req, res) => {
     user: { id },
   } = req;
   const products = await User.findById(id).populate('products');
-  console.log(id);
   res.status(200).json(products);
 };
 
@@ -20,7 +19,10 @@ exports.getProductDetails = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
   const { name, description, image, price, category } = req.body;
-
+  console.log('CREATRE PRODUCT');
+  if (!name || !description || !image || !price || !category) {
+    return res.status(403).json({ message: 'Llena los espacios vacios ' });
+  }
   const {
     user: { id },
   } = req;
@@ -50,13 +52,16 @@ exports.createProduct = async (req, res) => {
   }
   //get updated product
   let newProductUpdated = await Product.findById(newProduct.id);
-  console.log('NEW product' + newProductUpdated);
+  // console.log('NEW product' + newProductUpdated);
   res.status(201).json(newProductUpdated);
 };
 
 exports.editProduct = async (req, res) => {
   const { productId } = req.params;
   const { name, description, image, price, category } = req.body;
+  if (!name || !description || !image || !price || !category) {
+    return res.status(403).json({ message: 'Add missing info' });
+  }
   const updatedProduct = await Product.findByIdAndUpdate(
     productId,
     { name, description, image, price, category },

@@ -14,7 +14,7 @@ function EditProduct({
     params: { productId },
   },
 }) {
-  const [imgUrl, setImgUrl] = useState(3);
+  const [imgUrl, setImgUrl] = useState(null);
   const [form] = Form.useForm();
   const history = useHistory();
   const [error, setError] = useState(null);
@@ -55,7 +55,7 @@ function EditProduct({
         history.push('/MyProducts');
         message.success('Product edited');
       } catch (e) {
-        console.log(e);
+        // console.log(e);
         setError(e.response.data.message);
       }
     }

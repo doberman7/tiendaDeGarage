@@ -36,22 +36,25 @@ function CreateProductForm({ history }) {
         send = false;
       }
       if (val[0] === 'price') {
-        setError(
-          'All the fields must be filled and the price must have numbers,not letters!'
-        );
         let valor = Number(val[1]);
-        if (typeof valor !== 'number') {
+        if (typeof valor !== 'number' || Number.isNaN(valor)) {
+          setError('Usa solo numeros en el precio');
+          message.warning('Usa números para el precio');
           send = false;
         }
       }
     });
     if (send) {
-      let { data } = await createProduct(values);
-      if (data.wishCoincidences.length > 0) {
-        openNotification('bottomRight', data.wishCoincidences.length);
-      } //mensajes de coincidencias
-      history.push('/MyProducts');
-      message.success(`${data.name} created`);
+      try {
+        let { data } = await createProduct(values);
+        if (data.wishCoincidences.length > 0) {
+          openNotification('bottomRight', data.wishCoincidences.length);
+        } //mensajes de coincidencias
+        history.push('/MyProducts');
+        message.success(`${data.name} created`);
+      } catch (error) {
+        setError(error.response.data.message);
+      }
     }
   }
 
