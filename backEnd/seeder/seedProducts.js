@@ -1,4 +1,11 @@
-require('dotenv').config();
+// require('dotenv').config();
+// require('dotenv').config({ path: '.env' });
+// sometimes de env file it not loaded, problem seems to be the execution path, solved with
+require('dotenv').config({ path: __dirname + '/./../.env' });
+
+// The __dirname in a node script returns the path of the folder where the current JavaScript file resides. __filename and __dirname are used to get the filename and directory name of the currently executing file. The ./ gives the current working directory. It works similar to process
+
+// console.log(process);
 
 const bcrypt = require('bcrypt'),
   Product = require('../models/Product.Model'),
@@ -52,7 +59,7 @@ async function seed() {
 mongoose
   .set('useCreateIndex', true)
   // .connect(process.env.DB || 'mongodb://localhost/tiendaDeGarage', {
-  .connect(process.env.DB , {
+  .connect(process.env.DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
