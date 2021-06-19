@@ -12,14 +12,16 @@ export const Carrusel = ({ images }) => {
   return (
     <>
       <Carousel autoplay>
-        {images.map((img) => {
-          return (
-            <div>
-              {/* <Image style={contentStyle} src={img} /> */}
-              <Imagen style={contentStyle} image={img} />
-            </div>
-          );
-        })}
+        {images
+          ? images.map((img) => {
+              return (
+                <div>
+                  {/* <Image style={contentStyle} src={img} /> */}
+                  <Imagen style={contentStyle} image={img} />
+                </div>
+              );
+            })
+          : null}
       </Carousel>
     </>
   );
