@@ -1,18 +1,13 @@
 import { useCart } from 'react-use-cart';
-import { Button } from 'antd';
+import { Button, Image } from 'antd';
 import {
   MinusCircleTwoTone,
   PlusCircleTwoTone,
   DeleteTwoTone,
 } from '@ant-design/icons';
 const Cart = () => {
-  const {
-    isEmpty,
-    totalUniqueItems,
-    items,
-    updateItemQuantity,
-    removeItem,
-  } = useCart();
+  const { isEmpty, totalUniqueItems, items, updateItemQuantity, removeItem } =
+    useCart();
 
   if (isEmpty) return <p>Your cart is empty</p>;
 
@@ -23,6 +18,8 @@ const Cart = () => {
       <ul>
         {items.map((item) => (
           <li key={item.id}>
+            <Image width={52} src={item.image[0]} />
+            <br />
             {item.quantity} x {item.name}
             <br />
             <Button
