@@ -1,5 +1,5 @@
 import { useCart } from 'react-use-cart';
-import { Button, Image } from 'antd';
+import { Button, Image, List, Typography, Divider } from 'antd';
 import {
   MinusCircleTwoTone,
   PlusCircleTwoTone,
@@ -14,13 +14,14 @@ const Cart = () => {
   return (
     <>
       <h1>({totalUniqueItems}) diferent items</h1>
-
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            <Image width={52} src={item.image[0]} />
-            <br />
-            {item.quantity} x {item.name}
+      <List
+        size="small"
+        // bordered
+        dataSource={items}
+        renderItem={(item) => (
+          <List.Item>
+            <Image width={35} src={item.image[0]} />({item.quantity}){' '}
+            {item.name}
             <br />
             <Button
               onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
@@ -35,9 +36,9 @@ const Cart = () => {
             <Button onClick={() => removeItem(item.id)}>
               <DeleteTwoTone />
             </Button>
-          </li>
-        ))}
-      </ul>
+          </List.Item>
+        )}
+      />
     </>
   );
 };
