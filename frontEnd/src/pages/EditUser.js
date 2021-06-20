@@ -46,7 +46,6 @@ const EditUser = ({ history }) => {
       history.push('/profile');
       message.success('User edited');
     } catch (e) {
-      console.log(e);
       setError(e.response.data.message);
     } finally {
     }

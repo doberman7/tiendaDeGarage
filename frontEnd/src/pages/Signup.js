@@ -16,8 +16,8 @@ import { SmileOutlined, GoogleOutlined } from '@ant-design/icons';
 //notification
 const openNotification = () => {
   notification.open({
-    message: 'G R E E T I N G S',
-    description: 'We welcome you to Tienda de Garage',
+    message: 'S A L U D O S ',
+    description: 'Bienvenido a Tienda de Garage',
     icon: <SmileOutlined style={{ color: '#008000' }} />,
   });
 };
@@ -62,7 +62,7 @@ const Signup = ({ history }) => {
       <Divider />
       <Col span={24}>
         <Form layout="vertical" form={form} onFinish={handleSubmit}>
-          <Form.Item name="name" label="Name:">
+          <Form.Item name="name" label="Nombre:">
             <Input />
           </Form.Item>
           <Form.Item name="email" label="Email:">
@@ -81,7 +81,7 @@ const Signup = ({ history }) => {
               'text-align': 'center',
             }}
           >
-            or
+            o
             <Divider />
             <a href={googleUrl}>
               <GoogleOutlined />

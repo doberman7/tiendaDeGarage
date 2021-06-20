@@ -100,6 +100,18 @@ exports.editProfile = async (req, res) => {
   try {
     //obtener info del form
     const { email, password, image, name } = req.body;
+    if (!email || !password || !image || !name) {
+      return res.status(403).json({ message: 'Llena toda la informacion' });
+    }
+    const userAlreadyExists = await User.findOne({
+      email,
+    });
+
+    if (userAlreadyExists) {
+      return res
+        .status(401)
+        .json({ message: 'no puedes usar ese mail pertenece a otro usuario' });
+    }
     //obtener user ID
     const userId = req.session.passport.user;
 

@@ -21,19 +21,22 @@ const Welcomee = () => {
         <ImageDemo />
         <Divider />
         <p>
-          Greetings <b>{user.name}</b>
+          Saludos <b>{user.name}</b>
         </p>
         <p>In this app you can create Wishes and Product</p>
+        <p>En esta página web tu puedes crear Deseos y Productos para vender</p>
 
         <p>
-          <b>Wishes:</b> things you wanna buy
+          <b>Deseos:</b> Cosas que deseas comprar y esperas que otra persona te
+          pueda vender
         </p>
         <p>
-          <b>Product:</b> the stuff you have and want to sell
+          <b>Productos:</b> Las cosas que tienes por ahí en tu casa y quieres
+          vender
         </p>
 
         <Button type="primary" ghost>
-          <Link to="/profile">Got it</Link>
+          <Link to="/profile">Entendido!</Link>
         </Button>
       </div>
     </>
