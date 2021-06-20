@@ -1,11 +1,6 @@
-// require('dotenv').config();
-// require('dotenv').config({ path: '.env' });
 // sometimes de env file it not loaded, problem seems to be the execution path, solved with
 require('dotenv').config({ path: __dirname + '/./../.env' });
-
 // The __dirname in a node script returns the path of the folder where the current JavaScript file resides. __filename and __dirname are used to get the filename and directory name of the currently executing file. The ./ gives the current working directory. It works similar to process
-
-// console.log(process);
 
 const bcrypt = require('bcrypt'),
   Product = require('../models/Product.Model'),
@@ -28,7 +23,7 @@ async function seed() {
     });
     //este data es un ary
     const { data } = await axios.get(`https://fakestoreapi.com/products/`);
-
+    console.log(data[times].image);
     do {
       // data.data.map((product) => console.log(product));
 
@@ -36,7 +31,7 @@ async function seed() {
         idUser: user.id,
         name: data[times].title,
         description: data[times].description,
-        image: data[times].image,
+        image: [data[times].image, data[times].image],
         price: data[times].price,
         category: 'other',
       });
