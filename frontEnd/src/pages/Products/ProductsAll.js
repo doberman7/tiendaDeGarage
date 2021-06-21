@@ -38,9 +38,9 @@ function ProductsAll(props) {
     <>
       {/* <div style={{ padding: '1rem 3rem' }}> */}
       <div>
-        <Title level={1}>Products</Title>
+        <Title level={1}>Productos</Title>
         <div>
-          <p>From here you can all the products for you to buy</p>
+          <p>Añade al carrito lo que deseas comprar</p>
           <Search input={input} onChange={updateInput} />
 
           <Divider />

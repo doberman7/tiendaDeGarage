@@ -16,14 +16,13 @@ const Welcomee = () => {
   return user ? (
     <>
       <div className=" welcome">
-        <h1>W E L C O M E </h1>
+        <h1>B I E N V E N I D O</h1>
         <Divider />
         <ImageDemo />
         <Divider />
         <p>
           Saludos <b>{user.name}</b>
         </p>
-        <p>In this app you can create Wishes and Product</p>
         <p>En esta página web tu puedes crear Deseos y Productos para vender</p>
 
         <p>

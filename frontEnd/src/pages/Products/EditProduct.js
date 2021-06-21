@@ -70,21 +70,21 @@ function EditProduct({
   return product ? (
     <>
       <Form form={form} layout="vertical" onFinish={handleEditProduct}>
-        <h1>Edit your product</h1>
+        <h1>Edita tu producto</h1>
         {error && <Alert message={error} type="error" />}
-        <Form.Item name="name" label="Title:">
+        <Form.Item name="name" label="Títulos:">
           <Input placeholder={product.name} />
         </Form.Item>
 
-        <Form.Item name="description" label="Description:">
+        <Form.Item name="description" label="Descripción:">
           <Input placeholder={product.description} />
         </Form.Item>
 
-        <Form.Item name="price" label="Price:">
+        <Form.Item name="price" label="Precio:">
           <Input placeholder={product.price} />
         </Form.Item>
 
-        <Form.Item name="category" label="category:">
+        <Form.Item name="category" label="Categoria:">
           <Select initialvalue="available" style={{ width: '20%' }}>
             <Select.Option value="books">Books</Select.Option>
             <Select.Option value="electronics">Electronics</Select.Option>
@@ -93,17 +93,17 @@ function EditProduct({
           </Select>
         </Form.Item>
 
-        <Form.Item name="taggs" label="taggs tags:">
+        <Form.Item name="taggs" label="Tags">
           <Select mode="tags" style={{ width: '100%' }} />
         </Form.Item>
 
-        <Form.Item name="image" label="Image:">
+        <Form.Item name="image" label="Imagen:">
           <AddImages setImgUrl={(imgUrl) => setImgUrl(imgUrl)} />
           {imgUrl ? '' : 'loading'}
         </Form.Item>
 
         <Button type="primary" block size="middle" htmlType="submit">
-          Update
+          Editar
         </Button>
         <p></p>
       </Form>

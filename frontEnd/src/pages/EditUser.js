@@ -75,7 +75,7 @@ const EditUser = ({ history }) => {
   return user ? (
     <Row>
       <Col span={24}>
-        <Title level={1}>Edit User</Title>
+        <Title level={1}>Editar mi usuario</Title>
         {error && <Alert message={error} type="error" />}
       </Col>
       <Divider />
@@ -85,7 +85,7 @@ const EditUser = ({ history }) => {
             <Input placeholder={user.email} />
           </Form.Item>
 
-          <Form.Item name="name" label="Name:">
+          <Form.Item name="name" label="Nombre:">
             <Input placeholder={user.name} />
           </Form.Item>
 
@@ -112,7 +112,7 @@ const EditUser = ({ history }) => {
           </Form.Item>
 
           <Button type="primary" htmlType="submit" block>
-            EditUser
+            Editar
           </Button>
         </Form>
       </Col>

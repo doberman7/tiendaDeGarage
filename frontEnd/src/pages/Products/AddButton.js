@@ -26,7 +26,7 @@ const AddButton = ({ product }) => {
           success(product);
         }}
       >
-        Add to cart
+        Añadir
       </Button>
     </>
   );

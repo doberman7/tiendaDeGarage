@@ -71,18 +71,18 @@ function EditWish({
   }
   return (
     <>
-      <h1>Update Wish</h1>
+      <h1>Editar deseo</h1>
       {error && <Alert message={error} type="error" />}
       <Form form={form} layout="vertical" onFinish={handleEditWish}>
-        <Form.Item name="name" label="Name:">
+        <Form.Item name="name" label="Nombre:">
           <Input placeholder={wish ? wish.name : 'cargando'} />
         </Form.Item>
 
-        <Form.Item name="description" label="Description:">
+        <Form.Item name="description" label="Descrición:">
           <Input placeholder={wish ? wish.description : 'cargando'} />
         </Form.Item>
 
-        <Form.Item name="image" label="Image:">
+        <Form.Item name="image" label="Imagen:">
           <Upload
             name="avatar"
             listType="picture-card"
@@ -99,7 +99,7 @@ function EditWish({
         </Form.Item>
 
         <Button type="primary" block size="middle" htmlType="submit">
-          Update
+          Editar
         </Button>
       </Form>
       <br />

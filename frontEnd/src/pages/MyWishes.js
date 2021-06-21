@@ -39,13 +39,13 @@ const MyWishes = ({ history }) => {
   return user ? (
     <>
       <div style={{ padding: '1rem 3rem' }}>
-        <Title level={1}>Wishes</Title>
+        <Title level={1}>Deseos</Title>
         <div>
-          <p>You can create a wish you wish to buy</p>
+          <p>Crea lo que deseas comprar</p>
           {/* <br /> */}
           <Link to="/createWish">
             <Button type="primary" ghost>
-              Create Wish
+              Crear deseo
             </Button>
           </Link>
           <Divider />
@@ -73,7 +73,7 @@ const MyWishes = ({ history }) => {
                     key={wish.id}
                   >
                     <p>
-                      <b>Description:</b> {wish.description}
+                      <b>Descripción:</b> {wish.description}
                     </p>
                     <Image src={wish.picture} />
                     {/* este div es para que JSC reconosca el espacio */}

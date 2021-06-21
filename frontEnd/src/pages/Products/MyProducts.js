@@ -42,12 +42,10 @@ function MyProducts() {
       <div style={{ padding: '1rem 3rem' }}>
         <Title level={1}>Products</Title>
         <div>
-          <p>
-            From here you can create and see all the products you want to sell
-          </p>
+          <p>Crea los productos que deseas vender</p>
           {/* <br /> */}
           <Button type="primary " ghost>
-            <Link to="/createProduct">Create Product</Link>
+            <Link to="/createProduct">Crear Productos</Link>
           </Button>
           <Divider />
         </div>
@@ -68,7 +66,7 @@ function MyProducts() {
                     extra={<Link to={`/product/${product._id}`}>Edit</Link>}
                   >
                     <p>
-                      <b>Description:</b> {product.description}
+                      <b>Descripción:</b> {product.description}
                     </p>
 
                     <p>

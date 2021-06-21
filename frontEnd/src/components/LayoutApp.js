@@ -43,17 +43,17 @@ const LayoutApp = ({ children }) => {
               </Menu.Item>
               <Menu.Item key="5">
                 <Link to="/MyWishes" style={{ color: '#e8d639' }}>
-                  My Wishes
+                  Mis Deseos
                 </Link>
               </Menu.Item>
               <Menu.Item key="6">
                 <Link to="/MyProducts" style={{ color: '#a9d134' }}>
-                  My Products
+                  Mis Productos
                 </Link>
               </Menu.Item>
               <Menu.Item key="7">
                 <Link to="/ProductsAll" style={{ color: '#e8b339' }}>
-                  All products
+                  Todos los productos
                 </Link>
               </Menu.Item>
               <Menu.Item key="9"></Menu.Item>
@@ -62,7 +62,7 @@ const LayoutApp = ({ children }) => {
                 onClick={handleLogout}
                 style={{ color: 'gray' }}
               >
-                Logout
+                Salir
               </Menu.Item>
             </>
           )}
