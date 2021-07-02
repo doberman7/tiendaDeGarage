@@ -63,7 +63,7 @@ function CreateProductForm({ history }) {
       <Form layout="vertical" onFinish={handleFormSubmit}>
         <h1>Crea un producto</h1>
         {error && <Alert message={error} type="error" />}
-        <Form.Item name="name" label="Titulo:">
+        <Form.Item name="name" label="Título:">
           <Input />
         </Form.Item>
 

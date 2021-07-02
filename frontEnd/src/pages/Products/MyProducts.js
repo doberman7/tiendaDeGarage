@@ -16,9 +16,11 @@ import {
   Tag,
   Alert,
 } from 'antd';
+import { EditOutlined } from '@ant-design/icons';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Carrusel } from './Carrusel';
+
 const { Title } = Typography;
 const { Meta } = Card;
 const style = { background: '#1C84B9', padding: '1px' };
@@ -40,7 +42,7 @@ function MyProducts() {
   return user ? (
     <>
       <div style={{ padding: '1rem 3rem' }}>
-        <Title level={1}>Products</Title>
+        <Title level={1}>Productos</Title>
         <div>
           <p>Crea los productos que deseas vender</p>
           {/* <br /> */}
@@ -63,7 +65,12 @@ function MyProducts() {
                 <div style={style}>
                   <Card
                     title={product.name}
-                    extra={<Link to={`/product/${product._id}`}>Edit</Link>}
+                    extra={
+                      <Link to={`/product/${product._id}`}>
+                        <br />
+                        <EditOutlined />
+                      </Link>
+                    }
                   >
                     <p>
                       <b>Descripción:</b> {product.description}
