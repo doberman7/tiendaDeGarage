@@ -7,6 +7,9 @@ const { Meta } = Card;
 const style = { background: '#1D99A9', padding: '1px' };
 
 function ProductList({ products = [] }) {
+  // if (products.length) {
+  //   products.map((product) => console.log(product));
+  // }
   return (
     <>
       <div style={{ padding: '1rem 2rem' }}>
@@ -33,6 +36,10 @@ function ProductList({ products = [] }) {
                     </p>
                     <p>
                       <b>$</b> {product.price}
+                    </p>
+                    <p>
+                      <b>Cantidad</b>{' '}
+                      {product.quantity ? product.quantity : null}
                     </p>
                     {/* este div es para que JSC reconosca el espacio */}
                     <div>

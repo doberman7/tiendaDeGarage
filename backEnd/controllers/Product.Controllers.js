@@ -13,14 +13,13 @@ exports.getUserProducts = async (req, res) => {
 exports.getProductDetails = async (req, res) => {
   const { productId } = req.params;
   const product = await Product.findById(productId);
-
   res.status(200).json(product);
 };
 
 exports.createProduct = async (req, res) => {
-  const { name, description, image, price, category } = req.body;
+  const { name, description, image, price, category, quantity } = req.body;
   console.log('CREATRE PRODUCT');
-  if (!name || !description || !image || !price || !category) {
+  if (!name || !description || !image || !price || !category || !quantity) {
     return res.status(403).json({ message: 'Llena los espacios vacios ' });
   }
   const {
@@ -34,6 +33,7 @@ exports.createProduct = async (req, res) => {
     image,
     price,
     category,
+    quantity,
   });
 
   await User.findByIdAndUpdate(id, { $push: { products: newProduct._id } });
@@ -52,19 +52,19 @@ exports.createProduct = async (req, res) => {
   }
   //get updated product
   let newProductUpdated = await Product.findById(newProduct.id);
-  // console.log('NEW product' + newProductUpdated);
+  console.log('NEW product' + newProductUpdated);
   res.status(201).json(newProductUpdated);
 };
 
 exports.editProduct = async (req, res) => {
   const { productId } = req.params;
-  const { name, description, image, price, category } = req.body;
-  if (!name || !description || !image || !price || !category) {
+  const { name, description, image, price, category, quantity } = req.body;
+  if (!name || !description || !image || !price || !category || !quantity) {
     return res.status(403).json({ message: 'Add missing info' });
   }
   const updatedProduct = await Product.findByIdAndUpdate(
     productId,
-    { name, description, image, price, category },
+    { name, description, image, price, category, quantity },
     { new: true }
   );
   res.status(200).json(updatedProduct);

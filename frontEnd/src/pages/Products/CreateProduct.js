@@ -71,6 +71,9 @@ function CreateProductForm({ history }) {
           <Input />
         </Form.Item>
 
+        <Form.Item name="quantity" label="Cantidad:">
+          <Input />
+        </Form.Item>
         <Form.Item name="price" label="Precio:">
           <Input />
         </Form.Item>

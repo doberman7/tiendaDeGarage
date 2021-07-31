@@ -12,6 +12,7 @@ const ProductSchema = new Schema(
       type: String,
       enum: ['electronics', 'books', 'clothes', 'other'],
     },
+    quantity: { type: Number, default: 1 },
     wishCoincidences: [
       {
         type: Schema.Types.ObjectId,
