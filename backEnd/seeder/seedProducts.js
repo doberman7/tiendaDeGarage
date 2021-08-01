@@ -33,7 +33,7 @@ async function seed() {
         description: data[times].description,
         image: [data[times].image, data[times].image],
         price: data[times].price,
-        category: 'other',
+        // category: 'other',
       });
       // .then(console.log(data));
 
