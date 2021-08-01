@@ -54,9 +54,9 @@ function ProductList({ products = [] }) {
                       <br />
                     </div>
 
-                    <Meta
+                    {/* <Meta
                       description=<Tag color="gold">{product.category}</Tag>
-                    />
+                    /> */}
                   </Card>
                 </div>
               </Col>

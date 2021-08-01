@@ -8,10 +8,10 @@ const ProductSchema = new Schema(
     price: Number,
     idUser: Schema.Types.ObjectId,
     userCreator: { type: Schema.Types.ObjectId, ref: 'User' },
-    category: {
-      type: String,
-      enum: ['electronics', 'books', 'clothes', 'other'],
-    },
+    // category: {
+    //   type: String,
+    //   enum: ['electronics', 'books', 'clothes', 'other'],
+    // },
     quantity: { type: Number, default: 1 },
     wishCoincidences: [
       {

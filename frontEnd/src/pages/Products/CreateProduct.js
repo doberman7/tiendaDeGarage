@@ -83,14 +83,14 @@ function CreateProductForm({ history }) {
           {/* {imgUrl ? imgUrl : 'no'} */}
         </Form.Item>
 
-        <Form.Item name="category" label="Categoria:">
+        {/* <Form.Item name="category" label="Categoria:">
           <Select initialvalue="" style={{ width: '20%' }}>
             <Select.Option value="books">Books</Select.Option>
             <Select.Option value="electronics">Electronics</Select.Option>
             <Select.Option value="clothes">Clothes</Select.Option>
             <Select.Option value="other">Other</Select.Option>
           </Select>
-        </Form.Item>
+        </Form.Item> */}
 
         <Button type="primary" block size="middle" htmlType="submit">
           Crear

@@ -88,11 +88,11 @@ function MyProducts() {
                     <div>
                       <br />
                     </div>
-                    <Meta
+                    {/* <Meta
                       // iterar entre las categorias del wish, mostrarlas como tagas azules
                       //esta description no es el atributoo de un objeto, pertenece al componente Card de antD
                       description=<Tag color="cyan">{product.category}</Tag>
-                    />
+                    /> */}
                   </Card>
                 </div>
               </Col>
