@@ -79,6 +79,10 @@ function MyProducts() {
                     <p>
                       <b>$</b> {product.price}
                     </p>
+                    <p>
+                      <b>Cantidad</b>{' '}
+                      {product.quantity ? product.quantity : null}
+                    </p>
                     <Carrusel images={product.image} />
                     {/* este div es para que JSC reconosca el espacio */}
                     <div>
