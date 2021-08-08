@@ -55,18 +55,48 @@ exports.createProduct = async (req, res) => {
   // console.log('NEW product' + newProductUpdated);
   res.status(201).json(newProductUpdated);
 };
-
 exports.editProduct = async (req, res) => {
   const { productId } = req.params;
   const { name, description, image, price, quantity } = req.body;
-  if (!name || !description || !image || !price || !quantity) {
-    return res.status(403).json({ message: 'Add missing info' });
+  let updatedProduct = null;
+
+  if (name) {
+    updatedProduct = await Product.findByIdAndUpdate(
+      productId,
+      { name },
+      { new: true }
+    );
   }
-  const updatedProduct = await Product.findByIdAndUpdate(
-    productId,
-    { name, description, image, price, quantity },
-    { new: true }
-  );
+  if (description) {
+    updatedProduct = await Product.findByIdAndUpdate(
+      productId,
+      { description },
+      { new: true }
+    );
+  }
+
+  if (image) {
+    updatedProduct = await Product.findByIdAndUpdate(
+      productId,
+      { image },
+      { new: true }
+    );
+  }
+  if (price) {
+    updatedProduct = await Product.findByIdAndUpdate(
+      productId,
+      { price },
+      { new: true }
+    );
+  }
+  if (quantity) {
+    updatedProduct = await Product.findByIdAndUpdate(
+      productId,
+      { quantity },
+      { new: true }
+    );
+  }
+
   res.status(200).json(updatedProduct);
 };
 

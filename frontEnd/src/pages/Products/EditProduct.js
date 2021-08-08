@@ -34,17 +34,22 @@ function EditProduct({
     values.image = imgUrl;
     //esto es usado para el los mensajes de error dde la forma
     Object.entries(values).map((val) => {
-      if (val[1] === undefined) {
-        setError('All the fields must be filled');
-        message.error(`add ${val[0].toUpperCase()} field is empty`);
-        send = false;
-      }
+      // if (val[1] === undefined) {
+      //   setError('All the fields must be filled');
+      //   message.error(`add ${val[0].toUpperCase()} field is empty`);
+      //   send = false;
+      // }
       if (val[0] === 'price') {
-        let valor = Number(val[1]);
-        if (typeof valor !== 'number' || Number.isNaN(valor)) {
-          setError('Usa solo numeros en el precio');
-          message.warning('Usa números para el precio');
-          send = false;
+        let entrada = val[1];
+        // let valor = input ? input : 'no';
+        // evaluar si es numero o vacio
+        if (entrada) {
+          let valor = Number(val[1]);
+          if (typeof valor !== 'number' || Number.isNaN(valor)) {
+            setError('Usa solo numeros en el precio');
+            message.warning('Usa números para el precio');
+            send = false;
+          }
         }
       }
     });
@@ -84,18 +89,18 @@ function EditProduct({
           <Input placeholder={product.price} />
         </Form.Item>
 
-        <Form.Item name="category" label="Categoria:">
+        {/* <Form.Item name="category" label="Categoria:">
           <Select initialvalue="available" style={{ width: '20%' }}>
             <Select.Option value="books">Books</Select.Option>
             <Select.Option value="electronics">Electronics</Select.Option>
             <Select.Option value="clothes">Clothes</Select.Option>
             <Select.Option value="other">Other</Select.Option>
           </Select>
-        </Form.Item>
+        </Form.Item> */}
 
-        <Form.Item name="taggs" label="Tags">
+        {/* <Form.Item name="taggs" label="Tags">
           <Select mode="tags" style={{ width: '100%' }} />
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item name="image" label="Imagen:">
           <AddImages setImgUrl={(imgUrl) => setImgUrl(imgUrl)} />
